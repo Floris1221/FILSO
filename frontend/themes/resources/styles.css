@@ -1,0 +1,55 @@
+@import url('./main-layout.css');
+@import url('./views/card-list-view.css');
+@import url('./views/person-form-view.css');
+@import url('./views/address-form-view.css');
+@import url('./views/credit-card-form-view.css');
+@import url('./views/checkout-form-view.css');
+@import url('./views/image-list-view.css');
+@import url('./views/offer-form-view.css');
+@import url('line-awesome/dist/line-awesome/css/line-awesome.min.css');
+html {
+  --lumo-font-size: 1rem;
+  --lumo-font-size-xxxl: 1.75rem;
+  --lumo-font-size-xxl: 1.375rem;
+  --lumo-font-size-xl: 1.125rem;
+  --lumo-font-size-l: 1rem;
+  --lumo-font-size-m: 0.875rem;
+  --lumo-font-size-s: 0.8125rem;
+  --lumo-font-size-xs: 0.75rem;
+  --lumo-font-size-xxs: 0.6875rem;
+  --lumo-size-xl: 3rem;
+  --lumo-size-l: 2.5rem;
+  --lumo-size-m: 2rem;
+  --lumo-size-s: 1.75rem;
+  --lumo-size-xs: 1.5rem;
+  --lumo-space-xl: 1.875rem;
+  --lumo-space-l: 1.25rem;
+  --lumo-space-m: 0.625rem;
+  --lumo-space-s: 0.3125rem;
+  --lumo-space-xs: 0.1875rem;
+  --lumo-base-color: #F2F2F2;
+  --lumo-primary-text-color: rgb(0, 0, 0);
+  --lumo-primary-color-50pct: rgba(252,181,40, 0.5);
+  --lumo-primary-color-10pct: rgba(252,181,40, 0.1);
+  --lumo-primary-color: rgb(252,181,40);
+  --lumo-secondary-color-50pct: rgba(2,182,160, 0.5);
+  --lumo-secondary-color-10pct: rgba(2,182,160, 0.1);
+  --lumo-secondary-color: rgb(2,182,160);
+  --lumo-disabled-text-color: hsla(214, 42%, 18%, 0.72);
+  --lumo-field-warn: rgba(255,201,14,0.5);
+  --lumo-field-error: rgba(245,3,5,0.5);
+  --lumo-field-success: rgba(34,177,76,0.5);
+
+/*  --lumo-secondary-text-color : black;  */
+
+
+}
+  /* E85614	pomarancz    albo koncowka 10
+     A41E34	wisnia
+
+     Pomarańczowy – R 236, G 86, B 20    rgba(232, 86, 20, 0.1);
+     Brązowy – R 100, G 78, B 68
+     Wiśniowy – R 164, G 30, B 52
+     Szary – R 148, G 146, B 148                      */
+
+

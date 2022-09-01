@@ -1,0 +1,60 @@
+
+.color-level-0 {
+background-color: rgba(160,160,160, 1.00);;
+}
+
+.color-level-1 {
+background-color: rgba(160,160,160, 0.9);;
+}
+
+.color-level-2 {
+background-color: rgba(160,160,160, 0.8);;
+}
+
+.color-level-3 {
+background-color: rgba(160,160,160, 0.7);;
+}
+
+.color-level-4 {
+background-color: rgba(160,160,160, 0.6);;
+}
+
+.color-level-5 {
+background-color: rgba(160,160,160, 0.5);;
+}
+
+.color-level-6 {
+background-color: rgba(160,160,160, 0.4);;
+}
+
+.color-level-7 {
+background-color: rgba(160,160,160, 0.3);;
+}
+
+.color-level-8 {
+background-color: rgba(160,160,160, 0.2);;
+}
+
+.color-level-9 {
+background-color: rgba(160,160,160, 0.1);;
+}
+
+.color-level-10 {
+background-color: rgba(160,160,160, 0.1);;
+}
+
+.color-level-11 {
+background-color: rgba(160,160,160, 0.1);;
+}
+
+.background-warn {
+  background-color: var(--lumo-field-warn);
+}
+
+.background-error {
+  background-color: var(--lumo-field-error);
+}
+
+.background-success {
+  background-color: var(--lumo-field-success);
+}

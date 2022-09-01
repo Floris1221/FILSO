@@ -1,0 +1,23 @@
+:host(.input-field-warn) [part="input-field"]  {
+  background-color: var(--lumo-field-warn);
+}
+
+:host(.input-field-error) [part="input-field"]  {
+  background-color: var(--lumo-field-error);
+}
+
+:host(.input-field-success) [part="input-field"]  {
+  background-color: var(--lumo-field-success);
+}
+
+:host(.background-warn) [part="input-field"]  {
+  background-color: var(--lumo-field-warn);
+}
+
+:host(.background-error) [part="input-field"]  {
+  background-color: var(--lumo-field-error);
+}
+
+:host(.background-success) [part="input-field"]  {
+  background-color: var(--lumo-field-success);
+}

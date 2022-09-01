@@ -1,0 +1,23 @@
+.offer-form-view-old {
+  display: block;
+/*  margin: 0 auto;  */
+  max-width: 800px;
+  padding: 0 var(--lumo-space-l);
+}
+
+.offer-form-view .button-layout {
+  margin-bottom: var(--lumo-space-l);
+  margin-top: var(--lumo-space-m);
+}
+
+.offer-form-view .field-params {
+   border:     thin dashed;
+    background: red;
+}
+
+.v-textfield {
+    border:     thin dashed;
+    background: yellow; /* Has shading image by default */
+}
+
+

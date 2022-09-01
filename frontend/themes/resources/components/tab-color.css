@@ -1,0 +1,7 @@
+:host([disabled])   {
+    color: RGBA(179,192,212,0.8);
+}
+
+/*:host(.tab-warn)  {
+  color: blue;
+}  */

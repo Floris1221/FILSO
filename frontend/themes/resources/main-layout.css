@@ -1,0 +1,72 @@
+[slot='drawer'] {
+  background-image: linear-gradient(0deg, var(--lumo-shade-5pct), var(--lumo-shade-5pct));
+}
+
+[slot='drawer'] #tabs a {
+  text-decoration: none;
+  transition: color 140ms;
+}
+
+[slot='drawer'] #tabs a .la {
+  margin-top: calc(var(--lumo-space-xs) * 0.5);
+}
+
+[slot='drawer'] #tabs a::before {
+  border-radius: var(--lumo-border-radius);
+  bottom: calc(var(--lumo-space-xs) * 0.5);
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: calc(var(--lumo-space-xs) * 0.5);
+  transition: background-color 140ms;
+}
+
+[slot='drawer'] #tabs a[highlight] {
+  color: var(--lumo-primary-text-color);
+}
+
+[slot='drawer'] #tabs a[highlight]::before {
+  background-color: var(--lumo-primary-color-10pct);
+}
+
+#logo {
+    margin-left: var (--lumo-space-xl);
+}
+
+#header {
+    background-color: var(--lumo-primary-color-10pct);
+}
+
+.main-layout-image {
+    margin-left: var(--lumo-space-l);
+    align-self: center
+}
+
+
+.router-text-secondary {
+  align-items: center
+}
+
+.form-layout-view {
+  display: block;
+/*  margin: 0 auto;  */
+  max-width: 800px;
+  padding: 0 var(--lumo-space-l);
+}
+
+.
+
+#header{
+
+}
+
+
+/* not woking
+.checkbox-layout-view .v-disabled {
+opacity: .3;
+filter: alpha(opacity=30);
+cursor: default;
+}   */
+
+
