@@ -89,11 +89,12 @@ public class MainLayout extends AppLayout {
             userMenu.setOpenOnClick(true);
             userMenu.addItem(getTranslation("mainLayout.logout"), e -> { authenticatedUser.logout(); });
 
-            Span name = new Span(user.getFirstName());
+            Span name = new Span(getTranslation("app.title.Hello") + " " + user.getFirstName());
             name.addClassNames("font-medium", "text-s", "text-secondary");
 
             HorizontalLayout logoutSpan = new HorizontalLayout();
             VerticalLayout logoutItems = new VerticalLayout(avatar, name);
+            logoutItems.setAlignItems(FlexComponent.Alignment.CENTER);
             logoutSpan.add(logoutItems);
             logoutSpan.getStyle().set("margin-left", "auto");
             logoutSpan.getStyle().set("padding", "20px");
