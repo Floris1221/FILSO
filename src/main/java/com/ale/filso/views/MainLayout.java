@@ -26,6 +26,7 @@ import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -148,13 +149,23 @@ public class MainLayout extends AppLayout {
     }
 
     private Component[] createMenuItems() {
-        return new Tab[]{
-                createTab(getTranslation("app.title.brewhouse.menu"), new LineAwesomeIcon("las la-beer", "text-l"), test.class),
-                createTab(getTranslation("app.title.fermentationPlant.menu"), new LineAwesomeIcon("las la-percentage", "text-l"), test.class),
-                createTab(getTranslation("app.title.bottlingPlant.menu"), new LineAwesomeIcon("las la-wine-bottle", "text-l"), test.class),
-                createTab(getTranslation("app.title.warehouse.menu"), new LineAwesomeIcon("las la-boxes", "text-l"), test.class),
-                createTab(getTranslation("app.title.office.menu"), new LineAwesomeIcon("lar la-building", "text-l"), test.class),
-                createTab(getTranslation("app.title.administration.menu"), new LineAwesomeIcon("las la-user-shield", "text-l"), test.class)};
+        Optional<User> isUser = authenticatedUser.get();
+        List<Tab> tab = new ArrayList<>();
+        if (isUser.isPresent()) {
+            {
+                if (authenticatedUser.hasRole(Role.USER)) {
+                    tab.add(createTab(getTranslation("app.title.brewhouse.menu"), new LineAwesomeIcon("las la-beer", "text-l"), test.class));
+                    tab.add(createTab(getTranslation("app.title.fermentationPlant.menu"), new LineAwesomeIcon("las la-percentage", "text-l"), test.class));
+                    tab.add(createTab(getTranslation("app.title.bottlingPlant.menu"), new LineAwesomeIcon("las la-wine-bottle", "text-l"), test.class));
+                    tab.add(createTab(getTranslation("app.title.warehouse.menu"), new LineAwesomeIcon("las la-boxes", "text-l"), test.class));
+                }
+                if (authenticatedUser.hasRole(Role.ADMIN)) {
+                    tab.add(createTab(getTranslation("app.title.office.menu"), new LineAwesomeIcon("lar la-building", "text-l"), test.class));
+                    tab.add(createTab(getTranslation("app.title.administration.menu"), new LineAwesomeIcon("las la-user-shield", "text-l"), test.class));
+                }
+            }
+        }
+        return tab.toArray(new Tab[0]);
     }
 
 
