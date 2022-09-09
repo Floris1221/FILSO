@@ -46,11 +46,11 @@ public class DataGenerator {
 //
             //logger.info("... generating 2 User entities...");
             User user = new User();
-            user.setFirstName("John");
-            user.setLastName("Lenon");
+            user.setFirstName("Adam");
+            user.setLastName("Kowalski");
             user.setLogin("user");
             user.setActive(true);
-            user.setEmail("s.rogiewicz@ndi.com.pl");
+            user.setEmail("florek.gaffka@gmail.com");
             user.setHashedPassword(passwordEncoder.encode("user"));
             user.setRoles(Collections.singleton(Role.USER));
             userRepo.save(user);
@@ -60,7 +60,7 @@ public class DataGenerator {
             admin.setLastName("Thompson");
             admin.setLogin("admin");
             admin.setActive(true);
-            admin.setEmail("s.rogiewicz@ndi.com.pl");
+            admin.setEmail("florek.gaffka@gmail.com");
             admin.setHashedPassword(passwordEncoder.encode("admin"));
             admin.setRoles(Stream.of(Role.USER, Role.ADMIN).collect(Collectors.toSet()));
             userRepo.save(admin);

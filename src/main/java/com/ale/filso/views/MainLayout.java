@@ -4,6 +4,7 @@ package com.ale.filso.views;
 import com.ale.filso.models.User.Role;
 import com.ale.filso.models.User.User;
 import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.views.components.brewhouse.BrewHouseSearchView;
 import com.ale.filso.views.login.test;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentUtil;
@@ -22,9 +23,6 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLink;
-import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -154,7 +152,7 @@ public class MainLayout extends AppLayout {
         if (isUser.isPresent()) {
             {
                 if (authenticatedUser.hasRole(Role.USER)) {
-                    tab.add(createTab(getTranslation("app.title.brewhouse.menu"), new LineAwesomeIcon("las la-beer", "text-l"), test.class));
+                    tab.add(createTab(getTranslation("app.title.brewHouse.menu"), new LineAwesomeIcon("las la-beer", "text-l"), BrewHouseSearchView.class));
                     tab.add(createTab(getTranslation("app.title.fermentationPlant.menu"), new LineAwesomeIcon("las la-percentage", "text-l"), test.class));
                     tab.add(createTab(getTranslation("app.title.bottlingPlant.menu"), new LineAwesomeIcon("las la-wine-bottle", "text-l"), test.class));
                     tab.add(createTab(getTranslation("app.title.warehouse.menu"), new LineAwesomeIcon("las la-boxes", "text-l"), test.class));
