@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface UserRepo extends JpaRepository<User, Integer> {
 
-    @Query("select " +
+    @Query(value = "select " +
             "CASE WHEN COUNT(e) > 0 THEN true " +
             "ELSE false END" +
             " from User e where e.login = ?1")

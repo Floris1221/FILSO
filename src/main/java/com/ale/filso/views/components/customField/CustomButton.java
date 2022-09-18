@@ -1,4 +1,4 @@
-package com.ale.filso.views.components;
+package com.ale.filso.views.components.customField;
 
 import com.ale.filso.views.components.Enums.ButtonType;
 import com.vaadin.flow.component.button.Button;
@@ -8,19 +8,15 @@ import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
 
 public class CustomButton extends Button{
-    private boolean hasAccess;
 
     public CustomButton(ButtonType buttonType, boolean hasAccess){
-        this.hasAccess = hasAccess;
         customizeButton(buttonType);
         setVisible(hasAccess);
     }
 
 
-
-
     private void customizeButton(ButtonType buttonType) {
-        if (buttonType == ButtonType.CANCEL) this.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+        if (buttonType == ButtonType.CANCEL) this.addThemeVariants(ButtonVariant.LUMO_CONTRAST);
         else this.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
         String key = "";
@@ -36,6 +32,10 @@ public class CustomButton extends Button{
             key = new String("app.button.save");
             this.setText(getTranslation(key));
             this.setIcon(new Icon("lumo", "checkmark"));
+        } else if (buttonType==ButtonType.CANCEL) {
+            key = new String("app.button.cancel");
+            this.setText(getTranslation(key));
+            this.setIcon(new Icon("lumo", "undo"));
         }
         this.setId(key);
     }

@@ -4,7 +4,7 @@ package com.ale.filso.views;
 import com.ale.filso.models.User.Role;
 import com.ale.filso.models.User.User;
 import com.ale.filso.seciurity.AuthenticatedUser;
-import com.ale.filso.views.components.brewhouse.BrewHouseSearchView;
+import com.ale.filso.views.brewhouse.BrewHouseSearchView;
 import com.ale.filso.views.login.test;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentUtil;

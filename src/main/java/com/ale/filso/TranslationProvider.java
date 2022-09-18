@@ -49,9 +49,5 @@ public class TranslationProvider implements I18NProvider {
         return value;
     }
 
-    /* todo use in app Button button = new Button("EN");
-        button.addClickListener(buttonClickEvent -> {
-        VaadinSession.getCurrent().setLocale(new Locale("en", "GB"));
-    });   */
 
 }

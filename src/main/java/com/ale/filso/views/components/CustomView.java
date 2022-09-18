@@ -1,24 +1,32 @@
 package com.ale.filso.views.components;
 
 import com.ale.filso.seciurity.AuthenticatedUser;
-import com.ale.filso.views.components.brewhouse.BrewHouseSearchView;
+import com.ale.filso.views.components.Enums.ButtonType;
+import com.ale.filso.views.components.customField.CustomButton;
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.router.*;
 
 import java.util.Map;
 
-public class CustomView extends Div implements BeforeEnterObserver, BeforeLeaveObserver {
+public class CustomView extends Div implements BeforeEnterObserver, BeforeLeaveObserver{
 
+    protected boolean isDataModified;
     protected AuthenticatedUser authenticatedUser;
+
+    protected CustomButton saveButton = new CustomButton(ButtonType.SAVE, true);
+    protected CustomButton cancelButton = new CustomButton(ButtonType.CANCEL, true);
+
 
     protected CustomView(AuthenticatedUser authenticatedUser){
         this.authenticatedUser = authenticatedUser;
+
+        saveButton.setEnabled(false);
     }
 
-
-    protected void navigateTo(Map<String, String> params){
-        UI.getCurrent().navigate(BrewHouseSearchView.class, new RouteParameters(params));
+    public void navigateTo(Class<? extends Component> navigationTarget, Map<String, String> parameters){
+        UI.getCurrent().navigate(navigationTarget, new RouteParameters(parameters));
     }
 
     @Override
@@ -29,5 +37,18 @@ public class CustomView extends Div implements BeforeEnterObserver, BeforeLeaveO
     @Override
     public void beforeLeave(BeforeLeaveEvent beforeLeaveEvent) {
 
+    }
+
+
+    public boolean isModified() {
+        return isDataModified;
+    }
+
+
+    public void setModified(boolean isModified) {
+        if (isModified!=isDataModified) {   // do only if changes in view
+            isDataModified=isModified;
+            saveButton.setEnabled(isModified);
+        }
     }
 }

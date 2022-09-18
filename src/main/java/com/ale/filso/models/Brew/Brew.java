@@ -1,5 +1,6 @@
-package com.ale.filso.models;
+package com.ale.filso.models.Brew;
 
+import com.ale.filso.models.AbstractEntity;
 import lombok.Getter;
 
 import lombok.Setter;
@@ -12,25 +13,22 @@ import java.math.BigDecimal;
 @Entity
 @Getter
 @Setter
-public class Brew extends AbstractEntity{
+public class Brew extends AbstractEntity {
 
     /**
      * Nazwa
      */
-    @NotNull
     @Size(max = 300, message = "Max 300 znaków")
     private String name;
 
     /**
      * Numer
      */
-    @NotNull
     private Integer number;
 
     /**
      * Zakładany BLG
      */
-    @NotNull
     private BigDecimal assumedBlg; //one decimal place
 
 //    /**
@@ -41,7 +39,6 @@ public class Brew extends AbstractEntity{
     /**
      * Zakładana ilość
      */
-    @NotNull
     private Integer assumedAmount;
 
 //    /**

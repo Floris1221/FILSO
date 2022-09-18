@@ -2,8 +2,8 @@ package com.ale.filso.views.components;
 
 import com.ale.filso.seciurity.AuthenticatedUser;
 import com.ale.filso.views.components.Enums.ButtonType;
+import com.ale.filso.views.components.customField.CustomButton;
 import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
@@ -49,7 +49,13 @@ public abstract class CustomGridView<E> extends CustomView{
 
 
     protected CustomButton addButtonToTablePanel(ButtonType buttonType, boolean hasAccess) {
-        CustomButton button = new CustomButton(buttonType, hasAccess);
+        CustomButton button;
+        if(buttonType == ButtonType.SAVE)
+            button = saveButton;
+        else if(buttonType == ButtonType.CANCEL)
+            button = cancelButton;
+        else
+            button = new CustomButton(buttonType, hasAccess);
         topButtonsPanel.add(button);
         return button;
     }

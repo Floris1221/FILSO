@@ -1,16 +1,16 @@
-package com.ale.filso.views.components.brewhouse;
+package com.ale.filso.views.brewhouse;
 
-import com.ale.filso.models.Brew;
+import com.ale.filso.models.Brew.Brew;
 import com.ale.filso.models.User.Role;
 import com.ale.filso.seciurity.AuthenticatedUser;
 import com.ale.filso.views.MainLayout;
-import com.ale.filso.views.components.CustomButton;
 import com.ale.filso.views.components.CustomGridView;
 import com.ale.filso.views.components.Enums.ButtonType;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import java.util.HashMap;
 
 
 @Route(value = "brewhousesearch", layout = MainLayout.class)
@@ -25,12 +25,12 @@ public class BrewHouseSearchView extends CustomGridView<Brew> {
     @Override
     protected void createButtonsPanel() {
         addButtonToTablePanel(ButtonType.ADD, authenticatedUser.hasRole(Role.ADMIN))
-                .addClickListener(event -> detailsAction(event.isCtrlKey(),0));
+                .addClickListener(event -> detailsAction(0));
 
         addButtonToTablePanel(ButtonType.DETAILS,true)
-                .addClickListener(event -> detailsAction(event.isCtrlKey(),selectedEntity.getId()));
+                .addClickListener(event -> detailsAction(selectedEntity.getId()));
 
-        grid.addItemDoubleClickListener(event -> detailsAction(event.isCtrlKey(),selectedEntity.getId()));  // grid double click action
+        grid.addItemDoubleClickListener(event -> detailsAction(selectedEntity.getId()));  // grid double click action
 
         grid.asSingleSelect().addValueChangeListener(event -> {     // grid select action
             if (event.getValue() != null) {
@@ -41,11 +41,10 @@ public class BrewHouseSearchView extends CustomGridView<Brew> {
         });
     }
 
-    //Być może wywalić do CustomGridView
-    private void detailsAction(boolean isCtrlKey, Integer id) {
-//        if (isCtrlKey) callUrlInNewBrowserTab(ROUTE_TEMPLATE_PROJECT,id);
-//        else UI.getCurrent().navigate(String.format(ROUTE_TEMPLATE_PROJECT, id));
-
+    private void detailsAction(Integer id) {
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("id", id.toString());
+        navigateTo(BrewDetailsView.class, hashMap);
     }
 
     @Override
