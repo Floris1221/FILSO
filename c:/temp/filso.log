@@ -11476,3 +11476,1092 @@ Vaadin is running in DEVELOPMENT mode - do not use for production deployments.
 2022-09-18 16:05:09.289  INFO 25122 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-09-18 16:05:09.292  INFO 25122 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-09-18 16:05:09.294  INFO 25122 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-18 19:25:59.926  INFO 26051 --- [restartedMain] com.ale.filso.FilsoApplication           : Starting FilsoApplication using Java 17.0.4.1 on MacBook-Air-Florian.local with PID 26051 (/Users/florian/IdeaProjects/filso/target/classes started by florian in /Users/florian/IdeaProjects/filso)
+2022-09-18 19:25:59.927  INFO 26051 --- [restartedMain] com.ale.filso.FilsoApplication           : No active profile set, falling back to 1 default profile: "default"
+2022-09-18 19:25:59.959  INFO 26051 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-18 19:25:59.959  INFO 26051 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-18 19:26:00.317  INFO 26051 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-18 19:26:00.351  INFO 26051 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 2 JPA repository interfaces.
+2022-09-18 19:26:00.652  INFO 26051 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-18 19:26:00.658  INFO 26051 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-18 19:26:00.658  INFO 26051 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-18 19:26:00.695  INFO 26051 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-18 19:26:00.695  INFO 26051 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 735 ms
+2022-09-18 19:26:00.721  INFO 26051 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-18 19:26:01.594  INFO 26051 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-18 19:26:01.601  INFO 26051 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://ec2-63-32-248-14.eu-west-1.compute.amazonaws.com:5432/dctrt3hcmcc59j'
+2022-09-18 19:26:01.684  INFO 26051 --- [restartedMain] c.v.f.s.VaadinServletContextInitializer  : Search for VaadinAppShell took 20 ms
+2022-09-18 19:26:02.772  INFO 26051 --- [restartedMain] c.v.f.s.VaadinServletContextInitializer  : Search for subclasses and classes with annotations took 1045 ms
+2022-09-18 19:26:02.817  INFO 26051 --- [restartedMain] c.v.b.d.startup.DevModeStartupListener   : Starting dev-mode updaters in /Users/florian/IdeaProjects/filso folder.
+2022-09-18 19:26:02.842  INFO 26051 --- [restartedMain] c.v.f.s.f.s.FullDependenciesScanner      : Visited 111 classes. Took 15 ms.
+2022-09-18 19:26:02.888  INFO 26051 --- [ForkJoinPool.commonPool-worker-1] c.v.f.s.frontend.TaskUpdatePackages      : Skipping `npm install` because the frontend packages are already installed in the folder '/Users/florian/IdeaProjects/filso/node_modules' and the hash in the file '/Users/florian/IdeaProjects/filso/node_modules/.vaadin/vaadin.json' is the same as in 'package.json'
+2022-09-18 19:26:02.888  INFO 26051 --- [ForkJoinPool.commonPool-worker-1] c.v.f.s.frontend.TaskCopyFrontendFiles   : Copying frontend resources from jar files ...
+2022-09-18 19:26:02.904  INFO 26051 --- [ForkJoinPool.commonPool-worker-1] c.v.f.s.frontend.TaskCopyFrontendFiles   : Visited 19 resources. Took 15 ms.
+2022-09-18 19:26:02.924  INFO 26051 --- [ForkJoinPool.commonPool-worker-1] c.v.b.devserver.AbstractDevServerRunner  : Starting Webpack
+2022-09-18 19:26:02.938  INFO 26051 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-18 19:26:02.959  INFO 26051 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-18 19:26:03.033  INFO 26051 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-18 19:26:03.133  INFO 26051 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-09-18 19:26:03.392  INFO 26051 --- [ForkJoinPool.commonPool-worker-1] c.v.b.devserver.AbstractDevServerRunner  : Running Webpack to compile frontend resources. This may take a moment, please stand by...
+2022-09-18 19:26:04.025  INFO 26051 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-18 19:26:04.028  INFO 26051 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-18 19:26:04.256  WARN 26051 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-18 19:26:04.319  WARN 26051 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Or [Ant [pattern='/favicon.ico'], Ant [pattern='/manifest.webmanifest'], Ant [pattern='/sw.js'], Ant [pattern='/sw-runtime-resources-precache.js'], Ant [pattern='/offline.html'], Ant [pattern='/offline-stub.html'], Ant [pattern='/icons/icon.png'], Ant [pattern='/themes/**'], Ant [pattern='/icons/icon-144x144.png'], Ant [pattern='/icons/icon-192x192.png'], Ant [pattern='/icons/icon-512x512.png'], Ant [pattern='/icons/icon-16x16.png'], Ant [pattern='/icons/icon-32x32.png'], Ant [pattern='/icons/icon-96x96.png'], Ant [pattern='/icons/icon-180x180.png'], Ant [pattern='/icons/icon-2048x2732.png'], Ant [pattern='/icons/icon-2732x2048.png'], Ant [pattern='/icons/icon-1668x2388.png'], Ant [pattern='/icons/icon-2388x1668.png'], Ant [pattern='/icons/icon-1668x2224.png'], Ant [pattern='/icons/icon-2224x1668.png'], Ant [pattern='/icons/icon-1620x2160.png'], Ant [pattern='/icons/icon-2160x1620.png'], Ant [pattern='/icons/icon-1536x2048.png'], Ant [pattern='/icons/icon-2048x1536.png'], Ant [pattern='/icons/icon-1284x2778.png'], Ant [pattern='/icons/icon-2778x1284.png'], Ant [pattern='/icons/icon-1170x2532.png'], Ant [pattern='/icons/icon-2532x1170.png'], Ant [pattern='/icons/icon-1125x2436.png'], Ant [pattern='/icons/icon-2436x1125.png'], Ant [pattern='/icons/icon-1242x2688.png'], Ant [pattern='/icons/icon-2688x1242.png'], Ant [pattern='/icons/icon-828x1792.png'], Ant [pattern='/icons/icon-1792x828.png'], Ant [pattern='/icons/icon-1242x2208.png'], Ant [pattern='/icons/icon-2208x1242.png'], Ant [pattern='/icons/icon-750x1334.png'], Ant [pattern='/icons/icon-1334x750.png'], Ant [pattern='/icons/icon-640x1136.png'], Ant [pattern='/icons/icon-1136x640.png']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 19:26:04.319  INFO 26051 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Or [Ant [pattern='/favicon.ico'], Ant [pattern='/manifest.webmanifest'], Ant [pattern='/sw.js'], Ant [pattern='/sw-runtime-resources-precache.js'], Ant [pattern='/offline.html'], Ant [pattern='/offline-stub.html'], Ant [pattern='/icons/icon.png'], Ant [pattern='/themes/**'], Ant [pattern='/icons/icon-144x144.png'], Ant [pattern='/icons/icon-192x192.png'], Ant [pattern='/icons/icon-512x512.png'], Ant [pattern='/icons/icon-16x16.png'], Ant [pattern='/icons/icon-32x32.png'], Ant [pattern='/icons/icon-96x96.png'], Ant [pattern='/icons/icon-180x180.png'], Ant [pattern='/icons/icon-2048x2732.png'], Ant [pattern='/icons/icon-2732x2048.png'], Ant [pattern='/icons/icon-1668x2388.png'], Ant [pattern='/icons/icon-2388x1668.png'], Ant [pattern='/icons/icon-1668x2224.png'], Ant [pattern='/icons/icon-2224x1668.png'], Ant [pattern='/icons/icon-1620x2160.png'], Ant [pattern='/icons/icon-2160x1620.png'], Ant [pattern='/icons/icon-1536x2048.png'], Ant [pattern='/icons/icon-2048x1536.png'], Ant [pattern='/icons/icon-1284x2778.png'], Ant [pattern='/icons/icon-2778x1284.png'], Ant [pattern='/icons/icon-1170x2532.png'], Ant [pattern='/icons/icon-2532x1170.png'], Ant [pattern='/icons/icon-1125x2436.png'], Ant [pattern='/icons/icon-2436x1125.png'], Ant [pattern='/icons/icon-1242x2688.png'], Ant [pattern='/icons/icon-2688x1242.png'], Ant [pattern='/icons/icon-828x1792.png'], Ant [pattern='/icons/icon-1792x828.png'], Ant [pattern='/icons/icon-1242x2208.png'], Ant [pattern='/icons/icon-2208x1242.png'], Ant [pattern='/icons/icon-750x1334.png'], Ant [pattern='/icons/icon-1334x750.png'], Ant [pattern='/icons/icon-640x1136.png'], Ant [pattern='/icons/icon-1136x640.png']]
+2022-09-18 19:26:04.320  WARN 26051 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/api/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 19:26:04.320  INFO 26051 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/api/**']
+2022-09-18 19:26:04.320  WARN 26051 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/VAADIN/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 19:26:04.320  INFO 26051 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/VAADIN/**']
+2022-09-18 19:26:04.320  WARN 26051 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/favicon.ico']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 19:26:04.320  INFO 26051 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/favicon.ico']
+2022-09-18 19:26:04.320  WARN 26051 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/robots.txt']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 19:26:04.320  INFO 26051 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/robots.txt']
+2022-09-18 19:26:04.320  WARN 26051 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/manifest.webmanifest']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 19:26:04.320  INFO 26051 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/manifest.webmanifest']
+2022-09-18 19:26:04.320  WARN 26051 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/sw.js']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 19:26:04.320  INFO 26051 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/sw.js']
+2022-09-18 19:26:04.320  WARN 26051 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/offline-page.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 19:26:04.320  INFO 26051 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/offline-page.html']
+2022-09-18 19:26:04.320  WARN 26051 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/icons/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 19:26:04.320  INFO 26051 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/icons/**']
+2022-09-18 19:26:04.320  WARN 26051 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 19:26:04.320  INFO 26051 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
+2022-09-18 19:26:04.320  WARN 26051 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 19:26:04.320  INFO 26051 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/h2-console/**']
+2022-09-18 19:26:04.340  INFO 26051 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1f15b36e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@269aed89, org.springframework.security.web.context.SecurityContextPersistenceFilter@1c77da93, org.springframework.security.web.header.HeaderWriterFilter@367823d2, org.springframework.security.web.authentication.logout.LogoutFilter@195d9627, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@527aa051, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@79a98d61, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1e17f5af, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@323df4fe, org.springframework.security.web.session.SessionManagementFilter@7f91c60c, org.springframework.security.web.access.ExceptionTranslationFilter@cc6ae53, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2f8e2fd6]
+2022-09-18 19:26:04.538  INFO 26051 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-18 19:26:04.607  INFO 26051 --- [restartedMain] c.v.f.s.DefaultDeploymentConfiguration   : 
+Vaadin is running in DEVELOPMENT mode - do not use for production deployments.
+2022-09-18 19:26:04.628  INFO 26051 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-18 19:26:04.636  INFO 26051 --- [restartedMain] com.ale.filso.FilsoApplication           : Started FilsoApplication in 4.905 seconds (JVM running for 5.198)
+2022-09-18 19:26:04.892  INFO 26051 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-18 19:26:04.892  INFO 26051 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-18 19:26:04.892  INFO 26051 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-09-18 19:26:04.897  INFO 26051 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Project is running at:
+2022-09-18 19:26:04.897  INFO 26051 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Loopback: http://localhost:65317/
+2022-09-18 19:26:04.897  INFO 26051 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] On Your Network (IPv4): http://192.168.0.150:65317/
+2022-09-18 19:26:04.897  INFO 26051 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] On Your Network (IPv6): http://[fe80::1]:65317/
+2022-09-18 19:26:04.898  INFO 26051 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Content not from webpack is served from '/Users/florian/IdeaProjects/filso/target/classes/META-INF/VAADIN/webapp, /Users/florian/IdeaProjects/filso/src/main/webapp' directory
+2022-09-18 19:26:06.610  INFO 26051 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [build-status] : Compiled.
+2022-09-18 19:26:06.612  INFO 26051 --- [ForkJoinPool.commonPool-worker-1] c.v.b.devserver.AbstractDevServerRunner  : Started Webpack. Time: 3687ms
+2022-09-18 19:26:06.625  INFO 26051 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : No issues found.
+2022-09-18 19:26:06.855  INFO 26051 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-middleware] wait until bundle finished: /login
+2022-09-18 19:26:06.900  INFO 26051 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [build-status] : Compiled.
+2022-09-18 19:26:06.910  INFO 26051 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : No issues found.
+2022-09-18 19:59:39.883  INFO 26051 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Gracefully shutting down. To force exit, press ^C again. Please wait...
+2022-09-18 19:59:39.899  INFO 26051 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-18 19:59:39.903  INFO 26051 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-18 19:59:40.566  INFO 26051 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-18 20:29:32.198  INFO 28590 --- [restartedMain] com.ale.filso.FilsoApplication           : Starting FilsoApplication using Java 17.0.4.1 on MacBook-Air-Florian.local with PID 28590 (/Users/florian/IdeaProjects/filso/target/classes started by florian in /Users/florian/IdeaProjects/filso)
+2022-09-18 20:29:32.199  INFO 28590 --- [restartedMain] com.ale.filso.FilsoApplication           : No active profile set, falling back to 1 default profile: "default"
+2022-09-18 20:29:32.228  INFO 28590 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-18 20:29:32.229  INFO 28590 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-18 20:29:32.583  INFO 28590 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-18 20:29:32.618  INFO 28590 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 2 JPA repository interfaces.
+2022-09-18 20:29:32.945  INFO 28590 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-18 20:29:32.951  INFO 28590 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-18 20:29:32.951  INFO 28590 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-18 20:29:32.992  INFO 28590 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-18 20:29:32.992  INFO 28590 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 763 ms
+2022-09-18 20:29:33.021  INFO 28590 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-18 20:29:33.842  INFO 28590 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-18 20:29:33.850  INFO 28590 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://ec2-63-32-248-14.eu-west-1.compute.amazonaws.com:5432/dctrt3hcmcc59j'
+2022-09-18 20:29:33.919  INFO 28590 --- [restartedMain] c.v.f.s.VaadinServletContextInitializer  : Search for VaadinAppShell took 15 ms
+2022-09-18 20:29:34.879  INFO 28590 --- [restartedMain] c.v.f.s.VaadinServletContextInitializer  : Search for subclasses and classes with annotations took 927 ms
+2022-09-18 20:29:34.916  INFO 28590 --- [restartedMain] c.v.b.d.startup.DevModeStartupListener   : Starting dev-mode updaters in /Users/florian/IdeaProjects/filso folder.
+2022-09-18 20:29:34.934  INFO 28590 --- [restartedMain] c.v.f.s.f.s.FullDependenciesScanner      : Visited 111 classes. Took 11 ms.
+2022-09-18 20:29:34.970  INFO 28590 --- [ForkJoinPool.commonPool-worker-1] c.v.f.s.frontend.TaskUpdatePackages      : Skipping `npm install` because the frontend packages are already installed in the folder '/Users/florian/IdeaProjects/filso/node_modules' and the hash in the file '/Users/florian/IdeaProjects/filso/node_modules/.vaadin/vaadin.json' is the same as in 'package.json'
+2022-09-18 20:29:34.971  INFO 28590 --- [ForkJoinPool.commonPool-worker-1] c.v.f.s.frontend.TaskCopyFrontendFiles   : Copying frontend resources from jar files ...
+2022-09-18 20:29:34.977  INFO 28590 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-18 20:29:34.984  INFO 28590 --- [ForkJoinPool.commonPool-worker-1] c.v.f.s.frontend.TaskCopyFrontendFiles   : Visited 19 resources. Took 12 ms.
+2022-09-18 20:29:34.996  INFO 28590 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-18 20:29:34.998  INFO 28590 --- [ForkJoinPool.commonPool-worker-1] c.v.b.devserver.AbstractDevServerRunner  : Starting Webpack
+2022-09-18 20:29:35.066  INFO 28590 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-18 20:29:35.165  INFO 28590 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-09-18 20:29:35.543  INFO 28590 --- [ForkJoinPool.commonPool-worker-1] c.v.b.devserver.AbstractDevServerRunner  : Running Webpack to compile frontend resources. This may take a moment, please stand by...
+2022-09-18 20:29:36.038  INFO 28590 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-18 20:29:36.042  INFO 28590 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-18 20:29:36.297  WARN 28590 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-18 20:29:36.371  WARN 28590 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Or [Ant [pattern='/favicon.ico'], Ant [pattern='/manifest.webmanifest'], Ant [pattern='/sw.js'], Ant [pattern='/sw-runtime-resources-precache.js'], Ant [pattern='/offline.html'], Ant [pattern='/offline-stub.html'], Ant [pattern='/icons/icon.png'], Ant [pattern='/themes/**'], Ant [pattern='/icons/icon-144x144.png'], Ant [pattern='/icons/icon-192x192.png'], Ant [pattern='/icons/icon-512x512.png'], Ant [pattern='/icons/icon-16x16.png'], Ant [pattern='/icons/icon-32x32.png'], Ant [pattern='/icons/icon-96x96.png'], Ant [pattern='/icons/icon-180x180.png'], Ant [pattern='/icons/icon-2048x2732.png'], Ant [pattern='/icons/icon-2732x2048.png'], Ant [pattern='/icons/icon-1668x2388.png'], Ant [pattern='/icons/icon-2388x1668.png'], Ant [pattern='/icons/icon-1668x2224.png'], Ant [pattern='/icons/icon-2224x1668.png'], Ant [pattern='/icons/icon-1620x2160.png'], Ant [pattern='/icons/icon-2160x1620.png'], Ant [pattern='/icons/icon-1536x2048.png'], Ant [pattern='/icons/icon-2048x1536.png'], Ant [pattern='/icons/icon-1284x2778.png'], Ant [pattern='/icons/icon-2778x1284.png'], Ant [pattern='/icons/icon-1170x2532.png'], Ant [pattern='/icons/icon-2532x1170.png'], Ant [pattern='/icons/icon-1125x2436.png'], Ant [pattern='/icons/icon-2436x1125.png'], Ant [pattern='/icons/icon-1242x2688.png'], Ant [pattern='/icons/icon-2688x1242.png'], Ant [pattern='/icons/icon-828x1792.png'], Ant [pattern='/icons/icon-1792x828.png'], Ant [pattern='/icons/icon-1242x2208.png'], Ant [pattern='/icons/icon-2208x1242.png'], Ant [pattern='/icons/icon-750x1334.png'], Ant [pattern='/icons/icon-1334x750.png'], Ant [pattern='/icons/icon-640x1136.png'], Ant [pattern='/icons/icon-1136x640.png']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:29:36.372  INFO 28590 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Or [Ant [pattern='/favicon.ico'], Ant [pattern='/manifest.webmanifest'], Ant [pattern='/sw.js'], Ant [pattern='/sw-runtime-resources-precache.js'], Ant [pattern='/offline.html'], Ant [pattern='/offline-stub.html'], Ant [pattern='/icons/icon.png'], Ant [pattern='/themes/**'], Ant [pattern='/icons/icon-144x144.png'], Ant [pattern='/icons/icon-192x192.png'], Ant [pattern='/icons/icon-512x512.png'], Ant [pattern='/icons/icon-16x16.png'], Ant [pattern='/icons/icon-32x32.png'], Ant [pattern='/icons/icon-96x96.png'], Ant [pattern='/icons/icon-180x180.png'], Ant [pattern='/icons/icon-2048x2732.png'], Ant [pattern='/icons/icon-2732x2048.png'], Ant [pattern='/icons/icon-1668x2388.png'], Ant [pattern='/icons/icon-2388x1668.png'], Ant [pattern='/icons/icon-1668x2224.png'], Ant [pattern='/icons/icon-2224x1668.png'], Ant [pattern='/icons/icon-1620x2160.png'], Ant [pattern='/icons/icon-2160x1620.png'], Ant [pattern='/icons/icon-1536x2048.png'], Ant [pattern='/icons/icon-2048x1536.png'], Ant [pattern='/icons/icon-1284x2778.png'], Ant [pattern='/icons/icon-2778x1284.png'], Ant [pattern='/icons/icon-1170x2532.png'], Ant [pattern='/icons/icon-2532x1170.png'], Ant [pattern='/icons/icon-1125x2436.png'], Ant [pattern='/icons/icon-2436x1125.png'], Ant [pattern='/icons/icon-1242x2688.png'], Ant [pattern='/icons/icon-2688x1242.png'], Ant [pattern='/icons/icon-828x1792.png'], Ant [pattern='/icons/icon-1792x828.png'], Ant [pattern='/icons/icon-1242x2208.png'], Ant [pattern='/icons/icon-2208x1242.png'], Ant [pattern='/icons/icon-750x1334.png'], Ant [pattern='/icons/icon-1334x750.png'], Ant [pattern='/icons/icon-640x1136.png'], Ant [pattern='/icons/icon-1136x640.png']]
+2022-09-18 20:29:36.372  WARN 28590 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/api/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:29:36.372  INFO 28590 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/api/**']
+2022-09-18 20:29:36.372  WARN 28590 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/VAADIN/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:29:36.372  INFO 28590 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/VAADIN/**']
+2022-09-18 20:29:36.372  WARN 28590 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/favicon.ico']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:29:36.372  INFO 28590 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/favicon.ico']
+2022-09-18 20:29:36.372  WARN 28590 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/robots.txt']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:29:36.372  INFO 28590 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/robots.txt']
+2022-09-18 20:29:36.372  WARN 28590 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/manifest.webmanifest']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:29:36.372  INFO 28590 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/manifest.webmanifest']
+2022-09-18 20:29:36.372  WARN 28590 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/sw.js']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:29:36.372  INFO 28590 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/sw.js']
+2022-09-18 20:29:36.372  WARN 28590 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/offline-page.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:29:36.372  INFO 28590 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/offline-page.html']
+2022-09-18 20:29:36.372  WARN 28590 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/icons/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:29:36.373  INFO 28590 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/icons/**']
+2022-09-18 20:29:36.373  WARN 28590 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:29:36.373  INFO 28590 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
+2022-09-18 20:29:36.373  WARN 28590 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:29:36.373  INFO 28590 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/h2-console/**']
+2022-09-18 20:29:36.399  INFO 28590 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@63980378, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@48a0e05a, org.springframework.security.web.context.SecurityContextPersistenceFilter@7cbfdeb3, org.springframework.security.web.header.HeaderWriterFilter@1c5c3460, org.springframework.security.web.authentication.logout.LogoutFilter@1548e19, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1b3604bd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16e448f3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@13e047d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@44a41f8a, org.springframework.security.web.session.SessionManagementFilter@4917edf1, org.springframework.security.web.access.ExceptionTranslationFilter@eaa5bfa, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2004bc26]
+2022-09-18 20:29:36.611  INFO 28590 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-18 20:29:36.667  INFO 28590 --- [restartedMain] c.v.f.s.DefaultDeploymentConfiguration   : 
+Vaadin is running in DEVELOPMENT mode - do not use for production deployments.
+2022-09-18 20:29:36.691  INFO 28590 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-18 20:29:36.699  INFO 28590 --- [restartedMain] com.ale.filso.FilsoApplication           : Started FilsoApplication in 4.873 seconds (JVM running for 5.228)
+2022-09-18 20:29:37.094  INFO 28590 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-18 20:29:37.094  INFO 28590 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-18 20:29:37.094  INFO 28590 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-09-18 20:29:37.098  INFO 28590 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Project is running at:
+2022-09-18 20:29:37.099  INFO 28590 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Loopback: http://localhost:53071/
+2022-09-18 20:29:37.099  INFO 28590 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] On Your Network (IPv4): http://192.168.0.150:53071/
+2022-09-18 20:29:37.099  INFO 28590 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] On Your Network (IPv6): http://[fe80::1]:53071/
+2022-09-18 20:29:37.099  INFO 28590 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Content not from webpack is served from '/Users/florian/IdeaProjects/filso/target/classes/META-INF/VAADIN/webapp, /Users/florian/IdeaProjects/filso/src/main/webapp' directory
+2022-09-18 20:29:38.974  INFO 28590 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [build-status] : Compiled.
+2022-09-18 20:29:38.976  INFO 28590 --- [ForkJoinPool.commonPool-worker-1] c.v.b.devserver.AbstractDevServerRunner  : Started Webpack. Time: 3977ms
+2022-09-18 20:29:38.988  INFO 28590 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : No issues found.
+2022-09-18 20:29:39.083  INFO 28590 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-middleware] wait until bundle finished: /login
+2022-09-18 20:29:39.244  INFO 28590 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [build-status] : Compiled.
+2022-09-18 20:29:39.255  INFO 28590 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : No issues found.
+2022-09-18 20:29:56.742  INFO 28590 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Gracefully shutting down. To force exit, press ^C again. Please wait...
+2022-09-18 20:29:56.768  INFO 28590 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-18 20:29:56.770  INFO 28590 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-18 20:29:59.205  INFO 28590 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-18 20:40:53.719  INFO 28864 --- [restartedMain] com.ale.filso.FilsoApplication           : Starting FilsoApplication using Java 17.0.4.1 on MacBook-Air-Florian.local with PID 28864 (/Users/florian/IdeaProjects/filso/target/classes started by florian in /Users/florian/IdeaProjects/filso)
+2022-09-18 20:40:53.720  INFO 28864 --- [restartedMain] com.ale.filso.FilsoApplication           : No active profile set, falling back to 1 default profile: "default"
+2022-09-18 20:40:53.748  INFO 28864 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-18 20:40:53.748  INFO 28864 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-18 20:40:54.157  INFO 28864 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-18 20:40:54.210  INFO 28864 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces.
+2022-09-18 20:40:54.574  INFO 28864 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-18 20:40:54.579  INFO 28864 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-18 20:40:54.579  INFO 28864 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-18 20:40:54.622  INFO 28864 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-18 20:40:54.622  INFO 28864 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 873 ms
+2022-09-18 20:40:54.651  INFO 28864 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-18 20:40:55.428  INFO 28864 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-18 20:40:55.437  INFO 28864 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://ec2-63-32-248-14.eu-west-1.compute.amazonaws.com:5432/dctrt3hcmcc59j'
+2022-09-18 20:40:55.514  INFO 28864 --- [restartedMain] c.v.f.s.VaadinServletContextInitializer  : Search for VaadinAppShell took 17 ms
+2022-09-18 20:40:56.492  INFO 28864 --- [restartedMain] c.v.f.s.VaadinServletContextInitializer  : Search for subclasses and classes with annotations took 934 ms
+2022-09-18 20:40:56.528  INFO 28864 --- [restartedMain] c.v.b.d.startup.DevModeStartupListener   : Starting dev-mode updaters in /Users/florian/IdeaProjects/filso folder.
+2022-09-18 20:40:56.546  INFO 28864 --- [restartedMain] c.v.f.s.f.s.FullDependenciesScanner      : Visited 111 classes. Took 11 ms.
+2022-09-18 20:40:56.584  INFO 28864 --- [ForkJoinPool.commonPool-worker-1] c.v.f.s.frontend.TaskUpdatePackages      : Skipping `npm install` because the frontend packages are already installed in the folder '/Users/florian/IdeaProjects/filso/node_modules' and the hash in the file '/Users/florian/IdeaProjects/filso/node_modules/.vaadin/vaadin.json' is the same as in 'package.json'
+2022-09-18 20:40:56.584  INFO 28864 --- [ForkJoinPool.commonPool-worker-1] c.v.f.s.frontend.TaskCopyFrontendFiles   : Copying frontend resources from jar files ...
+2022-09-18 20:40:56.598  INFO 28864 --- [ForkJoinPool.commonPool-worker-1] c.v.f.s.frontend.TaskCopyFrontendFiles   : Visited 19 resources. Took 13 ms.
+2022-09-18 20:40:56.612  INFO 28864 --- [ForkJoinPool.commonPool-worker-1] c.v.b.devserver.AbstractDevServerRunner  : Starting Webpack
+2022-09-18 20:40:56.616  INFO 28864 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-18 20:40:56.642  INFO 28864 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-18 20:40:56.715  INFO 28864 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-18 20:40:56.823  INFO 28864 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-09-18 20:40:57.123  INFO 28864 --- [ForkJoinPool.commonPool-worker-1] c.v.b.devserver.AbstractDevServerRunner  : Running Webpack to compile frontend resources. This may take a moment, please stand by...
+2022-09-18 20:40:57.716  INFO 28864 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-18 20:40:57.719  INFO 28864 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-18 20:40:57.936  WARN 28864 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-18 20:40:57.997  WARN 28864 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Or [Ant [pattern='/favicon.ico'], Ant [pattern='/manifest.webmanifest'], Ant [pattern='/sw.js'], Ant [pattern='/sw-runtime-resources-precache.js'], Ant [pattern='/offline.html'], Ant [pattern='/offline-stub.html'], Ant [pattern='/icons/icon.png'], Ant [pattern='/themes/**'], Ant [pattern='/icons/icon-144x144.png'], Ant [pattern='/icons/icon-192x192.png'], Ant [pattern='/icons/icon-512x512.png'], Ant [pattern='/icons/icon-16x16.png'], Ant [pattern='/icons/icon-32x32.png'], Ant [pattern='/icons/icon-96x96.png'], Ant [pattern='/icons/icon-180x180.png'], Ant [pattern='/icons/icon-2048x2732.png'], Ant [pattern='/icons/icon-2732x2048.png'], Ant [pattern='/icons/icon-1668x2388.png'], Ant [pattern='/icons/icon-2388x1668.png'], Ant [pattern='/icons/icon-1668x2224.png'], Ant [pattern='/icons/icon-2224x1668.png'], Ant [pattern='/icons/icon-1620x2160.png'], Ant [pattern='/icons/icon-2160x1620.png'], Ant [pattern='/icons/icon-1536x2048.png'], Ant [pattern='/icons/icon-2048x1536.png'], Ant [pattern='/icons/icon-1284x2778.png'], Ant [pattern='/icons/icon-2778x1284.png'], Ant [pattern='/icons/icon-1170x2532.png'], Ant [pattern='/icons/icon-2532x1170.png'], Ant [pattern='/icons/icon-1125x2436.png'], Ant [pattern='/icons/icon-2436x1125.png'], Ant [pattern='/icons/icon-1242x2688.png'], Ant [pattern='/icons/icon-2688x1242.png'], Ant [pattern='/icons/icon-828x1792.png'], Ant [pattern='/icons/icon-1792x828.png'], Ant [pattern='/icons/icon-1242x2208.png'], Ant [pattern='/icons/icon-2208x1242.png'], Ant [pattern='/icons/icon-750x1334.png'], Ant [pattern='/icons/icon-1334x750.png'], Ant [pattern='/icons/icon-640x1136.png'], Ant [pattern='/icons/icon-1136x640.png']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:40:57.998  INFO 28864 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Or [Ant [pattern='/favicon.ico'], Ant [pattern='/manifest.webmanifest'], Ant [pattern='/sw.js'], Ant [pattern='/sw-runtime-resources-precache.js'], Ant [pattern='/offline.html'], Ant [pattern='/offline-stub.html'], Ant [pattern='/icons/icon.png'], Ant [pattern='/themes/**'], Ant [pattern='/icons/icon-144x144.png'], Ant [pattern='/icons/icon-192x192.png'], Ant [pattern='/icons/icon-512x512.png'], Ant [pattern='/icons/icon-16x16.png'], Ant [pattern='/icons/icon-32x32.png'], Ant [pattern='/icons/icon-96x96.png'], Ant [pattern='/icons/icon-180x180.png'], Ant [pattern='/icons/icon-2048x2732.png'], Ant [pattern='/icons/icon-2732x2048.png'], Ant [pattern='/icons/icon-1668x2388.png'], Ant [pattern='/icons/icon-2388x1668.png'], Ant [pattern='/icons/icon-1668x2224.png'], Ant [pattern='/icons/icon-2224x1668.png'], Ant [pattern='/icons/icon-1620x2160.png'], Ant [pattern='/icons/icon-2160x1620.png'], Ant [pattern='/icons/icon-1536x2048.png'], Ant [pattern='/icons/icon-2048x1536.png'], Ant [pattern='/icons/icon-1284x2778.png'], Ant [pattern='/icons/icon-2778x1284.png'], Ant [pattern='/icons/icon-1170x2532.png'], Ant [pattern='/icons/icon-2532x1170.png'], Ant [pattern='/icons/icon-1125x2436.png'], Ant [pattern='/icons/icon-2436x1125.png'], Ant [pattern='/icons/icon-1242x2688.png'], Ant [pattern='/icons/icon-2688x1242.png'], Ant [pattern='/icons/icon-828x1792.png'], Ant [pattern='/icons/icon-1792x828.png'], Ant [pattern='/icons/icon-1242x2208.png'], Ant [pattern='/icons/icon-2208x1242.png'], Ant [pattern='/icons/icon-750x1334.png'], Ant [pattern='/icons/icon-1334x750.png'], Ant [pattern='/icons/icon-640x1136.png'], Ant [pattern='/icons/icon-1136x640.png']]
+2022-09-18 20:40:57.998  WARN 28864 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/api/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:40:57.998  INFO 28864 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/api/**']
+2022-09-18 20:40:57.998  WARN 28864 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/VAADIN/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:40:57.998  INFO 28864 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/VAADIN/**']
+2022-09-18 20:40:57.998  WARN 28864 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/favicon.ico']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:40:57.998  INFO 28864 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/favicon.ico']
+2022-09-18 20:40:57.998  WARN 28864 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/robots.txt']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:40:57.998  INFO 28864 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/robots.txt']
+2022-09-18 20:40:57.998  WARN 28864 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/manifest.webmanifest']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:40:57.998  INFO 28864 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/manifest.webmanifest']
+2022-09-18 20:40:57.998  WARN 28864 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/sw.js']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:40:57.998  INFO 28864 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/sw.js']
+2022-09-18 20:40:57.998  WARN 28864 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/offline-page.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:40:57.998  INFO 28864 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/offline-page.html']
+2022-09-18 20:40:57.998  WARN 28864 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/icons/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:40:57.998  INFO 28864 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/icons/**']
+2022-09-18 20:40:57.998  WARN 28864 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:40:57.998  INFO 28864 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
+2022-09-18 20:40:57.998  WARN 28864 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:40:57.998  INFO 28864 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/h2-console/**']
+2022-09-18 20:40:58.020  INFO 28864 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@17d718d4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1417cccc, org.springframework.security.web.context.SecurityContextPersistenceFilter@12d1b5b9, org.springframework.security.web.header.HeaderWriterFilter@480dc4dd, org.springframework.security.web.authentication.logout.LogoutFilter@270cd1ee, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@622c3de7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@571bce28, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3a630642, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@502df224, org.springframework.security.web.session.SessionManagementFilter@3430fd65, org.springframework.security.web.access.ExceptionTranslationFilter@716f185a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@504f860]
+2022-09-18 20:40:58.251  INFO 28864 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-18 20:40:58.327  INFO 28864 --- [restartedMain] c.v.f.s.DefaultDeploymentConfiguration   : 
+Vaadin is running in DEVELOPMENT mode - do not use for production deployments.
+2022-09-18 20:40:58.355  INFO 28864 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-18 20:40:58.363  INFO 28864 --- [restartedMain] com.ale.filso.FilsoApplication           : Started FilsoApplication in 5.132 seconds (JVM running for 5.675)
+2022-09-18 20:40:58.566  INFO 28864 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Project is running at:
+2022-09-18 20:40:58.567  INFO 28864 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Loopback: http://localhost:53184/
+2022-09-18 20:40:58.567  INFO 28864 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] On Your Network (IPv4): http://192.168.0.150:53184/
+2022-09-18 20:40:58.567  INFO 28864 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] On Your Network (IPv6): http://[fe80::1]:53184/
+2022-09-18 20:40:58.567  INFO 28864 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Content not from webpack is served from '/Users/florian/IdeaProjects/filso/target/classes/META-INF/VAADIN/webapp, /Users/florian/IdeaProjects/filso/src/main/webapp' directory
+2022-09-18 20:40:58.642  INFO 28864 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-18 20:40:58.642  INFO 28864 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-18 20:40:58.643  INFO 28864 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-09-18 20:41:00.622  INFO 28864 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [build-status] : Compiled.
+2022-09-18 20:41:00.624  INFO 28864 --- [ForkJoinPool.commonPool-worker-1] c.v.b.devserver.AbstractDevServerRunner  : Started Webpack. Time: 4012ms
+2022-09-18 20:41:00.637  INFO 28864 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : No issues found.
+2022-09-18 20:41:00.802  INFO 28864 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-middleware] wait until bundle finished: /login
+2022-09-18 20:41:00.929  INFO 28864 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [build-status] : Compiled.
+2022-09-18 20:41:00.941  INFO 28864 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : No issues found.
+2022-09-18 20:44:23.915  INFO 28864 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Gracefully shutting down. To force exit, press ^C again. Please wait...
+2022-09-18 20:44:23.928  INFO 28864 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-18 20:44:23.930  INFO 28864 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-18 20:44:24.576  INFO 28864 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-18 20:54:26.797  INFO 30667 --- [restartedMain] com.ale.filso.FilsoApplication           : Starting FilsoApplication using Java 17.0.4.1 on MacBook-Air-Florian.local with PID 30667 (/Users/florian/IdeaProjects/filso/target/classes started by florian in /Users/florian/IdeaProjects/filso)
+2022-09-18 20:54:26.798  INFO 30667 --- [restartedMain] com.ale.filso.FilsoApplication           : No active profile set, falling back to 1 default profile: "default"
+2022-09-18 20:54:26.846  INFO 30667 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-18 20:54:26.846  INFO 30667 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-18 20:54:27.322  INFO 30667 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-18 20:54:27.358  INFO 30667 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 2 JPA repository interfaces.
+2022-09-18 20:54:27.700  INFO 30667 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-18 20:54:27.706  INFO 30667 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-18 20:54:27.707  INFO 30667 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-18 20:54:27.748  INFO 30667 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-18 20:54:27.748  INFO 30667 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 901 ms
+2022-09-18 20:54:27.777  INFO 30667 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-18 20:54:28.616  INFO 30667 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-18 20:54:28.626  INFO 30667 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://ec2-63-32-248-14.eu-west-1.compute.amazonaws.com:5432/dctrt3hcmcc59j'
+2022-09-18 20:54:28.773  INFO 30667 --- [restartedMain] c.v.f.s.VaadinServletContextInitializer  : Search for VaadinAppShell took 29 ms
+2022-09-18 20:54:29.707  INFO 30667 --- [restartedMain] c.v.f.s.VaadinServletContextInitializer  : Search for subclasses and classes with annotations took 860 ms
+2022-09-18 20:54:29.750  INFO 30667 --- [restartedMain] c.v.b.d.startup.DevModeStartupListener   : Starting dev-mode updaters in /Users/florian/IdeaProjects/filso folder.
+2022-09-18 20:54:29.776  INFO 30667 --- [restartedMain] c.v.f.s.f.s.FullDependenciesScanner      : Visited 111 classes. Took 17 ms.
+2022-09-18 20:54:29.824  INFO 30667 --- [ForkJoinPool.commonPool-worker-1] c.v.f.s.frontend.TaskUpdatePackages      : Skipping `npm install` because the frontend packages are already installed in the folder '/Users/florian/IdeaProjects/filso/node_modules' and the hash in the file '/Users/florian/IdeaProjects/filso/node_modules/.vaadin/vaadin.json' is the same as in 'package.json'
+2022-09-18 20:54:29.824  INFO 30667 --- [ForkJoinPool.commonPool-worker-1] c.v.f.s.frontend.TaskCopyFrontendFiles   : Copying frontend resources from jar files ...
+2022-09-18 20:54:29.839  INFO 30667 --- [ForkJoinPool.commonPool-worker-1] c.v.f.s.frontend.TaskCopyFrontendFiles   : Visited 19 resources. Took 14 ms.
+2022-09-18 20:54:29.866  INFO 30667 --- [ForkJoinPool.commonPool-worker-1] c.v.b.devserver.AbstractDevServerRunner  : Starting Webpack
+2022-09-18 20:54:29.877  INFO 30667 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-18 20:54:29.907  INFO 30667 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-18 20:54:29.994  INFO 30667 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-18 20:54:30.097  INFO 30667 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-09-18 20:54:30.336  INFO 30667 --- [ForkJoinPool.commonPool-worker-1] c.v.b.devserver.AbstractDevServerRunner  : Running Webpack to compile frontend resources. This may take a moment, please stand by...
+2022-09-18 20:54:30.970  INFO 30667 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-18 20:54:30.973  INFO 30667 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-18 20:54:31.263  WARN 30667 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-18 20:54:31.347  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Or [Ant [pattern='/favicon.ico'], Ant [pattern='/manifest.webmanifest'], Ant [pattern='/sw.js'], Ant [pattern='/sw-runtime-resources-precache.js'], Ant [pattern='/offline.html'], Ant [pattern='/offline-stub.html'], Ant [pattern='/icons/icon.png'], Ant [pattern='/themes/**'], Ant [pattern='/icons/icon-144x144.png'], Ant [pattern='/icons/icon-192x192.png'], Ant [pattern='/icons/icon-512x512.png'], Ant [pattern='/icons/icon-16x16.png'], Ant [pattern='/icons/icon-32x32.png'], Ant [pattern='/icons/icon-96x96.png'], Ant [pattern='/icons/icon-180x180.png'], Ant [pattern='/icons/icon-2048x2732.png'], Ant [pattern='/icons/icon-2732x2048.png'], Ant [pattern='/icons/icon-1668x2388.png'], Ant [pattern='/icons/icon-2388x1668.png'], Ant [pattern='/icons/icon-1668x2224.png'], Ant [pattern='/icons/icon-2224x1668.png'], Ant [pattern='/icons/icon-1620x2160.png'], Ant [pattern='/icons/icon-2160x1620.png'], Ant [pattern='/icons/icon-1536x2048.png'], Ant [pattern='/icons/icon-2048x1536.png'], Ant [pattern='/icons/icon-1284x2778.png'], Ant [pattern='/icons/icon-2778x1284.png'], Ant [pattern='/icons/icon-1170x2532.png'], Ant [pattern='/icons/icon-2532x1170.png'], Ant [pattern='/icons/icon-1125x2436.png'], Ant [pattern='/icons/icon-2436x1125.png'], Ant [pattern='/icons/icon-1242x2688.png'], Ant [pattern='/icons/icon-2688x1242.png'], Ant [pattern='/icons/icon-828x1792.png'], Ant [pattern='/icons/icon-1792x828.png'], Ant [pattern='/icons/icon-1242x2208.png'], Ant [pattern='/icons/icon-2208x1242.png'], Ant [pattern='/icons/icon-750x1334.png'], Ant [pattern='/icons/icon-1334x750.png'], Ant [pattern='/icons/icon-640x1136.png'], Ant [pattern='/icons/icon-1136x640.png']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:54:31.347  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Or [Ant [pattern='/favicon.ico'], Ant [pattern='/manifest.webmanifest'], Ant [pattern='/sw.js'], Ant [pattern='/sw-runtime-resources-precache.js'], Ant [pattern='/offline.html'], Ant [pattern='/offline-stub.html'], Ant [pattern='/icons/icon.png'], Ant [pattern='/themes/**'], Ant [pattern='/icons/icon-144x144.png'], Ant [pattern='/icons/icon-192x192.png'], Ant [pattern='/icons/icon-512x512.png'], Ant [pattern='/icons/icon-16x16.png'], Ant [pattern='/icons/icon-32x32.png'], Ant [pattern='/icons/icon-96x96.png'], Ant [pattern='/icons/icon-180x180.png'], Ant [pattern='/icons/icon-2048x2732.png'], Ant [pattern='/icons/icon-2732x2048.png'], Ant [pattern='/icons/icon-1668x2388.png'], Ant [pattern='/icons/icon-2388x1668.png'], Ant [pattern='/icons/icon-1668x2224.png'], Ant [pattern='/icons/icon-2224x1668.png'], Ant [pattern='/icons/icon-1620x2160.png'], Ant [pattern='/icons/icon-2160x1620.png'], Ant [pattern='/icons/icon-1536x2048.png'], Ant [pattern='/icons/icon-2048x1536.png'], Ant [pattern='/icons/icon-1284x2778.png'], Ant [pattern='/icons/icon-2778x1284.png'], Ant [pattern='/icons/icon-1170x2532.png'], Ant [pattern='/icons/icon-2532x1170.png'], Ant [pattern='/icons/icon-1125x2436.png'], Ant [pattern='/icons/icon-2436x1125.png'], Ant [pattern='/icons/icon-1242x2688.png'], Ant [pattern='/icons/icon-2688x1242.png'], Ant [pattern='/icons/icon-828x1792.png'], Ant [pattern='/icons/icon-1792x828.png'], Ant [pattern='/icons/icon-1242x2208.png'], Ant [pattern='/icons/icon-2208x1242.png'], Ant [pattern='/icons/icon-750x1334.png'], Ant [pattern='/icons/icon-1334x750.png'], Ant [pattern='/icons/icon-640x1136.png'], Ant [pattern='/icons/icon-1136x640.png']]
+2022-09-18 20:54:31.348  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/api/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:54:31.348  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/api/**']
+2022-09-18 20:54:31.348  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/VAADIN/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:54:31.348  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/VAADIN/**']
+2022-09-18 20:54:31.348  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/favicon.ico']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:54:31.348  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/favicon.ico']
+2022-09-18 20:54:31.348  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/robots.txt']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:54:31.348  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/robots.txt']
+2022-09-18 20:54:31.348  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/manifest.webmanifest']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:54:31.348  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/manifest.webmanifest']
+2022-09-18 20:54:31.348  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/sw.js']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:54:31.348  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/sw.js']
+2022-09-18 20:54:31.348  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/offline-page.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:54:31.348  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/offline-page.html']
+2022-09-18 20:54:31.348  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/icons/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:54:31.348  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/icons/**']
+2022-09-18 20:54:31.348  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:54:31.348  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
+2022-09-18 20:54:31.348  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:54:31.348  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/h2-console/**']
+2022-09-18 20:54:31.375  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7a68ca95, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d9543bb, org.springframework.security.web.context.SecurityContextPersistenceFilter@42ea1e5d, org.springframework.security.web.header.HeaderWriterFilter@330f3594, org.springframework.security.web.authentication.logout.LogoutFilter@27a89372, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4aefb4af, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a29281e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@193f4c55, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e44a35c, org.springframework.security.web.session.SessionManagementFilter@538a7260, org.springframework.security.web.access.ExceptionTranslationFilter@2e36bdc6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@40dd759c]
+2022-09-18 20:54:31.646  INFO 30667 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-18 20:54:31.690  INFO 30667 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Project is running at:
+2022-09-18 20:54:31.690  INFO 30667 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Loopback: http://localhost:53449/
+2022-09-18 20:54:31.690  INFO 30667 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] On Your Network (IPv4): http://192.168.0.150:53449/
+2022-09-18 20:54:31.690  INFO 30667 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] On Your Network (IPv6): http://[fe80::1]:53449/
+2022-09-18 20:54:31.690  INFO 30667 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Content not from webpack is served from '/Users/florian/IdeaProjects/filso/target/classes/META-INF/VAADIN/webapp, /Users/florian/IdeaProjects/filso/src/main/webapp' directory
+2022-09-18 20:54:31.717  INFO 30667 --- [restartedMain] c.v.f.s.DefaultDeploymentConfiguration   : 
+Vaadin is running in DEVELOPMENT mode - do not use for production deployments.
+2022-09-18 20:54:31.753  INFO 30667 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-18 20:54:31.763  INFO 30667 --- [restartedMain] com.ale.filso.FilsoApplication           : Started FilsoApplication in 5.335 seconds (JVM running for 5.815)
+2022-09-18 20:54:32.070  INFO 30667 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-18 20:54:32.071  INFO 30667 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-18 20:54:32.074  INFO 30667 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-09-18 20:54:33.551  INFO 30667 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [build-status] : Compiled.
+2022-09-18 20:54:33.553  INFO 30667 --- [ForkJoinPool.commonPool-worker-1] c.v.b.devserver.AbstractDevServerRunner  : Started Webpack. Time: 3687ms
+2022-09-18 20:54:33.567  INFO 30667 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : No issues found.
+2022-09-18 20:54:33.632  INFO 30667 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-middleware] wait until bundle finished: /login
+2022-09-18 20:54:33.832  INFO 30667 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [build-status] : Compiled.
+2022-09-18 20:54:33.843  INFO 30667 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : No issues found.
+2022-09-18 20:57:12.936  INFO 30667 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2022-09-18 20:57:12.947  INFO 30667 --- [Thread-8] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-09-18 20:57:12.952  INFO 30667 --- [Thread-8] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2022-09-18 20:57:12.963  WARN 30667 --- [Thread-8] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2022-09-18 20:57:12.969  INFO 30667 --- [Thread-8] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-18 20:57:12.971  INFO 30667 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-18 20:57:13.613  INFO 30667 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-18 20:57:13.857  INFO 30667 --- [restartedMain] com.ale.filso.FilsoApplication           : Starting FilsoApplication using Java 17.0.4.1 on MacBook-Air-Florian.local with PID 30667 (/Users/florian/IdeaProjects/filso/target/classes started by florian in /Users/florian/IdeaProjects/filso)
+2022-09-18 20:57:13.857  INFO 30667 --- [restartedMain] com.ale.filso.FilsoApplication           : No active profile set, falling back to 1 default profile: "default"
+2022-09-18 20:57:13.933  INFO 30667 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-18 20:57:13.941  INFO 30667 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 2 JPA repository interfaces.
+2022-09-18 20:57:13.982  INFO 30667 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-18 20:57:13.982  INFO 30667 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-18 20:57:13.982  INFO 30667 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-18 20:57:13.990  INFO 30667 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-18 20:57:13.991  INFO 30667 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 132 ms
+2022-09-18 20:57:13.996  INFO 30667 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-09-18 20:57:14.645  INFO 30667 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2022-09-18 20:57:14.646  INFO 30667 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://ec2-63-32-248-14.eu-west-1.compute.amazonaws.com:5432/dctrt3hcmcc59j'
+2022-09-18 20:57:14.703  INFO 30667 --- [restartedMain] c.v.f.s.VaadinServletContextInitializer  : Search for VaadinAppShell took 14 ms
+2022-09-18 20:57:15.521  INFO 30667 --- [restartedMain] c.v.f.s.VaadinServletContextInitializer  : Search for subclasses and classes with annotations took 793 ms
+2022-09-18 20:57:15.522  WARN 30667 --- [restartedMain] c.v.b.d.stats.DevModeUsageStatistics     : init should only be called once
+2022-09-18 20:57:15.528  INFO 30667 --- [restartedMain] c.v.b.d.startup.DevModeStartupListener   : Starting dev-mode updaters in /Users/florian/IdeaProjects/filso folder.
+2022-09-18 20:57:15.534  INFO 30667 --- [restartedMain] c.v.f.s.f.s.FullDependenciesScanner      : Visited 111 classes. Took 5 ms.
+2022-09-18 20:57:15.552  INFO 30667 --- [ForkJoinPool.commonPool-worker-3] c.v.f.s.frontend.TaskUpdatePackages      : Skipping `npm install` because the frontend packages are already installed in the folder '/Users/florian/IdeaProjects/filso/node_modules' and the hash in the file '/Users/florian/IdeaProjects/filso/node_modules/.vaadin/vaadin.json' is the same as in 'package.json'
+2022-09-18 20:57:15.552  INFO 30667 --- [ForkJoinPool.commonPool-worker-3] c.v.f.s.frontend.TaskCopyFrontendFiles   : Copying frontend resources from jar files ...
+2022-09-18 20:57:15.556  INFO 30667 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-18 20:57:15.560  INFO 30667 --- [ForkJoinPool.commonPool-worker-3] c.v.f.s.frontend.TaskCopyFrontendFiles   : Visited 19 resources. Took 7 ms.
+2022-09-18 20:57:15.570  INFO 30667 --- [ForkJoinPool.commonPool-worker-3] c.v.b.devserver.AbstractDevServerRunner  : Reusing Webpack running at http://127.0.0.1:53449
+2022-09-18 20:57:15.611  INFO 30667 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-09-18 20:57:15.944  INFO 30667 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [build-status] : Compiled.
+2022-09-18 20:57:15.946  INFO 30667 --- [dev-server-output] c.v.b.devserver.DevServerOutputTracker   : [webpack-dev-server] Gracefully shutting down. To force exit, press ^C again. Please wait...
+2022-09-18 20:57:16.238  INFO 30667 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-18 20:57:16.238  INFO 30667 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-18 20:57:16.278  WARN 30667 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-18 20:57:16.288  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Or [Ant [pattern='/favicon.ico'], Ant [pattern='/manifest.webmanifest'], Ant [pattern='/sw.js'], Ant [pattern='/sw-runtime-resources-precache.js'], Ant [pattern='/offline.html'], Ant [pattern='/offline-stub.html'], Ant [pattern='/icons/icon.png'], Ant [pattern='/themes/**'], Ant [pattern='/icons/icon-144x144.png'], Ant [pattern='/icons/icon-192x192.png'], Ant [pattern='/icons/icon-512x512.png'], Ant [pattern='/icons/icon-16x16.png'], Ant [pattern='/icons/icon-32x32.png'], Ant [pattern='/icons/icon-96x96.png'], Ant [pattern='/icons/icon-180x180.png'], Ant [pattern='/icons/icon-2048x2732.png'], Ant [pattern='/icons/icon-2732x2048.png'], Ant [pattern='/icons/icon-1668x2388.png'], Ant [pattern='/icons/icon-2388x1668.png'], Ant [pattern='/icons/icon-1668x2224.png'], Ant [pattern='/icons/icon-2224x1668.png'], Ant [pattern='/icons/icon-1620x2160.png'], Ant [pattern='/icons/icon-2160x1620.png'], Ant [pattern='/icons/icon-1536x2048.png'], Ant [pattern='/icons/icon-2048x1536.png'], Ant [pattern='/icons/icon-1284x2778.png'], Ant [pattern='/icons/icon-2778x1284.png'], Ant [pattern='/icons/icon-1170x2532.png'], Ant [pattern='/icons/icon-2532x1170.png'], Ant [pattern='/icons/icon-1125x2436.png'], Ant [pattern='/icons/icon-2436x1125.png'], Ant [pattern='/icons/icon-1242x2688.png'], Ant [pattern='/icons/icon-2688x1242.png'], Ant [pattern='/icons/icon-828x1792.png'], Ant [pattern='/icons/icon-1792x828.png'], Ant [pattern='/icons/icon-1242x2208.png'], Ant [pattern='/icons/icon-2208x1242.png'], Ant [pattern='/icons/icon-750x1334.png'], Ant [pattern='/icons/icon-1334x750.png'], Ant [pattern='/icons/icon-640x1136.png'], Ant [pattern='/icons/icon-1136x640.png']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:57:16.288  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Or [Ant [pattern='/favicon.ico'], Ant [pattern='/manifest.webmanifest'], Ant [pattern='/sw.js'], Ant [pattern='/sw-runtime-resources-precache.js'], Ant [pattern='/offline.html'], Ant [pattern='/offline-stub.html'], Ant [pattern='/icons/icon.png'], Ant [pattern='/themes/**'], Ant [pattern='/icons/icon-144x144.png'], Ant [pattern='/icons/icon-192x192.png'], Ant [pattern='/icons/icon-512x512.png'], Ant [pattern='/icons/icon-16x16.png'], Ant [pattern='/icons/icon-32x32.png'], Ant [pattern='/icons/icon-96x96.png'], Ant [pattern='/icons/icon-180x180.png'], Ant [pattern='/icons/icon-2048x2732.png'], Ant [pattern='/icons/icon-2732x2048.png'], Ant [pattern='/icons/icon-1668x2388.png'], Ant [pattern='/icons/icon-2388x1668.png'], Ant [pattern='/icons/icon-1668x2224.png'], Ant [pattern='/icons/icon-2224x1668.png'], Ant [pattern='/icons/icon-1620x2160.png'], Ant [pattern='/icons/icon-2160x1620.png'], Ant [pattern='/icons/icon-1536x2048.png'], Ant [pattern='/icons/icon-2048x1536.png'], Ant [pattern='/icons/icon-1284x2778.png'], Ant [pattern='/icons/icon-2778x1284.png'], Ant [pattern='/icons/icon-1170x2532.png'], Ant [pattern='/icons/icon-2532x1170.png'], Ant [pattern='/icons/icon-1125x2436.png'], Ant [pattern='/icons/icon-2436x1125.png'], Ant [pattern='/icons/icon-1242x2688.png'], Ant [pattern='/icons/icon-2688x1242.png'], Ant [pattern='/icons/icon-828x1792.png'], Ant [pattern='/icons/icon-1792x828.png'], Ant [pattern='/icons/icon-1242x2208.png'], Ant [pattern='/icons/icon-2208x1242.png'], Ant [pattern='/icons/icon-750x1334.png'], Ant [pattern='/icons/icon-1334x750.png'], Ant [pattern='/icons/icon-640x1136.png'], Ant [pattern='/icons/icon-1136x640.png']]
+2022-09-18 20:57:16.288  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/api/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:57:16.288  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/api/**']
+2022-09-18 20:57:16.288  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/VAADIN/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:57:16.288  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/VAADIN/**']
+2022-09-18 20:57:16.288  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/favicon.ico']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:57:16.288  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/favicon.ico']
+2022-09-18 20:57:16.288  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/robots.txt']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:57:16.288  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/robots.txt']
+2022-09-18 20:57:16.288  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/manifest.webmanifest']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:57:16.288  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/manifest.webmanifest']
+2022-09-18 20:57:16.288  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/sw.js']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:57:16.288  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/sw.js']
+2022-09-18 20:57:16.288  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/offline-page.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:57:16.288  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/offline-page.html']
+2022-09-18 20:57:16.288  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/icons/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:57:16.288  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/icons/**']
+2022-09-18 20:57:16.288  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:57:16.288  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
+2022-09-18 20:57:16.288  WARN 30667 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:57:16.288  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/h2-console/**']
+2022-09-18 20:57:16.290  INFO 30667 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4bf343ee, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12fbd991, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d3bef24, org.springframework.security.web.header.HeaderWriterFilter@45a658e2, org.springframework.security.web.authentication.logout.LogoutFilter@73259929, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7b132200, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d899c44, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6a9fa65f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@377628a1, org.springframework.security.web.session.SessionManagementFilter@1dc4c4b2, org.springframework.security.web.access.ExceptionTranslationFilter@6b617679, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@a75eba4]
+2022-09-18 20:57:16.325  INFO 30667 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-18 20:57:16.333 ERROR 30667 --- [restartedMain] org.atmosphere.cpr.AtmosphereFramework   : Failed to initialize Atmosphere Framework
+
+java.lang.IllegalStateException: Shutdown in progress
+	at java.base/java.lang.ApplicationShutdownHooks.add(ApplicationShutdownHooks.java:66) ~[na:na]
+	at java.base/java.lang.Runtime.addShutdownHook(Runtime.java:216) ~[na:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:928) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:833) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at com.vaadin.flow.server.communication.PushRequestHandler.initAtmosphere(PushRequestHandler.java:225) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.communication.JSR356WebsocketInitializer.initAtmosphereForVaadinServlet(JSR356WebsocketInitializer.java:186) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.communication.JSR356WebsocketInitializer.init(JSR356WebsocketInitializer.java:151) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.spring.VaadinWebsocketEndpointExporter.registerEndpoints(VaadinWebsocketEndpointExporter.java:51) ~[vaadin-spring-23.1.6.jar:na]
+	at org.springframework.web.socket.server.standard.ServerEndpointExporter.afterSingletonsInstantiated(ServerEndpointExporter.java:112) ~[spring-websocket-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:974) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ale.filso.FilsoApplication.main(FilsoApplication.java:17) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+
+2022-09-18 20:57:16.334  WARN 30667 --- [restartedMain] c.v.f.s.c.JSR356WebsocketInitializer     : Failed to initialize Atmosphere for springServlet
+
+java.lang.RuntimeException: Atmosphere init failed
+	at com.vaadin.flow.server.communication.PushRequestHandler.initAtmosphere(PushRequestHandler.java:234) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.communication.JSR356WebsocketInitializer.initAtmosphereForVaadinServlet(JSR356WebsocketInitializer.java:186) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.communication.JSR356WebsocketInitializer.init(JSR356WebsocketInitializer.java:151) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.spring.VaadinWebsocketEndpointExporter.registerEndpoints(VaadinWebsocketEndpointExporter.java:51) ~[vaadin-spring-23.1.6.jar:na]
+	at org.springframework.web.socket.server.standard.ServerEndpointExporter.afterSingletonsInstantiated(ServerEndpointExporter.java:112) ~[spring-websocket-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:974) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ale.filso.FilsoApplication.main(FilsoApplication.java:17) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+Caused by: javax.servlet.ServletException: java.lang.IllegalStateException: Shutdown in progress
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:946) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:833) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at com.vaadin.flow.server.communication.PushRequestHandler.initAtmosphere(PushRequestHandler.java:225) ~[flow-server-23.1.6.jar:23.1.6]
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Shutdown in progress
+	at java.base/java.lang.ApplicationShutdownHooks.add(ApplicationShutdownHooks.java:66) ~[na:na]
+	at java.base/java.lang.Runtime.addShutdownHook(Runtime.java:216) ~[na:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:928) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	... 21 common frames omitted
+
+2022-09-18 20:57:16.340  WARN 30667 --- [restartedMain] o.a.container.JSR356AsyncSupport         : Duplicate Servlet Mapping Path /vaadinServlet. Use org.atmosphere.container.JSR356AsyncSupport.mappingPath init-param to prevent this message
+2022-09-18 20:57:16.340  WARN 30667 --- [restartedMain] org.atmosphere.util.IOUtils              : More than one Servlet Mapping defined. WebSocket may not work org.apache.catalina.core.ApplicationServletRegistration@41692c11
+2022-09-18 20:57:16.341  WARN 30667 --- [restartedMain] o.a.container.JSR356AsyncSupport         : Duplicate guess /vaadinServlet
+
+javax.websocket.DeploymentException: Multiple Endpoints may not be deployed to the same path [/vaadinServlet] : existing endpoint was [class org.atmosphere.container.JSR356Endpoint] and new endpoint is [class org.atmosphere.container.JSR356Endpoint]
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:207) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:131) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.atmosphere.container.JSR356AsyncSupport.<init>(JSR356AsyncSupport.java:105) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.container.JSR356AsyncSupport.<init>(JSR356AsyncSupport.java:48) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.newCometSupport(DefaultAsyncSupportResolver.java:237) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.resolveWebSocket(DefaultAsyncSupportResolver.java:308) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.resolve(DefaultAsyncSupportResolver.java:294) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.autoDetectContainer(AtmosphereFramework.java:2086) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:909) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:833) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at com.vaadin.flow.server.communication.PushRequestHandler.initAtmosphere(PushRequestHandler.java:225) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.communication.PushRequestHandler.<init>(PushRequestHandler.java:93) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.createRequestHandlers(VaadinServletService.java:107) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinService.init(VaadinService.java:231) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.init(VaadinServletService.java:175) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.spring.SpringVaadinServletService.init(SpringVaadinServletService.java:103) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.spring.SpringServlet.createServletService(SpringServlet.java:118) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.server.VaadinServlet.createServletService(VaadinServlet.java:237) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServlet.init(VaadinServlet.java:117) ~[flow-server-23.1.6.jar:23.1.6]
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1164) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1013) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.load(TomcatEmbeddedContext.java:81) ~[spring-boot-2.7.3.jar:2.7.3]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276) ~[na:na]
+	at java.base/java.util.TreeMap$ValueSpliterator.forEachRemaining(TreeMap.java:3215) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.lambda$deferredLoadOnStartup$0(TomcatEmbeddedContext.java:64) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.doWithThreadContextClassLoader(TomcatEmbeddedContext.java:105) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.deferredLoadOnStartup(TomcatEmbeddedContext.java:63) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.performDeferredLoadOnStartup(TomcatWebServer.java:305) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:216) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.22.jar:5.3.22]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ale.filso.FilsoApplication.main(FilsoApplication.java:17) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+
+2022-09-18 20:57:16.341  WARN 30667 --- [restartedMain] o.a.container.JSR356AsyncSupport         : Duplicate Servlet Mapping Path /vaadinServlet. Use org.atmosphere.container.JSR356AsyncSupport.mappingPath init-param to prevent this message
+2022-09-18 20:57:16.341  WARN 30667 --- [restartedMain] org.atmosphere.util.IOUtils              : More than one Servlet Mapping defined. WebSocket may not work org.apache.catalina.core.ApplicationServletRegistration@648e59ca
+2022-09-18 20:57:16.342  WARN 30667 --- [restartedMain] o.a.container.JSR356AsyncSupport         : Duplicate guess /vaadinServlet
+
+javax.websocket.DeploymentException: Deployment of WebSocket Endpoints to the web application with path [] in host [Tomcat/localhost] is not permitted due to the failure of a previous deployment
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:148) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:131) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.atmosphere.container.JSR356AsyncSupport.<init>(JSR356AsyncSupport.java:105) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.container.JSR356AsyncSupport.<init>(JSR356AsyncSupport.java:48) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.newCometSupport(DefaultAsyncSupportResolver.java:237) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.resolveWebSocket(DefaultAsyncSupportResolver.java:308) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.resolve(DefaultAsyncSupportResolver.java:294) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.autoDetectContainer(AtmosphereFramework.java:2086) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:909) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:833) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at com.vaadin.flow.server.communication.PushRequestHandler.initAtmosphere(PushRequestHandler.java:225) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.communication.PushRequestHandler.<init>(PushRequestHandler.java:93) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.createRequestHandlers(VaadinServletService.java:107) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinService.init(VaadinService.java:231) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.init(VaadinServletService.java:175) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.spring.SpringVaadinServletService.init(SpringVaadinServletService.java:103) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.spring.SpringServlet.createServletService(SpringServlet.java:118) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.server.VaadinServlet.createServletService(VaadinServlet.java:237) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServlet.init(VaadinServlet.java:117) ~[flow-server-23.1.6.jar:23.1.6]
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1164) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1013) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.load(TomcatEmbeddedContext.java:81) ~[spring-boot-2.7.3.jar:2.7.3]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276) ~[na:na]
+	at java.base/java.util.TreeMap$ValueSpliterator.forEachRemaining(TreeMap.java:3215) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.lambda$deferredLoadOnStartup$0(TomcatEmbeddedContext.java:64) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.doWithThreadContextClassLoader(TomcatEmbeddedContext.java:105) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.deferredLoadOnStartup(TomcatEmbeddedContext.java:63) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.performDeferredLoadOnStartup(TomcatWebServer.java:305) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:216) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.22.jar:5.3.22]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ale.filso.FilsoApplication.main(FilsoApplication.java:17) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+
+2022-09-18 20:57:16.342  WARN 30667 --- [restartedMain] o.a.container.JSR356AsyncSupport         : Duplicate Servlet Mapping Path /vaadinServlet. Use org.atmosphere.container.JSR356AsyncSupport.mappingPath init-param to prevent this message
+2022-09-18 20:57:16.342  WARN 30667 --- [restartedMain] org.atmosphere.util.IOUtils              : More than one Servlet Mapping defined. WebSocket may not work org.apache.catalina.core.ApplicationServletRegistration@7db79806
+2022-09-18 20:57:16.342  WARN 30667 --- [restartedMain] o.a.container.JSR356AsyncSupport         : Duplicate guess /vaadinServlet
+
+javax.websocket.DeploymentException: Deployment of WebSocket Endpoints to the web application with path [] in host [Tomcat/localhost] is not permitted due to the failure of a previous deployment
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:148) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:131) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.atmosphere.container.JSR356AsyncSupport.<init>(JSR356AsyncSupport.java:105) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.container.JSR356AsyncSupport.<init>(JSR356AsyncSupport.java:48) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.newCometSupport(DefaultAsyncSupportResolver.java:237) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.resolveWebSocket(DefaultAsyncSupportResolver.java:308) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.resolve(DefaultAsyncSupportResolver.java:294) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.autoDetectContainer(AtmosphereFramework.java:2086) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:909) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:833) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at com.vaadin.flow.server.communication.PushRequestHandler.initAtmosphere(PushRequestHandler.java:225) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.communication.PushRequestHandler.<init>(PushRequestHandler.java:93) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.createRequestHandlers(VaadinServletService.java:107) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinService.init(VaadinService.java:231) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.init(VaadinServletService.java:175) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.spring.SpringVaadinServletService.init(SpringVaadinServletService.java:103) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.spring.SpringServlet.createServletService(SpringServlet.java:118) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.server.VaadinServlet.createServletService(VaadinServlet.java:237) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServlet.init(VaadinServlet.java:117) ~[flow-server-23.1.6.jar:23.1.6]
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1164) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1013) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.load(TomcatEmbeddedContext.java:81) ~[spring-boot-2.7.3.jar:2.7.3]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276) ~[na:na]
+	at java.base/java.util.TreeMap$ValueSpliterator.forEachRemaining(TreeMap.java:3215) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.lambda$deferredLoadOnStartup$0(TomcatEmbeddedContext.java:64) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.doWithThreadContextClassLoader(TomcatEmbeddedContext.java:105) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.deferredLoadOnStartup(TomcatEmbeddedContext.java:63) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.performDeferredLoadOnStartup(TomcatWebServer.java:305) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:216) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.22.jar:5.3.22]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ale.filso.FilsoApplication.main(FilsoApplication.java:17) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+
+2022-09-18 20:57:16.342  WARN 30667 --- [restartedMain] o.a.container.JSR356AsyncSupport         : Duplicate Servlet Mapping Path /vaadinServlet. Use org.atmosphere.container.JSR356AsyncSupport.mappingPath init-param to prevent this message
+2022-09-18 20:57:16.342  WARN 30667 --- [restartedMain] org.atmosphere.util.IOUtils              : More than one Servlet Mapping defined. WebSocket may not work org.apache.catalina.core.ApplicationServletRegistration@7770852e
+2022-09-18 20:57:16.342  WARN 30667 --- [restartedMain] o.a.container.JSR356AsyncSupport         : Duplicate guess /vaadinServlet
+
+javax.websocket.DeploymentException: Deployment of WebSocket Endpoints to the web application with path [] in host [Tomcat/localhost] is not permitted due to the failure of a previous deployment
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:148) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:131) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.atmosphere.container.JSR356AsyncSupport.<init>(JSR356AsyncSupport.java:105) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.container.JSR356AsyncSupport.<init>(JSR356AsyncSupport.java:48) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.newCometSupport(DefaultAsyncSupportResolver.java:237) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.resolveWebSocket(DefaultAsyncSupportResolver.java:308) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.resolve(DefaultAsyncSupportResolver.java:294) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.autoDetectContainer(AtmosphereFramework.java:2086) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:909) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:833) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at com.vaadin.flow.server.communication.PushRequestHandler.initAtmosphere(PushRequestHandler.java:225) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.communication.PushRequestHandler.<init>(PushRequestHandler.java:93) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.createRequestHandlers(VaadinServletService.java:107) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinService.init(VaadinService.java:231) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.init(VaadinServletService.java:175) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.spring.SpringVaadinServletService.init(SpringVaadinServletService.java:103) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.spring.SpringServlet.createServletService(SpringServlet.java:118) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.server.VaadinServlet.createServletService(VaadinServlet.java:237) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServlet.init(VaadinServlet.java:117) ~[flow-server-23.1.6.jar:23.1.6]
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1164) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1013) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.load(TomcatEmbeddedContext.java:81) ~[spring-boot-2.7.3.jar:2.7.3]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276) ~[na:na]
+	at java.base/java.util.TreeMap$ValueSpliterator.forEachRemaining(TreeMap.java:3215) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.lambda$deferredLoadOnStartup$0(TomcatEmbeddedContext.java:64) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.doWithThreadContextClassLoader(TomcatEmbeddedContext.java:105) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.deferredLoadOnStartup(TomcatEmbeddedContext.java:63) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.performDeferredLoadOnStartup(TomcatWebServer.java:305) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:216) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.22.jar:5.3.22]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ale.filso.FilsoApplication.main(FilsoApplication.java:17) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+
+2022-09-18 20:57:16.343  WARN 30667 --- [restartedMain] o.a.container.JSR356AsyncSupport         : Duplicate Servlet Mapping Path /vaadinServlet. Use org.atmosphere.container.JSR356AsyncSupport.mappingPath init-param to prevent this message
+2022-09-18 20:57:16.343  WARN 30667 --- [restartedMain] org.atmosphere.util.IOUtils              : More than one Servlet Mapping defined. WebSocket may not work org.apache.catalina.core.ApplicationServletRegistration@72ecbf93
+2022-09-18 20:57:16.343  WARN 30667 --- [restartedMain] o.a.container.JSR356AsyncSupport         : Duplicate guess /vaadinServlet
+
+javax.websocket.DeploymentException: Deployment of WebSocket Endpoints to the web application with path [] in host [Tomcat/localhost] is not permitted due to the failure of a previous deployment
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:148) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:131) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.atmosphere.container.JSR356AsyncSupport.<init>(JSR356AsyncSupport.java:105) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.container.JSR356AsyncSupport.<init>(JSR356AsyncSupport.java:48) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.newCometSupport(DefaultAsyncSupportResolver.java:237) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.resolveWebSocket(DefaultAsyncSupportResolver.java:308) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.resolve(DefaultAsyncSupportResolver.java:294) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.autoDetectContainer(AtmosphereFramework.java:2086) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:909) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:833) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at com.vaadin.flow.server.communication.PushRequestHandler.initAtmosphere(PushRequestHandler.java:225) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.communication.PushRequestHandler.<init>(PushRequestHandler.java:93) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.createRequestHandlers(VaadinServletService.java:107) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinService.init(VaadinService.java:231) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.init(VaadinServletService.java:175) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.spring.SpringVaadinServletService.init(SpringVaadinServletService.java:103) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.spring.SpringServlet.createServletService(SpringServlet.java:118) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.server.VaadinServlet.createServletService(VaadinServlet.java:237) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServlet.init(VaadinServlet.java:117) ~[flow-server-23.1.6.jar:23.1.6]
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1164) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1013) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.load(TomcatEmbeddedContext.java:81) ~[spring-boot-2.7.3.jar:2.7.3]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276) ~[na:na]
+	at java.base/java.util.TreeMap$ValueSpliterator.forEachRemaining(TreeMap.java:3215) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.lambda$deferredLoadOnStartup$0(TomcatEmbeddedContext.java:64) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.doWithThreadContextClassLoader(TomcatEmbeddedContext.java:105) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.deferredLoadOnStartup(TomcatEmbeddedContext.java:63) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.performDeferredLoadOnStartup(TomcatWebServer.java:305) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:216) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.22.jar:5.3.22]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ale.filso.FilsoApplication.main(FilsoApplication.java:17) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+
+2022-09-18 20:57:16.343  WARN 30667 --- [restartedMain] o.a.container.JSR356AsyncSupport         : Duplicate Servlet Mapping Path /vaadinServlet. Use org.atmosphere.container.JSR356AsyncSupport.mappingPath init-param to prevent this message
+2022-09-18 20:57:16.343  WARN 30667 --- [restartedMain] org.atmosphere.util.IOUtils              : More than one Servlet Mapping defined. WebSocket may not work org.apache.catalina.core.ApplicationServletRegistration@56b13177
+2022-09-18 20:57:16.343  WARN 30667 --- [restartedMain] o.a.container.JSR356AsyncSupport         : Duplicate guess /vaadinServlet
+
+javax.websocket.DeploymentException: Deployment of WebSocket Endpoints to the web application with path [] in host [Tomcat/localhost] is not permitted due to the failure of a previous deployment
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:148) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:131) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.atmosphere.container.JSR356AsyncSupport.<init>(JSR356AsyncSupport.java:105) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.container.JSR356AsyncSupport.<init>(JSR356AsyncSupport.java:48) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.newCometSupport(DefaultAsyncSupportResolver.java:237) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.resolveWebSocket(DefaultAsyncSupportResolver.java:308) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.resolve(DefaultAsyncSupportResolver.java:294) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.autoDetectContainer(AtmosphereFramework.java:2086) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:909) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:833) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at com.vaadin.flow.server.communication.PushRequestHandler.initAtmosphere(PushRequestHandler.java:225) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.communication.PushRequestHandler.<init>(PushRequestHandler.java:93) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.createRequestHandlers(VaadinServletService.java:107) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinService.init(VaadinService.java:231) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.init(VaadinServletService.java:175) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.spring.SpringVaadinServletService.init(SpringVaadinServletService.java:103) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.spring.SpringServlet.createServletService(SpringServlet.java:118) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.server.VaadinServlet.createServletService(VaadinServlet.java:237) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServlet.init(VaadinServlet.java:117) ~[flow-server-23.1.6.jar:23.1.6]
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1164) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1013) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.load(TomcatEmbeddedContext.java:81) ~[spring-boot-2.7.3.jar:2.7.3]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276) ~[na:na]
+	at java.base/java.util.TreeMap$ValueSpliterator.forEachRemaining(TreeMap.java:3215) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.lambda$deferredLoadOnStartup$0(TomcatEmbeddedContext.java:64) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.doWithThreadContextClassLoader(TomcatEmbeddedContext.java:105) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.deferredLoadOnStartup(TomcatEmbeddedContext.java:63) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.performDeferredLoadOnStartup(TomcatWebServer.java:305) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:216) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.22.jar:5.3.22]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ale.filso.FilsoApplication.main(FilsoApplication.java:17) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+
+2022-09-18 20:57:16.343  WARN 30667 --- [restartedMain] o.a.container.JSR356AsyncSupport         : Duplicate Servlet Mapping Path /vaadinServlet. Use org.atmosphere.container.JSR356AsyncSupport.mappingPath init-param to prevent this message
+2022-09-18 20:57:16.343  WARN 30667 --- [restartedMain] org.atmosphere.util.IOUtils              : More than one Servlet Mapping defined. WebSocket may not work org.apache.catalina.core.ApplicationServletRegistration@21bea452
+2022-09-18 20:57:16.344  WARN 30667 --- [restartedMain] o.a.container.JSR356AsyncSupport         : Duplicate guess /vaadinServlet
+
+javax.websocket.DeploymentException: Deployment of WebSocket Endpoints to the web application with path [] in host [Tomcat/localhost] is not permitted due to the failure of a previous deployment
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:148) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:131) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.atmosphere.container.JSR356AsyncSupport.<init>(JSR356AsyncSupport.java:105) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.container.JSR356AsyncSupport.<init>(JSR356AsyncSupport.java:48) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.newCometSupport(DefaultAsyncSupportResolver.java:237) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.resolveWebSocket(DefaultAsyncSupportResolver.java:308) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.DefaultAsyncSupportResolver.resolve(DefaultAsyncSupportResolver.java:294) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.autoDetectContainer(AtmosphereFramework.java:2086) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:909) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:833) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at com.vaadin.flow.server.communication.PushRequestHandler.initAtmosphere(PushRequestHandler.java:225) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.communication.PushRequestHandler.<init>(PushRequestHandler.java:93) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.createRequestHandlers(VaadinServletService.java:107) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinService.init(VaadinService.java:231) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.init(VaadinServletService.java:175) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.spring.SpringVaadinServletService.init(SpringVaadinServletService.java:103) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.spring.SpringServlet.createServletService(SpringServlet.java:118) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.server.VaadinServlet.createServletService(VaadinServlet.java:237) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServlet.init(VaadinServlet.java:117) ~[flow-server-23.1.6.jar:23.1.6]
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1164) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1013) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.load(TomcatEmbeddedContext.java:81) ~[spring-boot-2.7.3.jar:2.7.3]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276) ~[na:na]
+	at java.base/java.util.TreeMap$ValueSpliterator.forEachRemaining(TreeMap.java:3215) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.lambda$deferredLoadOnStartup$0(TomcatEmbeddedContext.java:64) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.doWithThreadContextClassLoader(TomcatEmbeddedContext.java:105) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.deferredLoadOnStartup(TomcatEmbeddedContext.java:63) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.performDeferredLoadOnStartup(TomcatWebServer.java:305) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:216) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.22.jar:5.3.22]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ale.filso.FilsoApplication.main(FilsoApplication.java:17) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+
+2022-09-18 20:57:16.344 ERROR 30667 --- [restartedMain] org.atmosphere.cpr.AtmosphereFramework   : Failed to initialize Atmosphere Framework
+
+java.lang.IllegalStateException: Shutdown in progress
+	at java.base/java.lang.ApplicationShutdownHooks.add(ApplicationShutdownHooks.java:66) ~[na:na]
+	at java.base/java.lang.Runtime.addShutdownHook(Runtime.java:216) ~[na:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:928) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:833) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at com.vaadin.flow.server.communication.PushRequestHandler.initAtmosphere(PushRequestHandler.java:225) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.communication.PushRequestHandler.<init>(PushRequestHandler.java:93) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.createRequestHandlers(VaadinServletService.java:107) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinService.init(VaadinService.java:231) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.init(VaadinServletService.java:175) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.spring.SpringVaadinServletService.init(SpringVaadinServletService.java:103) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.spring.SpringServlet.createServletService(SpringServlet.java:118) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.server.VaadinServlet.createServletService(VaadinServlet.java:237) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServlet.init(VaadinServlet.java:117) ~[flow-server-23.1.6.jar:23.1.6]
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1164) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1013) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.load(TomcatEmbeddedContext.java:81) ~[spring-boot-2.7.3.jar:2.7.3]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276) ~[na:na]
+	at java.base/java.util.TreeMap$ValueSpliterator.forEachRemaining(TreeMap.java:3215) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.lambda$deferredLoadOnStartup$0(TomcatEmbeddedContext.java:64) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.doWithThreadContextClassLoader(TomcatEmbeddedContext.java:105) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.deferredLoadOnStartup(TomcatEmbeddedContext.java:63) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.performDeferredLoadOnStartup(TomcatWebServer.java:305) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:216) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.22.jar:5.3.22]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ale.filso.FilsoApplication.main(FilsoApplication.java:17) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+
+2022-09-18 20:57:16.346  WARN 30667 --- [restartedMain] c.v.flow.server.VaadinServletService     : Error initializing Atmosphere. Push will not work.
+
+com.vaadin.flow.server.ServiceException: Failed to initialize Atmosphere for springServlet. Push will not work.
+	at com.vaadin.flow.server.communication.PushRequestHandler.<init>(PushRequestHandler.java:97) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.createRequestHandlers(VaadinServletService.java:107) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinService.init(VaadinService.java:231) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServletService.init(VaadinServletService.java:175) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.spring.SpringVaadinServletService.init(SpringVaadinServletService.java:103) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.spring.SpringServlet.createServletService(SpringServlet.java:118) ~[vaadin-spring-23.1.6.jar:na]
+	at com.vaadin.flow.server.VaadinServlet.createServletService(VaadinServlet.java:237) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.VaadinServlet.init(VaadinServlet.java:117) ~[flow-server-23.1.6.jar:23.1.6]
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1164) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1013) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.load(TomcatEmbeddedContext.java:81) ~[spring-boot-2.7.3.jar:2.7.3]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276) ~[na:na]
+	at java.base/java.util.TreeMap$ValueSpliterator.forEachRemaining(TreeMap.java:3215) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.lambda$deferredLoadOnStartup$0(TomcatEmbeddedContext.java:64) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.doWithThreadContextClassLoader(TomcatEmbeddedContext.java:105) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedContext.deferredLoadOnStartup(TomcatEmbeddedContext.java:63) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.performDeferredLoadOnStartup(TomcatWebServer.java:305) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:216) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.22.jar:5.3.22]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ale.filso.FilsoApplication.main(FilsoApplication.java:17) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+Caused by: java.lang.RuntimeException: Atmosphere init failed
+	at com.vaadin.flow.server.communication.PushRequestHandler.initAtmosphere(PushRequestHandler.java:234) ~[flow-server-23.1.6.jar:23.1.6]
+	at com.vaadin.flow.server.communication.PushRequestHandler.<init>(PushRequestHandler.java:93) ~[flow-server-23.1.6.jar:23.1.6]
+	... 47 common frames omitted
+Caused by: javax.servlet.ServletException: java.lang.IllegalStateException: Shutdown in progress
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:946) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:833) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	at com.vaadin.flow.server.communication.PushRequestHandler.initAtmosphere(PushRequestHandler.java:225) ~[flow-server-23.1.6.jar:23.1.6]
+	... 48 common frames omitted
+Caused by: java.lang.IllegalStateException: Shutdown in progress
+	at java.base/java.lang.ApplicationShutdownHooks.add(ApplicationShutdownHooks.java:66) ~[na:na]
+	at java.base/java.lang.Runtime.addShutdownHook(Runtime.java:216) ~[na:na]
+	at org.atmosphere.cpr.AtmosphereFramework.init(AtmosphereFramework.java:928) ~[atmosphere-runtime-2.7.3.slf4jvaadin4.jar:na]
+	... 50 common frames omitted
+
+2022-09-18 20:57:16.348  INFO 30667 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-18 20:57:16.353  INFO 30667 --- [restartedMain] com.ale.filso.FilsoApplication           : Started FilsoApplication in 2.685 seconds (JVM running for 170.408)
+2022-09-18 20:57:16.354  INFO 30667 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-09-18 20:57:16.361  INFO 30667 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-18 20:57:16.362  INFO 30667 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2022-09-18 20:57:16.905  INFO 30667 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2022-09-18 20:58:11.288  INFO 30857 --- [main] com.ale.filso.FilsoApplicationTests      : Starting FilsoApplicationTests using Java 18.0.2.1 on MacBook-Air-Florian.local with PID 30857 (started by florian in /Users/florian/IdeaProjects/filso)
+2022-09-18 20:58:11.290  INFO 30857 --- [main] com.ale.filso.FilsoApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2022-09-18 20:58:11.619  INFO 30857 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-18 20:58:11.651  INFO 30857 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 2 JPA repository interfaces.
+2022-09-18 20:58:11.910  INFO 30857 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-18 20:58:11.935  INFO 30857 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-18 20:58:11.998  INFO 30857 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-18 20:58:12.043  INFO 30857 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-18 20:58:12.934  INFO 30857 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-18 20:58:12.949  INFO 30857 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+2022-09-18 20:58:13.859  INFO 30857 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-18 20:58:13.865  INFO 30857 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-18 20:58:14.109  WARN 30857 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-18 20:58:14.210  WARN 30857 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Or [Ant [pattern='/favicon.ico'], Ant [pattern='/manifest.webmanifest'], Ant [pattern='/sw.js'], Ant [pattern='/sw-runtime-resources-precache.js'], Ant [pattern='/offline.html'], Ant [pattern='/offline-stub.html'], Ant [pattern='/icons/icon.png'], Ant [pattern='/themes/**'], Ant [pattern='/icons/icon-144x144.png'], Ant [pattern='/icons/icon-192x192.png'], Ant [pattern='/icons/icon-512x512.png'], Ant [pattern='/icons/icon-16x16.png'], Ant [pattern='/icons/icon-32x32.png'], Ant [pattern='/icons/icon-96x96.png'], Ant [pattern='/icons/icon-180x180.png'], Ant [pattern='/icons/icon-2048x2732.png'], Ant [pattern='/icons/icon-2732x2048.png'], Ant [pattern='/icons/icon-1668x2388.png'], Ant [pattern='/icons/icon-2388x1668.png'], Ant [pattern='/icons/icon-1668x2224.png'], Ant [pattern='/icons/icon-2224x1668.png'], Ant [pattern='/icons/icon-1620x2160.png'], Ant [pattern='/icons/icon-2160x1620.png'], Ant [pattern='/icons/icon-1536x2048.png'], Ant [pattern='/icons/icon-2048x1536.png'], Ant [pattern='/icons/icon-1284x2778.png'], Ant [pattern='/icons/icon-2778x1284.png'], Ant [pattern='/icons/icon-1170x2532.png'], Ant [pattern='/icons/icon-2532x1170.png'], Ant [pattern='/icons/icon-1125x2436.png'], Ant [pattern='/icons/icon-2436x1125.png'], Ant [pattern='/icons/icon-1242x2688.png'], Ant [pattern='/icons/icon-2688x1242.png'], Ant [pattern='/icons/icon-828x1792.png'], Ant [pattern='/icons/icon-1792x828.png'], Ant [pattern='/icons/icon-1242x2208.png'], Ant [pattern='/icons/icon-2208x1242.png'], Ant [pattern='/icons/icon-750x1334.png'], Ant [pattern='/icons/icon-1334x750.png'], Ant [pattern='/icons/icon-640x1136.png'], Ant [pattern='/icons/icon-1136x640.png']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:58:14.210  INFO 30857 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Or [Ant [pattern='/favicon.ico'], Ant [pattern='/manifest.webmanifest'], Ant [pattern='/sw.js'], Ant [pattern='/sw-runtime-resources-precache.js'], Ant [pattern='/offline.html'], Ant [pattern='/offline-stub.html'], Ant [pattern='/icons/icon.png'], Ant [pattern='/themes/**'], Ant [pattern='/icons/icon-144x144.png'], Ant [pattern='/icons/icon-192x192.png'], Ant [pattern='/icons/icon-512x512.png'], Ant [pattern='/icons/icon-16x16.png'], Ant [pattern='/icons/icon-32x32.png'], Ant [pattern='/icons/icon-96x96.png'], Ant [pattern='/icons/icon-180x180.png'], Ant [pattern='/icons/icon-2048x2732.png'], Ant [pattern='/icons/icon-2732x2048.png'], Ant [pattern='/icons/icon-1668x2388.png'], Ant [pattern='/icons/icon-2388x1668.png'], Ant [pattern='/icons/icon-1668x2224.png'], Ant [pattern='/icons/icon-2224x1668.png'], Ant [pattern='/icons/icon-1620x2160.png'], Ant [pattern='/icons/icon-2160x1620.png'], Ant [pattern='/icons/icon-1536x2048.png'], Ant [pattern='/icons/icon-2048x1536.png'], Ant [pattern='/icons/icon-1284x2778.png'], Ant [pattern='/icons/icon-2778x1284.png'], Ant [pattern='/icons/icon-1170x2532.png'], Ant [pattern='/icons/icon-2532x1170.png'], Ant [pattern='/icons/icon-1125x2436.png'], Ant [pattern='/icons/icon-2436x1125.png'], Ant [pattern='/icons/icon-1242x2688.png'], Ant [pattern='/icons/icon-2688x1242.png'], Ant [pattern='/icons/icon-828x1792.png'], Ant [pattern='/icons/icon-1792x828.png'], Ant [pattern='/icons/icon-1242x2208.png'], Ant [pattern='/icons/icon-2208x1242.png'], Ant [pattern='/icons/icon-750x1334.png'], Ant [pattern='/icons/icon-1334x750.png'], Ant [pattern='/icons/icon-640x1136.png'], Ant [pattern='/icons/icon-1136x640.png']]
+2022-09-18 20:58:14.211  WARN 30857 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/api/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:58:14.211  INFO 30857 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/api/**']
+2022-09-18 20:58:14.211  WARN 30857 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/VAADIN/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:58:14.211  INFO 30857 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/VAADIN/**']
+2022-09-18 20:58:14.211  WARN 30857 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/favicon.ico']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:58:14.211  INFO 30857 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/favicon.ico']
+2022-09-18 20:58:14.211  WARN 30857 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/robots.txt']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:58:14.211  INFO 30857 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/robots.txt']
+2022-09-18 20:58:14.211  WARN 30857 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/manifest.webmanifest']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:58:14.211  INFO 30857 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/manifest.webmanifest']
+2022-09-18 20:58:14.211  WARN 30857 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/sw.js']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:58:14.211  INFO 30857 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/sw.js']
+2022-09-18 20:58:14.211  WARN 30857 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/offline-page.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:58:14.211  INFO 30857 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/offline-page.html']
+2022-09-18 20:58:14.211  WARN 30857 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/icons/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:58:14.211  INFO 30857 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/icons/**']
+2022-09-18 20:58:14.211  WARN 30857 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:58:14.211  INFO 30857 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
+2022-09-18 20:58:14.211  WARN 30857 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-09-18 20:58:14.211  INFO 30857 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/h2-console/**']
+2022-09-18 20:58:14.254  INFO 30857 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3aa8c337, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@78e7b83, org.springframework.security.web.context.SecurityContextPersistenceFilter@23cb8fcb, org.springframework.security.web.header.HeaderWriterFilter@11cdf948, org.springframework.security.web.authentication.logout.LogoutFilter@2f3c7b24, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@fdf029a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4b8cde43, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@95f1422, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6761f75b, org.springframework.security.web.session.SessionManagementFilter@2fe38b73, org.springframework.security.web.access.ExceptionTranslationFilter@3dad8bde, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@633c0a61]
+2022-09-18 20:58:14.635  INFO 30857 --- [main] com.ale.filso.FilsoApplicationTests      : Started FilsoApplicationTests in 3.47 seconds (JVM running for 3.832)
+2022-09-18 20:58:14.729  INFO 30857 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-18 20:58:14.730  INFO 30857 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-18 20:58:15.202  INFO 30857 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
