@@ -35,7 +35,7 @@ public class BrewDetailsView extends CustomDetailView<Brew> {
 
     @Override
     protected String getBackRoute() {
-        return null;
+        return "brewhousesearch";
     }
 
     @Override

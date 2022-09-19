@@ -80,7 +80,7 @@ public abstract class CustomGridView<E> extends CustomView{
      *
      * @param filterText
      */
-    protected void updateGridDataListWithSearchField(String filterText) {   }
+    protected abstract void updateGridDataListWithSearchField(String filterText);
 
     protected void setResizeableSortableGrid(Integer columnCountResizeable,
                                              Integer columnCountSortable) {

@@ -1,6 +1,7 @@
 package com.ale.filso.views.brewhouse;
 
 import com.ale.filso.models.Brew.Brew;
+import com.ale.filso.models.Brew.BrewService;
 import com.ale.filso.models.User.Role;
 import com.ale.filso.seciurity.AuthenticatedUser;
 import com.ale.filso.views.MainLayout;
@@ -17,9 +18,11 @@ import java.util.HashMap;
 @PageTitle("Warzelnia")
 public class BrewHouseSearchView extends CustomGridView<Brew> {
 
+    BrewService service;
 
-    BrewHouseSearchView(AuthenticatedUser authenticatedUser){
+    BrewHouseSearchView(AuthenticatedUser authenticatedUser, BrewService service){
         super(authenticatedUser, new Grid<>(Brew.class, false), new Brew());
+        this.service = service;
         createView();
     }
     @Override
@@ -59,5 +62,12 @@ public class BrewHouseSearchView extends CustomGridView<Brew> {
 
         createSearchField();
 
+    }
+
+    @Override
+    protected void updateGridDataListWithSearchField(String filterText) {
+        // refresh filter data
+        grid.setItems(service.getAll());
+        //entityFilter.setDataView(grid.setItems(projectDbViewService.findAll(filterText)));
     }
 }

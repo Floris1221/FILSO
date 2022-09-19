@@ -155,11 +155,11 @@ public class MainLayout extends AppLayout {
                     tab.add(createTab(getTranslation("app.title.brewHouse.menu"), new LineAwesomeIcon("las la-beer", "text-l"), BrewHouseSearchView.class));
                     tab.add(createTab(getTranslation("app.title.fermentationPlant.menu"), new LineAwesomeIcon("las la-percentage", "text-l"), test.class));
                     tab.add(createTab(getTranslation("app.title.bottlingPlant.menu"), new LineAwesomeIcon("las la-wine-bottle", "text-l"), test.class));
-                    tab.add(createTab(getTranslation("app.title.warehouse.menu"), new LineAwesomeIcon("las la-boxes", "text-l"), test.class));
+                    tab.add(createTab(getTranslation("app.title.wareHouse.menu"), new LineAwesomeIcon("las la-boxes", "text-l"), test.class));
+                    tab.add(createTab(getTranslation("app.title.cip.menu"), new LineAwesomeIcon("las la-broom", "text-l"), test.class));
                 }
                 if (authenticatedUser.hasRole(Role.ADMIN)) {
                     tab.add(createTab(getTranslation("app.title.office.menu"), new LineAwesomeIcon("lar la-building", "text-l"), test.class));
-                    tab.add(createTab(getTranslation("app.title.administration.menu"), new LineAwesomeIcon("las la-user-shield", "text-l"), test.class));
                 }
             }
         }
