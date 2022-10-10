@@ -1,6 +1,5 @@
 package com.ale.filso.views.components;
 
-import com.ale.filso.models.Brew.Brew;
 import com.ale.filso.seciurity.AuthenticatedUser;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
@@ -34,7 +33,7 @@ public abstract class CustomDetailView<E> extends VerticalLayout implements Befo
     @Override
     public void beforeEnter(BeforeEnterEvent event){
         try {
-            id = Integer.valueOf(event.getRouteParameters().get("id").orElse("0"));
+            id = Integer.valueOf(event.getRouteParameters().get("id").get());
             if(id == 0)
                 addNewObject = true;
             entity = getEditedObjectById(id);
@@ -110,7 +109,5 @@ public abstract class CustomDetailView<E> extends VerticalLayout implements Befo
             if (!component.equals(comp)) tab.setEnabled(!isDataModifiedInTab); });
 
     }
-
-
 
 }

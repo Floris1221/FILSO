@@ -1,5 +1,6 @@
 package com.ale.filso.views.components;
 
+import com.ale.filso.models.Dictionary.Dictionary;
 import com.ale.filso.seciurity.AuthenticatedUser;
 import com.ale.filso.views.components.Enums.ButtonType;
 import com.ale.filso.views.components.customField.CustomButton;
@@ -51,4 +52,26 @@ public class CustomView extends Div implements BeforeEnterObserver, BeforeLeaveO
             saveButton.setEnabled(isModified);
         }
     }
+
+
+    /**
+     * get name from entity dictionary
+     *
+     * @param dictionary
+     * @return
+     */
+    protected String getDictName(Dictionary dictionary) {
+        return dictionary == null ? "" : dictionary.getName();
+    }
+
+    /**
+     * get shortName from entity dictionary
+     *
+     * @param dictionary
+     * @return
+     */
+    protected String getDictShortName(Dictionary dictionary) {
+        return dictionary == null ? "" : dictionary.getShortName();
+    }
+
 }
