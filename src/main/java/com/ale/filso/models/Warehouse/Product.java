@@ -12,7 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 @Entity
 @Getter
@@ -38,10 +40,18 @@ public class Product extends AbstractEntity {
     private BigDecimal quantity;
 
     /**
+     * Jednostka miary
+     */
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "unit_of_measure_id", nullable = false)
+    private Dictionary unitOfMeasure;
+
+    /**
      * Data ważności
      */
     @NotNull
-    private LocalDateTime expirationDate;
+    private LocalDate expirationDate;
 
     /**
      * Typ produktu
@@ -50,4 +60,18 @@ public class Product extends AbstractEntity {
     @JsonBackReference
     @JoinColumn(name = "product_type_id", nullable = false)
     private Dictionary productType;
+
+
+    /**
+     * Return color of expiration
+     * @return
+     */
+    public String getExpirationColor() {
+        if (this.expirationDate==null) return null;
+        long days = ChronoUnit.DAYS.between(LocalDate.now(),this.expirationDate);
+        if(days <= 0) return "background-error";
+        //if (days <= 14) return "background: #FF8C00"; //todo ogranąć te jebane kolory
+        if(days <= 30) return "background-warn";
+        return null;
+    }
 }

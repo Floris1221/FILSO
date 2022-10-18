@@ -17,8 +17,13 @@ public class BrewService {
         return brewRepo.getBrewById(id);
     }
 
-    public List<Brew> getAll(){
-        return brewRepo.getAll();
+    public List<Brew> getAll(String text){
+        if (text == null || text.isEmpty()) {
+            return brewRepo.getAll();
+        } else {
+            return brewRepo.search(text);
+        }
+
     }
 
     public Brew update(Brew entity){

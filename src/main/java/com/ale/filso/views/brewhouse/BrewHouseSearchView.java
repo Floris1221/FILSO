@@ -66,8 +66,9 @@ public class BrewHouseSearchView extends CustomGridView<Brew> {
 
     @Override
     protected void updateGridDataListWithSearchField(String filterText) {
+        super.updateGridDataListWithSearchField(filterText);
         // refresh filter data
-        grid.setItems(service.getAll());
+        grid.setItems(service.getAll(filterText));
         //entityFilter.setDataView(grid.setItems(projectDbViewService.findAll(filterText)));
     }
 }
