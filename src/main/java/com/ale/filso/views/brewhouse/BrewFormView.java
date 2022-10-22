@@ -74,7 +74,7 @@ public class BrewFormView extends CustomFormLayoutView<Brew> {
                 .asRequired(getTranslation("app.validation.notEmpty"))
                 .bind(Brew::getNumber, Brew::setNumber);
 
-        CustomBigDecimalField assumedBlgField = new CustomBigDecimalField(getTranslation("models.brew.assumedBlg"), "%");
+        CustomBigDecimalField assumedBlgField = new CustomBigDecimalField(getTranslation("models.brew.assumedBlg"), "%", true);
         binder.forField(assumedBlgField)
                 .asRequired(getTranslation("app.validation.notEmpty"))
                 .bind(Brew::getAssumedBlg, Brew::setAssumedBlg);

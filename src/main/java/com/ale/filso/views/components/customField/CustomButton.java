@@ -36,6 +36,10 @@ public class CustomButton extends Button{
             key = new String("app.button.cancel");
             this.setText(getTranslation(key));
             this.setIcon(new Icon("lumo", "undo"));
+        } else if (buttonType==ButtonType.DELETE) {
+            key = new String("app.button.delete");
+            this.setText(getTranslation(key));
+            this.setIcon(new Icon("vaadin", "trash"));
         }
         this.setId(key);
     }

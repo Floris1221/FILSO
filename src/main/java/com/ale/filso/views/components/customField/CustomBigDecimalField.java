@@ -9,17 +9,20 @@ import java.math.RoundingMode;
 
 public class CustomBigDecimalField extends BigDecimalField {
 
-    public CustomBigDecimalField(String key, String suffix){
+    public CustomBigDecimalField(String key, String suffix, boolean haveParent){
         super(key);
         setPattern(calcPattern(1));
-        setPreventInvalidInput(true);
+        if(haveParent)
+            setPreventInvalidInput(true);
         if (suffix!=null) {
             Div divSuffix = new Div();
             divSuffix.setText(suffix);
             this.setSuffixComponent(divSuffix);
         }
-        addListeners();
+        if(haveParent)
+            addListeners();
     }
+
 
     private void addListeners() {
         this.addInputListener(event -> {

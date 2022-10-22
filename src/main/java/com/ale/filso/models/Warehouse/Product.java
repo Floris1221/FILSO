@@ -6,9 +6,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
@@ -17,6 +15,9 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 @Entity
+@Table(indexes = {
+        @Index(name = "idx_product_product_type_id", columnList = "product_type_id, unit_of_measure_id")
+})
 @Getter
 @Setter
 public class Product extends AbstractEntity {
@@ -70,7 +71,7 @@ public class Product extends AbstractEntity {
         if (this.expirationDate==null) return null;
         long days = ChronoUnit.DAYS.between(LocalDate.now(),this.expirationDate);
         if(days <= 0) return "background-error";
-        //if (days <= 14) return "background: #FF8C00"; //todo ogranąć te jebane kolory
+        if (days <= 14) return "background-beforeError";
         if(days <= 30) return "background-warn";
         return null;
     }

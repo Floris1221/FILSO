@@ -4,5 +4,6 @@ public enum ButtonType {
     SAVE,
     ADD,
     CANCEL,
-    DETAILS
+    DETAILS,
+    DELETE
 }

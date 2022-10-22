@@ -2,7 +2,9 @@ package com.ale.filso.views.brewhouse;
 
 import com.ale.filso.models.Brew.Brew;
 import com.ale.filso.models.Brew.BrewService;
+import com.ale.filso.models.Brew.IngredientService;
 import com.ale.filso.models.Dictionary.DictionaryCache;
+import com.ale.filso.models.Warehouse.ProductService;
 import com.ale.filso.seciurity.AuthenticatedUser;
 import com.ale.filso.views.MainLayout;
 import com.ale.filso.views.components.CustomDetailView;
@@ -19,12 +21,18 @@ import javax.annotation.security.RolesAllowed;
 public class BrewDetailsView extends CustomDetailView<Brew> {
 
     BrewService service;
+    IngredientService ingredientService;
     DictionaryCache dictionaryCache;
+    ProductService productService;
 
-    protected BrewDetailsView(AuthenticatedUser authenticatedUser, BrewService service, DictionaryCache dictionaryCache) {
+    protected BrewDetailsView(AuthenticatedUser authenticatedUser, BrewService service, DictionaryCache dictionaryCache,
+                              IngredientService ingredientService, ProductService productService) {
         super(authenticatedUser, new Brew());
         this.service = service;
         this.dictionaryCache = dictionaryCache;
+        this.ingredientService = ingredientService;
+        this.productService = productService;
+
     }
 
     @Override
@@ -45,7 +53,7 @@ public class BrewDetailsView extends CustomDetailView<Brew> {
         contents.put(new Tab(getTranslation("item.brew.brew")),
                 new BrewFormView(authenticatedUser, service, entity));
         contents.put(new Tab(getTranslation("item.brew.ingredients")),
-                new DictionarySearchView(authenticatedUser, dictionaryCache));    // create on first tab click
+                new IngredientSearchView(authenticatedUser, dictionaryCache, ingredientService, productService, this));    // create on first tab click
     }
 
     @Override
@@ -53,6 +61,6 @@ public class BrewDetailsView extends CustomDetailView<Brew> {
         if(tab.getId().orElse("").equals(getTranslation("item.brew.brew")))
             contents.replace(tab, new BrewFormView(authenticatedUser, service, entity));
         else if(tab.getId().orElse("").equals(getTranslation("item.brew.ingredients")))
-            contents.replace(tab, new DictionarySearchView(authenticatedUser, dictionaryCache));
+            contents.replace(tab, new IngredientSearchView(authenticatedUser, dictionaryCache, ingredientService, productService, this));
     }
 }

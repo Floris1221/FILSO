@@ -5,10 +5,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
+@Table(name = "Dictionary", indexes = {
+        @Index(name = "idx_dictionary", columnList = "dictionaryGroup")
+})
 @Getter
 @Setter
 public class Dictionary extends AbstractEntity {

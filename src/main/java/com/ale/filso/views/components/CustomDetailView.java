@@ -20,7 +20,7 @@ public abstract class CustomDetailView<E> extends VerticalLayout implements Befo
         HasTabs{
 
     protected Integer id;
-    protected E entity;
+    public E entity;
     protected Map<Tab, Component> contents = new LinkedHashMap<>();
     boolean addNewObject = false;
     protected AuthenticatedUser authenticatedUser;
