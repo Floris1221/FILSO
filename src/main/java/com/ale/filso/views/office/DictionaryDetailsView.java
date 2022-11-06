@@ -5,12 +5,16 @@ import com.ale.filso.models.Dictionary.DictionaryCache;
 import com.ale.filso.models.Dictionary.DictionaryGroup;
 import com.ale.filso.models.User.Role;
 import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.MainLayout;
 import com.ale.filso.views.components.CustomGridView;
 import com.ale.filso.views.components.Enums.ButtonType;
 import com.ale.filso.views.components.customField.CustomButton;
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
@@ -26,6 +30,8 @@ import org.springframework.dao.OptimisticLockingFailureException;
 
 import javax.annotation.security.RolesAllowed;
 
+import static com.ale.filso.APPCONSTANT.*;
+
 @Route(value = "dictionary/:id?", layout = MainLayout.class)
 @PageTitle("Szczegóły słownika")
 @RolesAllowed("admin")
@@ -38,8 +44,8 @@ public class DictionaryDetailsView extends CustomGridView<Dictionary> implements
     protected Integer id;
     DictionaryCache dictionaryCache;
 
-    protected DictionaryDetailsView(AuthenticatedUser authenticatedUser, DictionaryCache dictionaryCache) {
-        super(authenticatedUser, new Grid<>(Dictionary.class, false), new Dictionary());
+    protected DictionaryDetailsView(UserAuthorization userAuthorization, DictionaryCache dictionaryCache) {
+        super(userAuthorization, new Grid<>(Dictionary.class, false), new Dictionary());
         binder =  new Binder<>(Dictionary.class);
         entity = new Dictionary();
         this.dictionaryCache = dictionaryCache;
@@ -48,7 +54,7 @@ public class DictionaryDetailsView extends CustomGridView<Dictionary> implements
 
     @Override
     protected void createButtonsPanel() {
-        addButtonToTablePanel(ButtonType.ADD, authenticatedUser.hasRole(Role.ADMIN))
+        addButtonToTablePanel(ButtonType.ADD, userAuthorization.hasRole(Role.ADMIN))
                 .addClickListener(event -> detailsAction());
     }
 
@@ -66,7 +72,24 @@ public class DictionaryDetailsView extends CustomGridView<Dictionary> implements
 
         setResizeableSortableGrid(null,null);
 
+        //create back arrow button
+        Icon backIcon = new Icon("vaadin", "arrow-left");
+        backIcon.getStyle().set("font-size","0.8rem");
+        backIcon.getStyle().set("align-self","center");
+        backIcon.addClickListener(event -> UI.getCurrent().navigate(ROUTE_DICTIONARY_SEARCH_VIEW));
+        backIcon.getElement().setAttribute("title",getTranslation("app.message.back"));
+        backIcon.getElement().getThemeList().add("badge primary");
+        //add back arrow button to layout
+        tableSearchHl.add(backIcon);
+
+        //create search view
         createSearchField();
+
+
+    }
+
+    private String getBackRoute() {
+        return ROUTE_DICTIONARY_SEARCH_VIEW;
     }
 
     @Override

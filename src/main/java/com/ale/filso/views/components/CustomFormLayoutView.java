@@ -1,6 +1,7 @@
 package com.ale.filso.views.components;
 
 import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.seciurity.UserAuthorization;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
@@ -16,8 +17,8 @@ public abstract class CustomFormLayoutView<E> extends CustomView{
     protected FormLayout formLayout = new FormLayout();
     protected HorizontalLayout buttonLayout = new HorizontalLayout();
 
-    protected CustomFormLayoutView(AuthenticatedUser authenticatedUser, E entity, Binder<E> binder) {
-        super(authenticatedUser);
+    protected CustomFormLayoutView(UserAuthorization userAuthorization, E entity, Binder<E> binder) {
+        super(userAuthorization);
         this.entity = entity;
         this.binder = binder;
     }

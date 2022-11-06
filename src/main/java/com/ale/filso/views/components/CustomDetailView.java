@@ -1,6 +1,7 @@
 package com.ale.filso.views.components;
 
 import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.seciurity.UserAuthorization;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
@@ -23,11 +24,11 @@ public abstract class CustomDetailView<E> extends VerticalLayout implements Befo
     public E entity;
     protected Map<Tab, Component> contents = new LinkedHashMap<>();
     boolean addNewObject = false;
-    protected AuthenticatedUser authenticatedUser;
+    protected UserAuthorization userAuthorization;
 
-    protected CustomDetailView(AuthenticatedUser authenticatedUser, E entity) {
+    protected CustomDetailView(UserAuthorization userAuthorization, E entity) {
         this.entity = entity;
-        this.authenticatedUser = authenticatedUser;
+        this.userAuthorization = userAuthorization;
     }
 
     @Override

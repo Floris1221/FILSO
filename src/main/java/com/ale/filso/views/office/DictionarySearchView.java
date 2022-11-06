@@ -3,17 +3,23 @@ package com.ale.filso.views.office;
 import com.ale.filso.models.Dictionary.DictionaryCache;
 import com.ale.filso.models.Dictionary.DictionaryGroup;
 import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.seciurity.UserAuthorization;
+import com.ale.filso.views.MainLayout;
 import com.ale.filso.views.components.CustomGridView;
 import com.ale.filso.views.components.Enums.ButtonType;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
 
 import java.util.HashMap;
 
+@Route(value = "dictionarySearch", layout = MainLayout.class)
+@PageTitle("Słowniki")
 public class DictionarySearchView extends CustomGridView<DictionaryGroup> {
 
     private DictionaryCache dictionaryCache;
-    public DictionarySearchView(AuthenticatedUser authenticatedUser, DictionaryCache dictionaryCache) {
-        super(authenticatedUser, new Grid<>(DictionaryGroup.class, false), new DictionaryGroup());
+    public DictionarySearchView(UserAuthorization userAuthorization, DictionaryCache dictionaryCache) {
+        super(userAuthorization, new Grid<>(DictionaryGroup.class, false), new DictionaryGroup());
 
         this.dictionaryCache = dictionaryCache;
         createView();

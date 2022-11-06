@@ -2,6 +2,7 @@ package com.ale.filso.views.office;
 
 import com.ale.filso.models.Dictionary.DictionaryCache;
 import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.MainLayout;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.html.Div;
@@ -24,10 +25,10 @@ public class OfficeView extends VerticalLayout {
     DictionaryCache dictionaryCache;
 
     protected Map<Tab, Component> contents = new LinkedHashMap<>();
-    protected AuthenticatedUser authenticatedUser;
+    protected UserAuthorization userAuthorization;
 
-    protected OfficeView(AuthenticatedUser authenticatedUser, DictionaryCache dictionaryCache) {
-        this.authenticatedUser = authenticatedUser;
+    protected OfficeView(UserAuthorization userAuthorization, DictionaryCache dictionaryCache) {
+        this.userAuthorization = userAuthorization;
         this.dictionaryCache = dictionaryCache;
         buildContentAndTabs();
     }
@@ -75,11 +76,11 @@ public class OfficeView extends VerticalLayout {
 
     private void createDynamicTabOnFirstClick(Tab tab) {
         if(tab.getId().orElse("").equals(getTranslation("item.office.dictionary")))
-            contents.replace(tab, new DictionarySearchView(authenticatedUser, dictionaryCache));
+            contents.replace(tab, new DictionarySearchView(userAuthorization, dictionaryCache));
     }
 
     private void createContents() {
         contents.put(new Tab(getTranslation("item.office.dictionary")),
-                new DictionarySearchView(authenticatedUser, dictionaryCache));
+                new DictionarySearchView(userAuthorization, dictionaryCache));
     }
 }

@@ -1,6 +1,7 @@
 package com.ale.filso.views.components;
 
 import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.components.Enums.ButtonType;
 import com.ale.filso.views.components.customField.CustomButton;
 import com.vaadin.flow.component.Component;
@@ -24,14 +25,14 @@ public abstract class CustomGridView<E> extends CustomView{
 
     protected Grid<E> grid;
     protected HorizontalLayout topButtonsPanel = new HorizontalLayout();
-    private HorizontalLayout tableSearchHl = new HorizontalLayout();
+    protected HorizontalLayout tableSearchHl = new HorizontalLayout();
 
     // selected row - in edit table
     protected E selectedEntity;
 
 
-    protected CustomGridView(AuthenticatedUser authenticatedUser, Grid<E> grid, E selectedEntity){
-        super(authenticatedUser);
+    protected CustomGridView(UserAuthorization userAuthorization, Grid<E> grid, E selectedEntity){
+        super(userAuthorization);
         this.grid = grid;
         this.selectedEntity = selectedEntity;
     }

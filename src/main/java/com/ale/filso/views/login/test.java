@@ -1,6 +1,7 @@
 package com.ale.filso.views.login;
 
 import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.MainLayout;
 import com.ale.filso.views.brewhouse.BrewHouseSearchView;
 import com.ale.filso.views.components.CustomView;
@@ -17,8 +18,8 @@ import java.awt.*;
 @PageTitle("Test")
 public class test extends CustomView {
 
-    public test(AuthenticatedUser authenticatedUser){
-        super(authenticatedUser);
+    public test(UserAuthorization userAuthorization){
+        super(userAuthorization);
         VerticalLayout verticalLayout = new VerticalLayout();
         Button button = new Button("Hello");
         verticalLayout.add(button);

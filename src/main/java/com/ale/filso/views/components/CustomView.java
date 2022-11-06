@@ -2,6 +2,7 @@ package com.ale.filso.views.components;
 
 import com.ale.filso.models.Dictionary.Dictionary;
 import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.components.Enums.ButtonType;
 import com.ale.filso.views.components.customField.CustomButton;
 import com.vaadin.flow.component.Component;
@@ -14,21 +15,37 @@ import java.util.Map;
 public class CustomView extends Div implements BeforeEnterObserver, BeforeLeaveObserver{
 
     protected boolean isDataModified;
-    protected AuthenticatedUser authenticatedUser;
+    protected UserAuthorization userAuthorization;
 
     protected CustomButton saveButton = new CustomButton(ButtonType.SAVE, true);
     protected CustomButton cancelButton = new CustomButton(ButtonType.CANCEL, true);
 
 
-    protected CustomView(AuthenticatedUser authenticatedUser){
-        this.authenticatedUser = authenticatedUser;
+    protected CustomView(UserAuthorization userAuthorization){
+        this.userAuthorization = userAuthorization;
 
         saveButton.setEnabled(false);
     }
 
-    public void navigateTo(Class<? extends Component> navigationTarget, Map<String, String> parameters){
+    protected void navigateTo(Class<? extends Component> navigationTarget, Map<String, String> parameters){
         UI.getCurrent().navigate(navigationTarget, new RouteParameters(parameters));
     }
+
+    protected void callUrl(String myEditEntityUrl, Integer objectId) {
+        UI.getCurrent().access(() -> {
+            UI.getCurrent().getPage()
+                    .executeJs("window.location.href = \""+userAuthorization.getAppUrl()
+                            +String.format(myEditEntityUrl, objectId)+ "\""); });
+    }
+
+    protected void callUrlWithOutParam(String myEditEntityUrl) {
+        UI.getCurrent().access(() -> {
+            UI.getCurrent().getPage()
+                    .executeJs("window.location.href = \""+userAuthorization.getAppUrl()
+                            +myEditEntityUrl+ "\""); });
+    }
+
+
 
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {

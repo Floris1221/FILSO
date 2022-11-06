@@ -4,6 +4,7 @@ import com.ale.filso.models.Brew.Brew;
 import com.ale.filso.models.Brew.BrewService;
 import com.ale.filso.models.User.Role;
 import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.MainLayout;
 import com.ale.filso.views.components.CustomGridView;
 import com.ale.filso.views.components.Enums.ButtonType;
@@ -14,20 +15,20 @@ import com.vaadin.flow.router.Route;
 import java.util.HashMap;
 
 
-@Route(value = "brewhousesearch", layout = MainLayout.class)
+@Route(value = "brewHouseSearch", layout = MainLayout.class)
 @PageTitle("Warzelnia")
 public class BrewHouseSearchView extends CustomGridView<Brew> {
 
     BrewService service;
 
-    BrewHouseSearchView(AuthenticatedUser authenticatedUser, BrewService service){
-        super(authenticatedUser, new Grid<>(Brew.class, false), new Brew());
+    BrewHouseSearchView(UserAuthorization userAuthorization, BrewService service){
+        super(userAuthorization, new Grid<>(Brew.class, false), new Brew());
         this.service = service;
         createView();
     }
     @Override
     protected void createButtonsPanel() {
-        addButtonToTablePanel(ButtonType.ADD, authenticatedUser.hasRole(Role.ADMIN))
+        addButtonToTablePanel(ButtonType.ADD, userAuthorization.hasRole(Role.ADMIN))
                 .addClickListener(event -> detailsAction(0));
 
         addButtonToTablePanel(ButtonType.DETAILS,true)

@@ -4,6 +4,7 @@ package com.ale.filso.views;
 import com.ale.filso.models.User.Role;
 import com.ale.filso.models.User.User;
 import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.brewhouse.BrewHouseSearchView;
 import com.ale.filso.views.login.test;
 import com.ale.filso.views.office.OfficeView;
@@ -36,11 +37,13 @@ import java.util.Optional;
 @PageTitle("Main")
 public class MainLayout extends AppLayout {
 
+    private UserAuthorization userAuthorization;
     private AuthenticatedUser authenticatedUser;
     private final Tabs menu;
     private H1 viewTitle;
 
-    public MainLayout(AuthenticatedUser authenticatedUser) {
+    public MainLayout(UserAuthorization userAuthorization, AuthenticatedUser authenticatedUser) {
+        this.userAuthorization = userAuthorization;
         this.authenticatedUser = authenticatedUser;
         // Use the drawer for the menu
         setPrimarySection(Section.DRAWER);
@@ -153,14 +156,14 @@ public class MainLayout extends AppLayout {
         List<Tab> tab = new ArrayList<>();
         if (isUser.isPresent()) {
             {
-                if (authenticatedUser.hasRole(Role.USER)) {
+                if (userAuthorization.hasRole(Role.USER)) {
                     tab.add(createTab(getTranslation("app.title.brewHouse.menu"), new LineAwesomeIcon("las la-beer", "text-l"), BrewHouseSearchView.class));
                     tab.add(createTab(getTranslation("app.title.fermentationPlant.menu"), new LineAwesomeIcon("las la-percentage", "text-l"), test.class));
                     tab.add(createTab(getTranslation("app.title.bottlingPlant.menu"), new LineAwesomeIcon("las la-wine-bottle", "text-l"), test.class));
                     tab.add(createTab(getTranslation("app.title.wareHouse.menu"), new LineAwesomeIcon("las la-boxes", "text-l"), WareHouseSearchView.class));
                     tab.add(createTab(getTranslation("app.title.cip.menu"), new LineAwesomeIcon("las la-broom", "text-l"), test.class));
                 }
-                if (authenticatedUser.hasRole(Role.ADMIN)) {
+                if (userAuthorization.hasRole(Role.ADMIN)) {
                     tab.add(createTab(getTranslation("app.title.office.menu"), new LineAwesomeIcon("lar la-building", "text-l"), OfficeView.class));
                 }
             }

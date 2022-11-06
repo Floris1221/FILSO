@@ -62,6 +62,12 @@ public class Product extends AbstractEntity {
     @JoinColumn(name = "product_type_id", nullable = false)
     private Dictionary productType;
 
+    /**
+     * Powód usunięcia
+     */
+    @Size(max = 1000, message = "Max 1000 znaków")
+    private String deleteReason;
+
 
     /**
      * Return color of expiration

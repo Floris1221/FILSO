@@ -6,7 +6,11 @@ import com.ale.filso.models.User.User;
 import com.ale.filso.models.User.UserRepo;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.server.VaadinServletRequest;
+
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -49,8 +53,8 @@ public class AuthenticatedUser {
         logoutHandler.logout(VaadinServletRequest.getCurrent().getHttpServletRequest(), null, null);
     }
 
-    public boolean hasRole(Role role){
-        return this.get().get().getRoles().contains(role);
+    public Set<Role> getUserRoles(){
+        return this.get().get().getRoles();
     }
 
 }

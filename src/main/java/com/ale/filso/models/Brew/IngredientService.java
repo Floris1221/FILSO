@@ -5,6 +5,7 @@ import com.ale.filso.models.Warehouse.ProductRepo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -18,25 +19,30 @@ public class IngredientService {
         this.productRepo = productRepo;
     }
 
-    public List<Ingredient> findAllActive(String text){
+    public List<Ingredient> findAllActive(String text, Integer brewId){
         if(text == null || text.isEmpty())
-            return ingredientRepo.findAllActive();
+            return ingredientRepo.findActiveByBrew(brewId);
         else
-            return ingredientRepo.search(text);
+            return ingredientRepo.search(text, brewId);
     }
 
     @Transactional
     public Ingredient update(Ingredient entity){
         Product productToUpdate = entity.getProduct();
         productToUpdate.setQuantity(productToUpdate.getQuantity().subtract(entity.getQuantity()));
+        if(productToUpdate.getQuantity().compareTo(new BigDecimal(0)) == 0)
+            productToUpdate.setActive(false);
         Product product = productRepo.save(productToUpdate);
         return ingredientRepo.save(entity);
     }
 
     @Transactional
     public void delete(Ingredient entity, String userName){
+        //Change product quantity after take product to ingredient
         Product productToUpdate = entity.getProduct();
         productToUpdate.setQuantity(productToUpdate.getQuantity().add(entity.getQuantity()));
+        if(productToUpdate.getQuantity().compareTo(new BigDecimal(0)) == 0)
+            productToUpdate.setActive(false);
         Product product = productRepo.save(productToUpdate);
         ingredientRepo.deleteActiveById(entity.getId(), userName);
     }

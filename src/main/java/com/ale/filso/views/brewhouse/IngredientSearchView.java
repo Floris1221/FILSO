@@ -7,6 +7,7 @@ import com.ale.filso.models.User.Role;
 import com.ale.filso.models.Warehouse.Product;
 import com.ale.filso.models.Warehouse.ProductService;
 import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.brewhouse.filter.IngredientFilter;
 import com.ale.filso.views.components.CustomGridView;
 import com.ale.filso.views.components.Enums.ButtonType;
@@ -26,7 +27,6 @@ import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.BigDecimalField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValidationException;
@@ -59,10 +59,10 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
     Grid<Product> productGrid;
 
 
-    protected IngredientSearchView(AuthenticatedUser authenticatedUser, DictionaryCache dictionaryCache,
+    protected IngredientSearchView(UserAuthorization userAuthorization, DictionaryCache dictionaryCache,
                                    IngredientService ingredientService, ProductService productService,
                                    BrewDetailsView brewDetailsView) {
-        super(authenticatedUser, new Grid<>(Ingredient.class, false), new Ingredient());
+        super(userAuthorization, new Grid<>(Ingredient.class, false), new Ingredient());
 
         this.brewDetailsView = brewDetailsView;
         binder =  new Binder<>(Ingredient.class);
@@ -128,11 +128,11 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
         CustomButton cancelDialogButton = new CustomButton(ButtonType.CANCEL, true);
         cancelDialogButton.addClickListener(event -> {  deleteDialog.close();  });
         deleteDialog.getFooter().add(cancelDialogButton);
-        CustomButton confirmDialogButton = new CustomButton(ButtonType.DELETE, authenticatedUser.hasRole(Role.ADMIN));
+        CustomButton confirmDialogButton = new CustomButton(ButtonType.DELETE, userAuthorization.hasRole(Role.ADMIN));
         confirmDialogButton.addClickListener(event -> {
             try {
                 if(entity.getId() != null){
-                    ingredientService.delete(entity, authenticatedUser.getUsername());
+                    ingredientService.delete(entity, userAuthorization.getUserAuth().getLogin());
                 }
                 grid.getListDataView().removeItem(entity);
                 grid.getListDataView().refreshAll();
@@ -149,10 +149,12 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
 
     @Override
     protected void createButtonsPanel() {
-        addButtonToTablePanel(ButtonType.ADD, authenticatedUser.hasRole(Role.ADMIN))
+        addButtonToTablePanel(ButtonType.ADD, userAuthorization.hasRole(Role.ADMIN))
                 .addClickListener(event -> detailsAction(0));
-        addButtonToTablePanel(ButtonType.DETAILS, authenticatedUser.hasRole(Role.ADMIN))
+        addButtonToTablePanel(ButtonType.DETAILS, userAuthorization.hasRole(Role.ADMIN))
                 .addClickListener(event -> detailsAction(selectedEntity.getId()));
+
+        grid.addItemDoubleClickListener(event -> detailsAction(selectedEntity.getId()));
 
         grid.asSingleSelect().addValueChangeListener(event -> {     // grid select action
             if (event.getValue() != null) {
@@ -178,7 +180,7 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
     protected void updateGridDataListWithSearchField(String filterText) {
         super.updateGridDataListWithSearchField(filterText);
         // refresh filter data
-        entityFilter.setDataView(grid.setItems(ingredientService.findAllActive(filterText)));
+        entityFilter.setDataView(grid.setItems(ingredientService.findAllActive(filterText, brewDetailsView.entity.getId())));
     }
 
     private void createDialog() {
@@ -188,7 +190,7 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
 
         dialog.add(createDialogLayout());
 
-        saveButton = new CustomButton(ButtonType.SAVE, authenticatedUser.hasRole(Role.ADMIN));
+        saveButton = new CustomButton(ButtonType.SAVE, userAuthorization.hasRole(Role.ADMIN));
         cancelButton = new CustomButton(ButtonType.CANCEL, true);
         dialog.getFooter().add(cancelButton);
         dialog.getFooter().add(addButton);
@@ -283,12 +285,10 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
 
     protected void buttonsDialogActions(){
         addButton.addClickListener(e -> {
-            acceptanceDialog.setHeaderTitle(productEntity.getName() + " ["+getDictName(productEntity.getProductType())+
-                    "]");
-            acceptanceDialog.open();
-            entity.setProduct(productEntity);
-            binder.readBean(entity);
+            addNewIngredient();
         });
+
+        productGrid.addItemDoubleClickListener(event -> addNewIngredient());
 
 
         saveButton.addClickListener(e -> {
@@ -324,5 +324,13 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
 
         cancelButton.addClickListener(e -> dialog.close());
         cancelAcceptanceButton.addClickListener(e -> acceptanceDialog.close());
+    }
+
+    public void addNewIngredient(){
+        acceptanceDialog.setHeaderTitle(productEntity.getName() + " ["+getDictName(productEntity.getProductType())+
+                "]");
+        acceptanceDialog.open();
+        entity.setProduct(productEntity);
+        binder.readBean(entity);
     }
 }

@@ -1,30 +1,39 @@
 package com.ale.filso.views.warehouse;
 
+import com.ale.filso.models.Brew.Brew;
+import com.ale.filso.models.Brew.Ingredient;
 import com.ale.filso.models.Dictionary.Dictionary;
 import com.ale.filso.models.Dictionary.DictionaryCache;
 import com.ale.filso.models.User.Role;
 import com.ale.filso.models.Warehouse.Product;
 import com.ale.filso.models.Warehouse.ProductService;
 import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.MainLayout;
 import com.ale.filso.views.components.CustomGridView;
 import com.ale.filso.views.components.Enums.ButtonType;
 import com.ale.filso.views.components.customField.*;
 import com.ale.filso.views.warehouse.filter.WareHouseFilter;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.HeaderRow;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.BigDecimalField;
+import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValidationException;
+import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.springframework.dao.OptimisticLockingFailureException;
@@ -40,17 +49,19 @@ public class WareHouseSearchView extends CustomGridView<Product> {
 
     Dialog dialog = new Dialog();
     Binder<Product> binder;
+    Binder<Product> deleteBinder;
     DictionaryCache dictionaryCache;
     ProductService productService;
     Product entity;
     WareHouseFilter entityFilter = new WareHouseFilter();
 
 
-    protected WareHouseSearchView(AuthenticatedUser authenticatedUser, DictionaryCache dictionaryCache,
+    protected WareHouseSearchView(UserAuthorization userAuthorization, DictionaryCache dictionaryCache,
                                   ProductService productService) {
-        super(authenticatedUser, new Grid<>(Product.class, false), new Product());
+        super(userAuthorization, new Grid<>(Product.class, false), new Product());
 
         binder =  new Binder<>(Product.class);
+        deleteBinder = new Binder<>(Product.class);
         entity = new Product();
 
         this.dictionaryCache = dictionaryCache;
@@ -92,15 +103,69 @@ public class WareHouseSearchView extends CustomGridView<Product> {
                 filtering.createComboFilterHeaderDictionary(entityFilter::setProductType,
                         dictionaryCache.findByGroup(PRODUCT_TYPE)));
 
+        //Delete button
+        grid.addColumn(
+                new ComponentRenderer<>(Button::new, (button, product) -> {
+                    button.addThemeVariants(ButtonVariant.LUMO_ICON,
+                            ButtonVariant.LUMO_ERROR,
+                            ButtonVariant.LUMO_TERTIARY);
+                    button.addClickListener(e -> this.deleteProduct(product));
+                    button.setIcon(new Icon(VaadinIcon.TRASH));
+                })).setHeader(getTranslation("ingredientView.grid.delete"));
+
 
         setResizeableSortableGrid(null,null);
 
         createSearchField();
     }
 
+
+    private void deleteProduct(Product entity) {
+        Dialog deleteDialog = new Dialog();
+        deleteDialog.setHeaderTitle(getTranslation("warehouseView.dialog.delete.header"));
+        deleteDialog.add(getTranslation("warehouseView.dialog.delete.text"));
+
+        //todo ten jebany binder chyba trzeba dać delete binder i chuj
+        //Reason why
+        TextArea deleteReasonField = new TextArea();
+        deleteBinder.forField(deleteReasonField)
+                .asRequired(getTranslation("app.validation.notEmpty"))
+                .bind(Product::getDeleteReason, Product::setDeleteReason);
+
+        deleteBinder.readBean(entity);
+
+        HorizontalLayout h1 = new HorizontalLayout();
+        h1.add(deleteReasonField);
+
+        deleteDialog.add(h1);
+
+        CustomButton cancelDialogButton = new CustomButton(ButtonType.CANCEL, true);
+        cancelDialogButton.addClickListener(event -> {  deleteDialog.close();  });
+        deleteDialog.getFooter().add(cancelDialogButton);
+        CustomButton confirmDialogButton = new CustomButton(ButtonType.DELETE, userAuthorization.hasRole(Role.ADMIN));
+        confirmDialogButton.addClickListener(event -> {
+            try {
+                deleteBinder.writeBean(entity);
+                productService.delete(entity, userAuthorization.getUserAuth().getLogin());
+                grid.getListDataView().removeItem(entity);
+                grid.getListDataView().refreshAll();
+                deleteBinder.readBean(new Product());
+                deleteDialog.close();
+
+                Notification.show(getTranslation("app.message.saveOk")).addThemeVariants(NotificationVariant.LUMO_SUCCESS);
+            } catch (OptimisticLockingFailureException optimisticLockingFailureException) {
+                Notification.show(getTranslation("app.message.saveErrorOptimisticLock")).addThemeVariants(NotificationVariant.LUMO_ERROR);
+            } catch (ValidationException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        deleteDialog.getFooter().add(confirmDialogButton);
+        deleteDialog.open();
+    }
+
     @Override
     protected void createButtonsPanel() {
-        addButtonToTablePanel(ButtonType.ADD, authenticatedUser.hasRole(Role.ADMIN))
+        addButtonToTablePanel(ButtonType.ADD, userAuthorization.hasRole(Role.ADMIN))
                 .addClickListener(event -> detailsAction());
     }
 

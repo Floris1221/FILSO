@@ -8,12 +8,13 @@ import java.util.List;
 
 public interface IngredientRepo extends JpaRepository<Ingredient, Integer> {
 
-    @Query(value = "select * from ingredient where is_active = true", nativeQuery = true)
-    List<Ingredient> findAllActive();
+    @Query(value = "select * from ingredient where is_active = true and brew_id = ?1", nativeQuery = true)
+    List<Ingredient> findActiveByBrew(Integer brewId);
 
     @Query(value = "select * from ingredient i left join product p on i.product_id = p.id" +
-            " where (lower(p.name) like lower(concat('%', :text, '%'))", nativeQuery = true)
-    List<Ingredient> search(String text);
+            " where (lower(p.name) like lower(concat('%', :text, '%'))" +
+            " and i.brew_id = :brewId", nativeQuery = true)
+    List<Ingredient> search(String text, Integer brewId);
 
     @Modifying
     @Query(value = "update ingredient set is_active = false, updated_on = CURRENT_DATE, updated_by = ?2 " +

@@ -3,10 +3,12 @@ package com.ale.filso.views.brewhouse;
 import com.ale.filso.models.Brew.Brew;
 import com.ale.filso.models.Brew.BrewService;
 import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.components.CustomFormLayoutView;
 import com.ale.filso.views.components.customField.CustomBigDecimalField;
 import com.ale.filso.views.components.customField.CustomIntegerField;
 import com.ale.filso.views.components.customField.CustomTextField;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.data.binder.Binder;
@@ -15,14 +17,15 @@ import org.springframework.dao.OptimisticLockingFailureException;
 
 import java.util.HashMap;
 
+import static com.ale.filso.APPCONSTANT.ROUTE_BREW_DETAILS;
 
 
 public class BrewFormView extends CustomFormLayoutView<Brew> {
 
     BrewService service;
 
-    protected BrewFormView(AuthenticatedUser authenticatedUser, BrewService service, Brew entity) {
-        super(authenticatedUser, entity, new Binder<>(Brew.class));
+    protected BrewFormView(UserAuthorization userAuthorization, BrewService service, Brew entity) {
+        super(userAuthorization, entity, new Binder<>(Brew.class));
         this.service = service;
         createPanel();
     }
@@ -43,9 +46,7 @@ public class BrewFormView extends CustomFormLayoutView<Brew> {
                 Notification.show(getTranslation("app.message.saveOk")).addThemeVariants(NotificationVariant.LUMO_SUCCESS);
 
                 if(newRecord) {
-                    HashMap<String, String> hashMap = new HashMap<String, String>();
-                    hashMap.put("id", entity.getId().toString());
-                    navigateTo(BrewFormView.class, hashMap);
+                    callUrl(ROUTE_BREW_DETAILS, entity.getId());
                 }
                 else setModified(false);
 

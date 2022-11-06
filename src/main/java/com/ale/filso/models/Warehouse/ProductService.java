@@ -1,6 +1,7 @@
 package com.ale.filso.models.Warehouse;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -28,5 +29,10 @@ public class ProductService {
 
     public Product update(Product entity){
         return productRepo.save(entity);
+    }
+
+    @Transactional
+    public void delete(Product entity, String userName){
+        productRepo.delete(entity.getId(), entity.getDeleteReason(), userName);
     }
 }
