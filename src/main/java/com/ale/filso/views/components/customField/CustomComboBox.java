@@ -13,6 +13,13 @@ public class CustomComboBox<T> extends ComboBox<T> {
         addListeners();
     }
 
+
+    public CustomComboBox(String key, boolean hasAccess){
+        super(key);
+        setReadonly(!hasAccess);
+        addListeners();
+    }
+
     private void addListeners() {
         this.addAttachListener(event -> startUserInteraction=true);
         this.addSelectedItemChangeListener(event -> { if (startUserInteraction) {

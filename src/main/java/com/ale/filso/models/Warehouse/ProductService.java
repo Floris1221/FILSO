@@ -32,7 +32,7 @@ public class ProductService {
     }
 
     @Transactional
-    public void delete(Product entity, String userName){
-        productRepo.delete(entity.getId(), entity.getDeleteReason(), userName);
+    public void delete(Product entity){
+        productRepo.delete(entity.getId(), entity.getDeleteReason());
     }
 }

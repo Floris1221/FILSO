@@ -1,15 +1,16 @@
 package com.ale.filso.views.warehouse.filter;
 
 import com.ale.filso.models.Warehouse.Product;
+import com.ale.filso.views.components.GridFilter;
 import com.vaadin.flow.component.grid.dataview.GridListDataView;
 
-public class WareHouseFilter {
+public class WareHouseFilter extends GridFilter {
 
     private GridListDataView<Product> dataView;
 
     private String orderNumber;
     private String name;
-    private String productType;
+    private Integer productType;
 
     public WareHouseFilter() {
     }
@@ -29,7 +30,7 @@ public class WareHouseFilter {
         this.dataView.refreshAll();
     }
 
-    public void setProductType(String productType) {
+    public void setProductType(Integer productType) {
         this.productType = productType;
         this.dataView.refreshAll();
     }
@@ -37,14 +38,8 @@ public class WareHouseFilter {
     public boolean test(Product entity) {
         boolean matchesFirstCondition = matches(entity.getOrderNumber(), orderNumber);
         boolean matchesSecondCondition = matches(entity.getName(), name);
-        boolean matchesThirdCondition = matches(entity.getProductType().getName(), productType);
+        boolean matchesThirdCondition = matches(entity.getProductType(), productType);
 
         return matchesFirstCondition && matchesSecondCondition && matchesThirdCondition;
-    }
-
-    private boolean matches(String value, String searchTerm) {
-        if (value==null) value="";
-        return searchTerm == null || searchTerm.isEmpty() || value
-                .toLowerCase().contains(searchTerm.toLowerCase());
     }
 }

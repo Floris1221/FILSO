@@ -11,6 +11,12 @@ public class CustomNumberField extends NumberField {
         addListeners();
     }
 
+    public CustomNumberField(String key, boolean hasAccess){
+        super(key);
+        setReadOnly(!hasAccess);
+        addListeners();
+    }
+
     private void addListeners() {
         this.addInputListener(event -> {
             setParentViewDataModified(this);

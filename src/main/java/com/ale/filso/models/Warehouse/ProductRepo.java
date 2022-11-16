@@ -20,7 +20,7 @@ public interface ProductRepo extends JpaRepository<Product, Integer> {
     List<Product> search(String text);
 
     @Modifying
-    @Query(value = "UPDATE product SET delete_reason = ?2, is_active = false, updated_on = CURRENT_DATE, updated_by = ?3 " +
+    @Query(value = "UPDATE product SET delete_reason = ?2, is_active = false, updated_on = CURRENT_DATE " +
             "WHERE id = ?1", nativeQuery = true)
-    void delete(Integer productId, String deleteReason, String userName);
+    void delete(Integer productId, String deleteReason);
 }

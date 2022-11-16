@@ -12,6 +12,12 @@ public class CustomTextField extends TextField {
         addListeners();
     }
 
+    public CustomTextField(String key, boolean hasAccess){
+        super(key);
+        setReadOnly(!hasAccess);
+        addListeners();
+    }
+
     private void addListeners() {
         this.addInputListener(event -> {
             setParentViewDataModified(this);

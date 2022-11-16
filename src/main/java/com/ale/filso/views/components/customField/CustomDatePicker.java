@@ -17,6 +17,13 @@ public class CustomDatePicker extends DatePicker {
         addListeners();
     }
 
+    public CustomDatePicker(String key, boolean hasAccess){
+        super(key);
+        setReadOnly(!hasAccess);
+        setDatePickerLocale(VaadinSession.getCurrent().getLocale().getLanguage());
+        addListeners();
+    }
+
     private void addListeners() {
         this.addAttachListener(event -> startUserInteraction=true);
         this.addValueChangeListener(event -> { if (startUserInteraction ) {

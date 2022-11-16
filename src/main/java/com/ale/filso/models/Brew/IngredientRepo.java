@@ -17,7 +17,7 @@ public interface IngredientRepo extends JpaRepository<Ingredient, Integer> {
     List<Ingredient> search(String text, Integer brewId);
 
     @Modifying
-    @Query(value = "update ingredient set is_active = false, updated_on = CURRENT_DATE, updated_by = ?2 " +
+    @Query(value = "update ingredient set is_active = false, updated_on = CURRENT_DATE " +
             "where id = ?1", nativeQuery = true)
-    void deleteActiveById(Integer id, String userName);
+    void deleteActiveById(Integer id);
 }

@@ -12,14 +12,12 @@ import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-
-import javax.annotation.security.RolesAllowed;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Route(value = "office", layout = MainLayout.class)
 @PageTitle("Biuro")
-@RolesAllowed("admin")
+//@RolesAllowed("admin")
 public class OfficeView extends VerticalLayout {
 
     DictionaryCache dictionaryCache;

@@ -34,7 +34,6 @@ import java.util.Optional;
 @CssImport(themeFor = "vaadin-grid", value = "./themes/resources/components/grid-color.css")
 @CssImport(themeFor = "vaadin-text-field", value = "./themes/resources/components/input-field-color.css")
 @CssImport(themeFor = "vaadin-tab", value = "./themes/resources/components/tab-color.css")
-@PageTitle("Main")
 public class MainLayout extends AppLayout {
 
     private UserAuthorization userAuthorization;

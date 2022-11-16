@@ -49,6 +49,10 @@ public class UserAuthorization {
         return userAuth.getRoles().contains(role);
     }
 
+    public boolean hasRoles(Set<Role> roles){
+        return userAuth.getRoles().stream().anyMatch(roles::contains);
+    }
+
     public Set<Role> getUserRoles(){
         return authenticatedUser.getUserRoles();
     }

@@ -2,6 +2,7 @@ package com.ale.filso.views.brewhouse;
 
 import com.ale.filso.models.Brew.Brew;
 import com.ale.filso.models.Brew.BrewService;
+import com.ale.filso.models.User.Role;
 import com.ale.filso.seciurity.AuthenticatedUser;
 import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.components.CustomFormLayoutView;
@@ -63,24 +64,26 @@ public class BrewFormView extends CustomFormLayoutView<Brew> {
     @Override
     protected void createFormLayout() {
 
-        CustomTextField nameField = new CustomTextField(getTranslation("models.brew.name"));
+        CustomTextField nameField = new CustomTextField(getTranslation("models.brew.name"), userAuthorization.hasRole(Role.ADMIN));
         binder.forField(nameField)
                 .asRequired(getTranslation("app.validation.notEmpty"))
                 .bind(Brew::getName, Brew::setName);
 
         //todo make uniq number (chceck if duplicate)
-        CustomIntegerField numberField = new CustomIntegerField(getTranslation("models.brew.number"));
+        CustomIntegerField numberField = new CustomIntegerField(getTranslation("models.brew.number"), userAuthorization.hasRole(Role.ADMIN));
         numberField.setMin(0);
         binder.forField(numberField)
                 .asRequired(getTranslation("app.validation.notEmpty"))
                 .bind(Brew::getNumber, Brew::setNumber);
 
-        CustomBigDecimalField assumedBlgField = new CustomBigDecimalField(getTranslation("models.brew.assumedBlg"), "%", true);
+        CustomBigDecimalField assumedBlgField = new CustomBigDecimalField(getTranslation("models.brew.assumedBlg"), "%", true,
+                userAuthorization.hasRole(Role.ADMIN));
         binder.forField(assumedBlgField)
                 .asRequired(getTranslation("app.validation.notEmpty"))
                 .bind(Brew::getAssumedBlg, Brew::setAssumedBlg);
 
-        CustomIntegerField assumedAmountField = new CustomIntegerField(getTranslation("models.brew.assumedAmountField"), "l");
+        CustomIntegerField assumedAmountField = new CustomIntegerField(getTranslation("models.brew.assumedAmountField"), "l",
+                userAuthorization.hasRole(Role.ADMIN));
         assumedAmountField.setMin(0);
         binder.forField(assumedAmountField)
                 .asRequired(getTranslation("app.validation.notEmpty"))

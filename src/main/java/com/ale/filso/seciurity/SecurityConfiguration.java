@@ -1,5 +1,6 @@
 package com.ale.filso.seciurity;
 
+import com.ale.filso.views.login.LoginView;
 import com.vaadin.flow.spring.security.VaadinWebSecurityConfigurerAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

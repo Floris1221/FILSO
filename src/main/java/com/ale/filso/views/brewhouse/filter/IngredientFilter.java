@@ -2,14 +2,15 @@ package com.ale.filso.views.brewhouse.filter;
 
 import com.ale.filso.models.Brew.Ingredient;
 import com.ale.filso.models.Warehouse.Product;
+import com.ale.filso.views.components.GridFilter;
 import com.vaadin.flow.component.grid.dataview.GridListDataView;
 
-public class IngredientFilter {
+public class IngredientFilter extends GridFilter {
 
     private GridListDataView<Ingredient> dataView;
 
     private String name;
-    private String productType;
+    private Integer productType;
 
     public IngredientFilter() {
     }
@@ -25,21 +26,16 @@ public class IngredientFilter {
         this.dataView.refreshAll();
     }
 
-    public void setProductType(String productType) {
+    public void setProductType(Integer productType) {
         this.productType = productType;
         this.dataView.refreshAll();
     }
 
     public boolean test(Ingredient entity) {
         boolean matchesFirstCondition = matches(entity.getProduct().getName(), name);
-        boolean matchesSecondCondition = matches(entity.getProduct().getProductType().getName(), productType);
+        boolean matchesSecondCondition = matches(entity.getProduct().getProductType(), productType);
 
         return matchesFirstCondition && matchesSecondCondition;
     }
 
-    private boolean matches(String value, String searchTerm) {
-        if (value==null) value="";
-        return searchTerm == null || searchTerm.isEmpty() || value
-                .toLowerCase().contains(searchTerm.toLowerCase());
-    }
 }

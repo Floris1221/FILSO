@@ -65,13 +65,6 @@ public class BufferedEntityFiltering {
             filterChangeConsumer.accept(value);
         });
 
-/*        comboBox.addValueChangeListener((HasValue.ValueChangeListener<AbstractField.ComponentValueChangeEvent<ComboBox<DictionaryGroup>, DictionaryGroup>>)
-                event -> {
-                    String value = new String("");
-                    if (event.getValue()!=null)
-                        value = event.getValue().getName();
-                    filterChangeConsumer.accept(value);
-                });    */
         VerticalLayout layout = new VerticalLayout(comboBox);
         layout.getThemeList().clear();
         layout.getThemeList().add("spacing-xs");
@@ -80,12 +73,13 @@ public class BufferedEntityFiltering {
     }
 
     public Component createComboFilterHeaderDictionary(
-            Consumer<String> filterChangeConsumer, List<Dictionary> dictionaries) {
+            Consumer<Integer> filterChangeConsumer, List<Dictionary> dictionaries) {
+
   /*      if (labelText!=null) {  // without label
             Label label = new Label(labelText);
             label.getStyle().set("padding-top", "var(--lumo-space-m)")
-                    .set("font-size", "var(--lumo-font-size-xs)");
-        }*/
+                    .set("font-size", "var(--lumo-font-size-xs)");    }*/
+
         ComboBox<Dictionary> comboBox = new ComboBox<>();
         comboBox.setItems(dictionaries);
         comboBox.setItemLabelGenerator(Dictionary::getName);
@@ -95,20 +89,12 @@ public class BufferedEntityFiltering {
         comboBox.setWidthFull();
         comboBox.getStyle().set("max-width", "100%");
 
-        comboBox.addValueChangeListener(                event -> {
-            String value = new String("");
-            if (event.getValue()!=null)
-                value = event.getValue().getName();
+        comboBox.addValueChangeListener(event -> {
+            Integer value = null;
+            if (event.getValue()!=null) value = event.getValue().getId();
             filterChangeConsumer.accept(value);
         });
 
-/*        comboBox.addValueChangeListener((HasValue.ValueChangeListener<AbstractField.ComponentValueChangeEvent<ComboBox<DictionaryGroup>, DictionaryGroup>>)
-                event -> {
-                    String value = new String("");
-                    if (event.getValue()!=null)
-                        value = event.getValue().getName();
-                    filterChangeConsumer.accept(value);
-                });    */
         VerticalLayout layout = new VerticalLayout(comboBox);
         layout.getThemeList().clear();
         layout.getThemeList().add("spacing-xs");

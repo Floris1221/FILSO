@@ -5,13 +5,14 @@ import com.vaadin.flow.component.login.LoginI18n;
 import com.vaadin.flow.component.login.LoginOverlay;
 import com.vaadin.flow.router.*;
 import com.vaadin.flow.server.VaadinSession;
+import com.vaadin.flow.server.auth.AnonymousAllowed;
 
 
 import java.util.Locale;
 
 import static com.ale.filso.APPCONSTANT.APP_NAME;
 
-
+@AnonymousAllowed
 @Route(value = "login")
 public class LoginView extends LoginOverlay implements BeforeEnterObserver, HasDynamicTitle {
 

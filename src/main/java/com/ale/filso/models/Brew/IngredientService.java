@@ -37,13 +37,13 @@ public class IngredientService {
     }
 
     @Transactional
-    public void delete(Ingredient entity, String userName){
+    public void delete(Ingredient entity){
         //Change product quantity after take product to ingredient
         Product productToUpdate = entity.getProduct();
         productToUpdate.setQuantity(productToUpdate.getQuantity().add(entity.getQuantity()));
-        if(productToUpdate.getQuantity().compareTo(new BigDecimal(0)) == 0)
-            productToUpdate.setActive(false);
+        if(productToUpdate.getQuantity().compareTo(new BigDecimal(0)) != 0)
+            productToUpdate.setActive(true);
         Product product = productRepo.save(productToUpdate);
-        ingredientRepo.deleteActiveById(entity.getId(), userName);
+        ingredientRepo.deleteActiveById(entity.getId());
     }
 }

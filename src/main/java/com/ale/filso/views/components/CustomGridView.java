@@ -5,6 +5,7 @@ import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.components.Enums.ButtonType;
 import com.ale.filso.views.components.customField.CustomButton;
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
@@ -16,6 +17,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.textfield.TextFieldVariant;
+import com.vaadin.flow.component.treegrid.TreeGrid;
 import com.vaadin.flow.data.value.ValueChangeMode;
 
 
@@ -23,7 +25,7 @@ public abstract class CustomGridView<E> extends CustomView{
 
     private Div wrapper = new Div();
 
-    protected Grid<E> grid;
+    public Grid<E> grid;
     protected HorizontalLayout topButtonsPanel = new HorizontalLayout();
     protected HorizontalLayout tableSearchHl = new HorizontalLayout();
 
@@ -42,6 +44,8 @@ public abstract class CustomGridView<E> extends CustomView{
         add(createGridPageLayout());
         createGrid();
         createButtonsPanel();
+        if (grid.getListDataView().getItemCount()>0)                // select first row
+            grid.select(grid.getListDataView().getItem(0));
     }
 
     protected abstract void createButtonsPanel();
@@ -132,6 +136,19 @@ public abstract class CustomGridView<E> extends CustomView{
         wrapper.add(vl);
 
         return wrapper;
+    }
+
+    protected void createBackRoutIcon(){
+        Icon backIcon = new Icon("vaadin", "arrow-left");
+        backIcon.getStyle().set("font-size","0.8rem");
+        backIcon.getStyle().set("align-self","center");
+        backIcon.addClickListener(event -> UI.getCurrent().navigate(getBackRoute()));
+        backIcon.getElement().setAttribute("title",getTranslation("app.message.back"));
+        backIcon.getElement().getThemeList().add("badge primary");
+    }
+
+    private String getBackRoute() {
+        return  null;
     }
 
 

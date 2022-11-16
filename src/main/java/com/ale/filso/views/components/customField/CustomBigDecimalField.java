@@ -24,6 +24,22 @@ public class CustomBigDecimalField extends BigDecimalField {
     }
 
 
+    public CustomBigDecimalField(String key, String suffix, boolean haveParent, boolean hasAccess){
+        super(key);
+        setReadonly(!hasAccess);
+        setPattern(calcPattern(1));
+        if(haveParent)
+            setPreventInvalidInput(true);
+        if (suffix!=null) {
+            Div divSuffix = new Div();
+            divSuffix.setText(suffix);
+            this.setSuffixComponent(divSuffix);
+        }
+        if(haveParent)
+            addListeners();
+    }
+
+
     private void addListeners() {
         this.addInputListener(event -> {
             setParentViewDataModified(this);

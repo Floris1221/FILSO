@@ -7,13 +7,15 @@ import com.vaadin.flow.component.textfield.IntegerField;
 
 public class CustomIntegerField extends IntegerField {
 
-    public CustomIntegerField(String key){
+    public CustomIntegerField(String key, boolean hasAccess){
         super(key);
+        setReadOnly(!hasAccess);
         addListeners();
     }
 
-    public CustomIntegerField(String key, String suffix){
+    public CustomIntegerField(String key, String suffix, boolean hasAccess){
         super(key);
+        setReadOnly(!hasAccess);
         if (suffix!=null) {
             Div divSuffix = new Div();
             divSuffix.setText(suffix);
