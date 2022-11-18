@@ -1,6 +1,7 @@
 package com.ale.filso.views.office;
 
 import com.ale.filso.models.Dictionary.DictionaryCache;
+import com.ale.filso.models.Dictionary.DictionaryService;
 import com.ale.filso.seciurity.AuthenticatedUser;
 import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.MainLayout;
@@ -20,14 +21,14 @@ import java.util.Map;
 //@RolesAllowed("admin")
 public class OfficeView extends VerticalLayout {
 
-    DictionaryCache dictionaryCache;
+    DictionaryService dictionaryService;
 
     protected Map<Tab, Component> contents = new LinkedHashMap<>();
     protected UserAuthorization userAuthorization;
 
-    protected OfficeView(UserAuthorization userAuthorization, DictionaryCache dictionaryCache) {
+    protected OfficeView(UserAuthorization userAuthorization, DictionaryService dictionaryService) {
         this.userAuthorization = userAuthorization;
-        this.dictionaryCache = dictionaryCache;
+        this.dictionaryService = dictionaryService;
         buildContentAndTabs();
     }
 
@@ -74,11 +75,11 @@ public class OfficeView extends VerticalLayout {
 
     private void createDynamicTabOnFirstClick(Tab tab) {
         if(tab.getId().orElse("").equals(getTranslation("item.office.dictionary")))
-            contents.replace(tab, new DictionarySearchView(userAuthorization, dictionaryCache));
+            contents.replace(tab, new DictionarySearchView(userAuthorization, dictionaryService));
     }
 
     private void createContents() {
         contents.put(new Tab(getTranslation("item.office.dictionary")),
-                new DictionarySearchView(userAuthorization, dictionaryCache));
+                new DictionarySearchView(userAuthorization, dictionaryService));
     }
 }

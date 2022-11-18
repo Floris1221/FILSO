@@ -11,6 +11,7 @@ import com.ale.filso.views.MainLayout;
 import com.ale.filso.views.components.CustomDetailView;
 import com.ale.filso.views.office.DictionarySearchView;
 import com.vaadin.flow.component.tabs.Tab;
+import com.vaadin.flow.router.HasDynamicTitle;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
@@ -19,9 +20,8 @@ import javax.annotation.security.RolesAllowed;
 import static com.ale.filso.APPCONSTANT.ROUTE_BREW_SEARCH;
 
 @Route(value = "brew/:id?", layout = MainLayout.class)
-@PageTitle("Szczegóły warki")
 @RolesAllowed({"Admin"})
-public class BrewDetailsView extends CustomDetailView<Brew> {
+public class BrewDetailsView extends CustomDetailView<Brew>{
 
     BrewService service;
     IngredientService ingredientService;
@@ -65,5 +65,10 @@ public class BrewDetailsView extends CustomDetailView<Brew> {
             contents.replace(tab, new BrewFormView(userAuthorization, service, entity));
         else if(tab.getId().orElse("").equals(getTranslation("item.brew.ingredients")))
             contents.replace(tab, new IngredientSearchView(userAuthorization, dictionaryCache, ingredientService, productService, this));
+    }
+
+    @Override
+    protected String getPageTitleObjectName() {
+        return entity.getName();
     }
 }

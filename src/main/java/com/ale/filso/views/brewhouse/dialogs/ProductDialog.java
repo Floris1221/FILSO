@@ -1,7 +1,7 @@
 package com.ale.filso.views.brewhouse.dialogs;
 
 import com.ale.filso.models.Dictionary.DictionaryCache;
-import com.ale.filso.models.Warehouse.Product;
+import com.ale.filso.models.Warehouse.DbView.ProductView;
 import com.ale.filso.models.Warehouse.ProductService;
 import com.ale.filso.views.components.customDialogs.CustomGridDialog;
 import com.ale.filso.views.components.customField.BufferedEntityFiltering;
@@ -11,9 +11,8 @@ import com.vaadin.flow.component.grid.HeaderRow;
 
 import java.time.format.DateTimeFormatter;
 
-import static com.ale.filso.APPCONSTANT.PRODUCT_TYPE;
 
-public class ProductDialog extends CustomGridDialog<Product> {
+public class ProductDialog extends CustomGridDialog<ProductView> {
 
     DictionaryCache dictionaryCache;
     ProductService productService;
@@ -22,7 +21,7 @@ public class ProductDialog extends CustomGridDialog<Product> {
     AddIngredientDialog addEditIngredientDialog;
     public ProductDialog(String title, DictionaryCache dictionaryCache, ProductService productService,
                          AddIngredientDialog addEditIngredientDialog){
-        super(title, new Grid<>(Product.class, false), new Product());
+        super(title, new Grid<>(ProductView.class, false), new ProductView());
         this.dictionaryCache = dictionaryCache;
         this.productService = productService;
         this.addEditIngredientDialog = addEditIngredientDialog;
@@ -33,17 +32,17 @@ public class ProductDialog extends CustomGridDialog<Product> {
     @Override
     public void createGrid() {
 
-        grid.addColumn(Product::getName).setKey("col1")
+        grid.addColumn(ProductView::getName).setKey("col1")
                 .setHeader(getTranslation("models.product.name")).setFlexGrow(1);
 
-        grid.addColumn(item -> getDictName(item.getProductType())).setKey("col2")
+        grid.addColumn(ProductView::getProductType).setKey("col2")
                 .setHeader(getTranslation("models.product.productType")).setFlexGrow(1);
 
-        grid.addColumn(item -> item.getQuantity() + " " + item.getUnitOfMeasure().getShortName()).setKey("col3")
+        grid.addColumn(item -> item.getQuantity() + " " + item.getUnitOfMeasure()).setKey("col3")
                 .setHeader(getTranslation("models.product.quantity")).setFlexGrow(2);
 
         grid.addColumn(item -> item.getExpirationDate().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))).setKey("col4")
-                .setClassNameGenerator(Product::getExpirationColor)
+                .setClassNameGenerator(ProductView::getExpirationColor)
                 .setHeader(getTranslation("models.product.expirationDate")).setFlexGrow(1);
 
         // filtering
@@ -52,18 +51,17 @@ public class ProductDialog extends CustomGridDialog<Product> {
         headerRow.getCell(grid.getColumnByKey("col1")).setComponent(
                 filtering.createTextFilterHeader(productFilter::setName));
         headerRow.getCell(grid.getColumnByKey("col2")).setComponent(
-                filtering.createComboFilterHeaderDictionary(productFilter::setProductType,
-                        dictionaryCache.findByGroup(PRODUCT_TYPE)));
+                filtering.createTextFilterHeader(productFilter::setProductType));
     }
 
     @Override
     public void createActionButton() {
-        addEditIngredientDialog.setProduct(selectedEntity);
+        addEditIngredientDialog.setProduct(productService.findById(selectedEntity.getId()));
         addEditIngredientDialog.open();
     }
 
     @Override
     protected void updateGridDataListWithSearchField() {
-        productFilter.setDataView(grid.setItems(productService.findAllActive(null)));
+        productFilter.setDataView(grid.setItems(productService.findAllActivePV(null)));
     }
 }

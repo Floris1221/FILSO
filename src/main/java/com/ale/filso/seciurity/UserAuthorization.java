@@ -3,6 +3,7 @@ package com.ale.filso.seciurity;
 import com.ale.filso.models.User.Role;
 import com.ale.filso.models.User.User;
 import com.vaadin.flow.component.UI;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
@@ -16,6 +17,10 @@ public class UserAuthorization {
 
     private String appUrl;
     private AuthenticatedUser authenticatedUser;
+    /**
+     * Zalogowany użytkowniki
+     */
+    @Getter
     private User userAuth;
 
     private Set<Role> userRoles;

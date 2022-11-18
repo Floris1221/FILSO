@@ -5,8 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,5 +22,8 @@ public class DictionaryGroup extends AbstractEntity {
 
     @Size(max = 255, message = "max. 255 znaków")
     private String description;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="dictionaryGroup")
+    private List<Dictionary> dictionaryList;
 
 }

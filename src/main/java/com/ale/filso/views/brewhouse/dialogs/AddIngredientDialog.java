@@ -2,7 +2,9 @@ package com.ale.filso.views.brewhouse.dialogs;
 
 import com.ale.filso.models.Brew.Ingredient;
 import com.ale.filso.models.Brew.IngredientService;
+import com.ale.filso.models.Warehouse.DbView.ProductView;
 import com.ale.filso.models.Warehouse.Product;
+import com.ale.filso.models.Warehouse.ProductService;
 import com.ale.filso.views.components.customDialogs.CustomFormDialog;
 import com.ale.filso.views.components.customField.CustomBigDecimalField;
 import com.vaadin.flow.component.grid.dataview.GridListDataView;
@@ -20,14 +22,16 @@ import java.math.BigDecimal;
 public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
 
     IngredientService ingredientService;
-    GridListDataView<Product> productGridListDataView;
+    GridListDataView<ProductView> productGridListDataView;
+    ProductService productService;
     Integer brewId;
 
     public AddIngredientDialog(String title, GridListDataView<Ingredient> listDataView,
-                               IngredientService ingredientService, Integer brewId){
+                               IngredientService ingredientService, Integer brewId, ProductService productService){
         super(title, new Ingredient(), new Binder<>(Ingredient.class), listDataView);
         this.ingredientService = ingredientService;
         this.brewId = brewId;
+        this.productService = productService;
 
 
         createView();
@@ -75,7 +79,8 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
                 listDataView.addItem(entity);
             listDataView.refreshAll();
             if(entity.getProduct().getQuantity().compareTo(new BigDecimal(0)) == 0)
-                productGridListDataView.removeItem(entity.getProduct());
+                productGridListDataView.removeItem(productService.transferProductToProductView(entity.getProduct(), getDictName(entity.getProduct().getProductType()),
+                        getDictShortName(entity.getProduct().getUnitOfMeasure())));
             productGridListDataView.refreshAll();
 
             clearForm();
@@ -109,7 +114,7 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
                 "]");
     }
 
-    public void setProductGridListDataView(GridListDataView<Product> productGridListDataView){
+    public void setProductGridListDataView(GridListDataView<ProductView> productGridListDataView){
         this.productGridListDataView = productGridListDataView;
     }
 }

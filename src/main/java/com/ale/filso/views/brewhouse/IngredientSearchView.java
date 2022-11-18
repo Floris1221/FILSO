@@ -26,6 +26,8 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Map;
 
 import static com.ale.filso.APPCONSTANT.PRODUCT_TYPE;
 
@@ -41,7 +43,6 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
     Ingredient entity;
     Product productEntity;
     IngredientFilter entityFilter = new IngredientFilter();
-
     BrewDetailsView brewDetailsView;
 
 
@@ -99,7 +100,7 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
                 filtering.createTextFilterHeader(entityFilter::setName));
         headerRow.getCell(grid.getColumnByKey("col2")).setComponent(
                 filtering.createComboFilterHeaderDictionary(entityFilter::setProductType,
-                        dictionaryCache.findByGroup(PRODUCT_TYPE)));
+                        dictionaryCache.getDict(PRODUCT_TYPE)));
 
 
         setResizeableSortableGrid(null,null);
@@ -110,29 +111,6 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
     private void deleteIngredient(Ingredient entity) {
         deleteDialog.setEntity(entity);
         deleteDialog.open();
-//        Dialog deleteDialog = new Dialog();
-//        deleteDialog.setHeaderTitle(getTranslation("ingredientView.dialog.delete.header"));
-//        deleteDialog.add(getTranslation("ingredientView.dialog.delete.text") + " " + entity.getProduct().getName() + " ?");
-//        CustomButton cancelDialogButton = new CustomButton(ButtonType.CANCEL, true);
-//        cancelDialogButton.addClickListener(event -> {  deleteDialog.close();  });
-//        deleteDialog.getFooter().add(cancelDialogButton);
-//        CustomButton confirmDialogButton = new CustomButton(ButtonType.DELETE, userAuthorization.hasRole(Role.ADMIN));
-//        confirmDialogButton.addClickListener(event -> {
-//            try {
-//                if(entity.getId() != null){
-//                    ingredientService.delete(entity, userAuthorization.getUserAuth().getLogin());
-//                }
-//                grid.getListDataView().removeItem(entity);
-//                grid.getListDataView().refreshAll();
-//                deleteDialog.close();
-//
-//                Notification.show(getTranslation("app.message.saveOk")).addThemeVariants(NotificationVariant.LUMO_SUCCESS);
-//            } catch (OptimisticLockingFailureException optimisticLockingFailureException) {
-//                Notification.show(getTranslation("app.message.saveErrorOptimisticLock")).addThemeVariants(NotificationVariant.LUMO_ERROR);
-//            }
-//        });
-//        deleteDialog.getFooter().add(confirmDialogButton);
-//        deleteDialog.open();
     }
 
     @Override
@@ -172,12 +150,12 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
 
     private void createDialog() {
         addEditDialog = new AddIngredientDialog(getTranslation("app.title.product"), grid.getListDataView(),
-                ingredientService, brewDetailsView.entity.getId());
+                ingredientService, brewDetailsView.entity.getId(), productService);
         dialog = new ProductDialog(getTranslation("app.title.product"), dictionaryCache, productService, addEditDialog);
         addEditDialog.setProductGridListDataView(dialog.grid.getListDataView());
 
         deleteDialog = new DeleteIngredientDialog(getTranslation("ingredientView.dialog.delete.header"),
-                grid.getListDataView(), ingredientService, dialog.grid.getListDataView());
+                grid.getListDataView(), productService, ingredientService, dialog.grid.getListDataView());
     }
 
 }

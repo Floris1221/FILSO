@@ -1,6 +1,7 @@
 package com.ale.filso.views.warehouse.dialogs;
 
 import com.ale.filso.models.Dictionary.DictionaryCache;
+import com.ale.filso.models.Warehouse.DbView.ProductView;
 import com.ale.filso.models.Warehouse.Product;
 import com.ale.filso.models.Warehouse.ProductService;
 import com.ale.filso.views.components.customDialogs.CustomFormDialog;
@@ -16,16 +17,15 @@ import org.springframework.dao.OptimisticLockingFailureException;
 
 public class DeleteProductDialog extends CustomFormDialog<Product> {
 
-    DictionaryCache dictionaryCache;
     ProductService productService;
+    GridListDataView<ProductView> listDataView;
+    ProductView productView;
 
+    public DeleteProductDialog(String title, ProductService productService, GridListDataView<ProductView> listDataView){
+        super(title, new Product(), new Binder<>(Product.class), null);
 
-    public DeleteProductDialog(String title, DictionaryCache dictionaryCache, ProductService productService, GridListDataView<Product> listDataView){
-        super(title, new Product(), new Binder<>(Product.class), listDataView);
-
-        this.dictionaryCache =dictionaryCache;
         this.productService = productService;
-
+        this.listDataView = listDataView;
         createView();
     }
     @Override
@@ -51,8 +51,8 @@ public class DeleteProductDialog extends CustomFormDialog<Product> {
 
             Notification.show(getTranslation("app.message.deleteOK")).addThemeVariants(NotificationVariant.LUMO_SUCCESS);
 
-            listDataView.removeItem(entity);
-            //listDataView.refreshAll();
+            listDataView.removeItem(productView);
+            listDataView.refreshAll();
 
 
             clearForm();
@@ -70,8 +70,9 @@ public class DeleteProductDialog extends CustomFormDialog<Product> {
         return new Product();
     }
 
-    public void setEntity(Product entity){
-        this.entity = entity;
+    public void setEntity(ProductView productView){
+        this.productView = productView;
+        this.entity = productService.findById(productView.getId());
     }
 
 }

@@ -1,49 +1,58 @@
 package com.ale.filso.models.Dictionary;
 
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
-@Service
-public class DictionaryCache{
+@Scope("singleton")
+@Component
+public class DictionaryCache {
+    private DictionaryService dictionaryService;
 
-    private DictionaryRepo dictionaryRepo;
-    private DictionaryGroupRepo dictionaryGroupRepo;
+    private LinkedHashMap<Integer, List<Dictionary>> dictionaryMap = new LinkedHashMap<>();
 
-    public DictionaryCache(DictionaryRepo dictionaryRepo, DictionaryGroupRepo dictionaryGroupRepo){
-        this.dictionaryRepo = dictionaryRepo;
-        this.dictionaryGroupRepo = dictionaryGroupRepo;
+    @Autowired
+    public DictionaryCache(DictionaryService dictionaryService) {
+        this.dictionaryService=dictionaryService;
+        refresh();
     }
 
-    //Cacheable
-    @Cacheable("dictionary")
-    public List<Dictionary> findByGroup(Integer groupId){
-        return dictionaryRepo.findByGroup(groupId);
+    public void refresh() {
+        System.out.println("#####################Ten refresh");
+        List<Dictionary> dictList=dictionaryService.findAllActive();
+        List<Integer> dictGroup = dictList.stream().map(Dictionary::getDictionaryGroup).toList();
+//        List<String> distinctDictGroup=dictList.stream()
+//                .map(dict -> dict.getDictionaryGroup().).distinct().toList();
+        for (Integer dictGroupItem:dictGroup) {
+            dictionaryMap.put(dictGroupItem, dictList.stream()
+                    .filter(dict -> dict.getDictionaryGroup().equals(dictGroupItem)).toList());
+        }
     }
 
-    @Cacheable("dictionary")
-    public Dictionary findById(Integer id){
-        return dictionaryRepo.findById(id).orElseGet(Dictionary::new);
+    /**
+     * get list of dictionaries for dictionary group
+     *
+     * @param groupId
+     * @return
+     */
+    public List<Dictionary> getDict(Integer groupId) {
+        System.out.println(dictionaryMap);
+        return dictionaryMap.get(groupId);
     }
 
-    @CachePut("dictionary")
-    public Dictionary update(Dictionary dictionary){
-        return dictionaryRepo.save(dictionary);
+    public Dictionary getDict(Integer groupId, Integer dictId) {
+        List<Dictionary> dictionaryList = dictionaryMap.get(groupId);
+        if (dictionaryList==null) return null;
+        return dictionaryList.stream().filter(o -> o.getId().equals(dictId)).findAny().orElse(null);
     }
 
 
-
-    public List<Dictionary> findByGroupFromDb(Integer groupId){
-        return dictionaryRepo.findByGroup(groupId);
+    public String getDictName(Integer groupId, Integer dictId) {
+        List<Dictionary> dictionaryList = dictionaryMap.get(groupId);
+        if (dictionaryList==null) return "";
+        return dictionaryList.stream().filter(o -> o.getId().equals(dictId)).map(Dictionary::getName).findAny().orElse("");
     }
-
-
-    /////DictionaryGroup////
-    public List<DictionaryGroup> findAll(){
-        return dictionaryGroupRepo.findAll();
-    }
-
-    public DictionaryGroup findDictionaryGroupById(Integer id){return dictionaryGroupRepo.findById(id).orElseGet(null);}
 }

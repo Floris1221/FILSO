@@ -1,5 +1,8 @@
 package com.ale.filso.models.Warehouse;
 
+import com.ale.filso.models.Dictionary.DictionaryCache;
+import com.ale.filso.models.Warehouse.DbView.ProductView;
+import com.ale.filso.models.Warehouse.DbView.ProductViewRepo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,19 +12,18 @@ import java.util.List;
 public class ProductService {
 
     private ProductRepo productRepo;
+    ProductViewRepo productViewRepo;
 
-    ProductService(ProductRepo productRepo){
+
+    ProductService(ProductRepo productRepo, ProductViewRepo productViewRepo){
         this.productRepo = productRepo;
+        this.productViewRepo = productViewRepo;
     }
 
     public List<Product> findAllActive(String text){
-        if (text == null || text.isEmpty()) {
-            return productRepo.findAllActive();
-        } else {
-            return productRepo.search(text);
-        }
-
+        return productRepo.findAllActive();
     }
+
 
     public Product findById(Integer id){
         return productRepo.findActiveById(id);
@@ -35,4 +37,35 @@ public class ProductService {
     public void delete(Product entity){
         productRepo.delete(entity.getId(), entity.getDeleteReason());
     }
+
+    public ProductView transferProductToProductView(Product product, String productType, String unitOfMeasure){
+        ProductView productView = new ProductView();
+        productView.setId(product.getId());
+        productView.setName(product.getName());
+        productView.setOrderNumber(product.getOrderNumber());
+        productView.setQuantity(product.getQuantity());
+        productView.setExpirationDate(product.getExpirationDate());
+        productView.setProductType(productType);
+        productView.setUnitOfMeasure(unitOfMeasure);
+        return productView;
+    }
+
+
+    ////////////////////////////////
+    ////////////ProductView/////////
+    ///////////////////////////////
+    public List<ProductView> findAllActivePV(String text){
+        if (text == null || text.isEmpty()) {
+            return productViewRepo.findAllActive();
+        } else {
+            return productViewRepo.search(text);
+        }
+    }
+
+    public ProductView findPVById(Integer id){
+        return productViewRepo.findActiveById(id);
+    }
+
+
+
 }

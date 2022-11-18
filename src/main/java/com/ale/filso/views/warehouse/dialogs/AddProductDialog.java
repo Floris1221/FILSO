@@ -2,6 +2,7 @@ package com.ale.filso.views.warehouse.dialogs;
 
 import com.ale.filso.models.Dictionary.Dictionary;
 import com.ale.filso.models.Dictionary.DictionaryCache;
+import com.ale.filso.models.Warehouse.DbView.ProductView;
 import com.ale.filso.models.Warehouse.Product;
 import com.ale.filso.models.Warehouse.ProductService;
 import com.ale.filso.views.components.customDialogs.CustomFormDialog;
@@ -25,11 +26,13 @@ public class AddProductDialog extends CustomFormDialog<Product> {
 
     DictionaryCache dictionaryCache;
     ProductService productService;
+    GridListDataView<ProductView> listDataView;
 
-    public AddProductDialog(String title, DictionaryCache dictionaryCache, ProductService productService, GridListDataView<Product> listDataView) {
-        super(title, new Product(), new Binder<>(Product.class), listDataView);
+    public AddProductDialog(String title, DictionaryCache dictionaryCache, ProductService productService, GridListDataView<ProductView> listDataView) {
+        super(title, new Product(), new Binder<>(Product.class), null);
         this.dictionaryCache = dictionaryCache;
         this.productService = productService;
+        this.listDataView = listDataView;
 
         createView();
     }
@@ -47,7 +50,7 @@ public class AddProductDialog extends CustomFormDialog<Product> {
                 .bind(Product::getName, Product::setName);
 
         ComboBox<Dictionary> productTypeField = new ComboBox<>(getTranslation("models.product.productType"));
-        productTypeField.setItems(dictionaryCache.findByGroup(PRODUCT_TYPE));
+        productTypeField.setItems(dictionaryCache.getDict(PRODUCT_TYPE));
         productTypeField.setItemLabelGenerator(Dictionary::getName);
         binder.forField(productTypeField).asRequired(getTranslation("app.validation.notEmpty"))
                 .bind(Product::getProductType, Product::setProductType);
@@ -63,7 +66,7 @@ public class AddProductDialog extends CustomFormDialog<Product> {
                 .bind(Product::getQuantity, Product::setQuantity);
 
         ComboBox<Dictionary> unitOfMeasureField = new ComboBox<>(getTranslation("models.product.unitOfMeasure"));
-        unitOfMeasureField.setItems(dictionaryCache.findByGroup(UNIT_OF_MEASURE));
+        unitOfMeasureField.setItems(dictionaryCache.getDict(UNIT_OF_MEASURE));
         unitOfMeasureField.setItemLabelGenerator(Dictionary::getShortName);
         binder.forField(unitOfMeasureField).asRequired(getTranslation("app.validation.notEmpty"))
                 .bind(Product::getUnitOfMeasure, Product::setUnitOfMeasure);
@@ -85,7 +88,7 @@ public class AddProductDialog extends CustomFormDialog<Product> {
 
             Notification.show(getTranslation("app.message.saveOk")).addThemeVariants(NotificationVariant.LUMO_SUCCESS);
 
-            listDataView.addItem(entity);
+            listDataView.addItem(productService.transferProductToProductView(entity, getDictName(entity.getProductType()), getDictShortName(entity.getUnitOfMeasure())));
 
 
 

@@ -2,6 +2,7 @@ package com.ale.filso.views.office;
 
 import com.ale.filso.models.Dictionary.DictionaryCache;
 import com.ale.filso.models.Dictionary.DictionaryGroup;
+import com.ale.filso.models.Dictionary.DictionaryService;
 import com.ale.filso.seciurity.AuthenticatedUser;
 import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.MainLayout;
@@ -17,11 +18,11 @@ import java.util.HashMap;
 @PageTitle("Słowniki")
 public class DictionarySearchView extends CustomGridView<DictionaryGroup> {
 
-    private DictionaryCache dictionaryCache;
-    public DictionarySearchView(UserAuthorization userAuthorization, DictionaryCache dictionaryCache) {
+    private DictionaryService dictionaryService;
+    public DictionarySearchView(UserAuthorization userAuthorization, DictionaryService dictionaryService) {
         super(userAuthorization, new Grid<>(DictionaryGroup.class, false), new DictionaryGroup());
 
-        this.dictionaryCache = dictionaryCache;
+        this.dictionaryService = dictionaryService;
         createView();
     }
 
@@ -57,7 +58,7 @@ public class DictionarySearchView extends CustomGridView<DictionaryGroup> {
 
     @Override
     protected void updateGridDataListWithSearchField(String filterText) {
-        grid.setItems(dictionaryCache.findAll());
+        grid.setItems(dictionaryService.findAll());
     }
 
     private void detailsAction(Integer id) {

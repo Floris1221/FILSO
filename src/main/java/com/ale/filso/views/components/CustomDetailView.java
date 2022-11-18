@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public abstract class CustomDetailView<E> extends VerticalLayout implements BeforeEnterObserver,
-        HasTabs{
+        HasTabs, HasDynamicTitle{
 
     protected Integer id;
     public E entity;
@@ -48,6 +48,7 @@ public abstract class CustomDetailView<E> extends VerticalLayout implements Befo
     protected abstract String getBackRoute();
     protected abstract void createContents();
     protected abstract void createDynamicTabOnFirstClick(Tab tab);
+    protected abstract String getPageTitleObjectName();
 
     private void buildContentAndTabs() {
 
@@ -109,6 +110,20 @@ public abstract class CustomDetailView<E> extends VerticalLayout implements Befo
         this.contents.forEach((tab, comp) -> {
             if (!component.equals(comp)) tab.setEnabled(!isDataModifiedInTab); });
 
+    }
+
+    @Override
+    public String getPageTitle() {
+
+        String objectTitle = getTranslation("app.title."+this.getClass().getSimpleName());
+        String objectTitleSuffix;
+
+        if (getPageTitleObjectName()==null) {
+            objectTitleSuffix = getTranslation("app.menu.label.addNew");
+        } else {
+            objectTitleSuffix = getPageTitleObjectName();
+        }
+        return objectTitle + " " + objectTitleSuffix;
     }
 
 }

@@ -2,7 +2,9 @@ package com.ale.filso.views.brewhouse.dialogs;
 
 import com.ale.filso.models.Brew.Ingredient;
 import com.ale.filso.models.Brew.IngredientService;
+import com.ale.filso.models.Warehouse.DbView.ProductView;
 import com.ale.filso.models.Warehouse.Product;
+import com.ale.filso.models.Warehouse.ProductService;
 import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.components.customDialogs.CustomFormDialog;
 import com.vaadin.flow.component.grid.dataview.GridListDataView;
@@ -15,14 +17,16 @@ import org.springframework.dao.OptimisticLockingFailureException;
 
 public class DeleteIngredientDialog extends CustomFormDialog<Ingredient> {
     IngredientService ingredientService;
+    ProductService productService;
     Span span;
-    GridListDataView<Product> productDataView;
+    GridListDataView<ProductView> productDataView;
 
-    public DeleteIngredientDialog(String title, GridListDataView<Ingredient> listDataView,
-                                     IngredientService ingredientService, GridListDataView<Product> productDataView) {
+    public DeleteIngredientDialog(String title, GridListDataView<Ingredient> listDataView, ProductService productService,
+                                     IngredientService ingredientService, GridListDataView<ProductView> productDataView) {
         super(title, new Ingredient(), new Binder<>(Ingredient.class), listDataView);
         this.ingredientService = ingredientService;
         this.productDataView = productDataView;
+        this.productService = productService;
 
         createView();
     }
@@ -40,9 +44,11 @@ public class DeleteIngredientDialog extends CustomFormDialog<Ingredient> {
                 ingredientService.delete(entity);
             }
             listDataView.removeItem(entity);
-            if(!productDataView.contains(entity.getProduct()))
-                productDataView.addItem(entity.getProduct());
-            //productDataView.refreshAll();
+
+            ProductView productView = productService.findPVById(entity.getProduct().getId());
+            if(!productDataView.contains(productView))
+                productDataView.addItem(productView);
+            productDataView.refreshAll();
 
             clearForm();
             close();

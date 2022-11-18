@@ -3,6 +3,7 @@ package com.ale.filso.views.office;
 import com.ale.filso.models.Dictionary.Dictionary;
 import com.ale.filso.models.Dictionary.DictionaryCache;
 import com.ale.filso.models.Dictionary.DictionaryGroup;
+import com.ale.filso.models.Dictionary.DictionaryService;
 import com.ale.filso.models.User.Role;
 import com.ale.filso.seciurity.AuthenticatedUser;
 import com.ale.filso.seciurity.UserAuthorization;
@@ -42,13 +43,13 @@ public class DictionaryDetailsView extends CustomGridView<Dictionary> implements
     Dictionary entity;
     DictionaryGroup dictionaryGroup;
     protected Integer id;
-    DictionaryCache dictionaryCache;
+    DictionaryService dictionaryService;
 
-    protected DictionaryDetailsView(UserAuthorization userAuthorization, DictionaryCache dictionaryCache) {
+    protected DictionaryDetailsView(UserAuthorization userAuthorization, DictionaryService dictionaryService) {
         super(userAuthorization, new Grid<>(Dictionary.class, false), new Dictionary());
         binder =  new Binder<>(Dictionary.class);
         entity = new Dictionary();
-        this.dictionaryCache = dictionaryCache;
+        this.dictionaryService = dictionaryService;
 
     }
 
@@ -94,7 +95,7 @@ public class DictionaryDetailsView extends CustomGridView<Dictionary> implements
 
     @Override
     protected void updateGridDataListWithSearchField(String filterText) {
-        grid.setItems(dictionaryCache.findByGroup(id));
+        grid.setItems(dictionaryService.findByGroup(id));
     }
 
     private void detailsAction() {
@@ -153,14 +154,14 @@ public class DictionaryDetailsView extends CustomGridView<Dictionary> implements
     }
 
     protected DictionaryGroup getEditedObjectById(Integer id) {
-        return dictionaryCache.findDictionaryGroupById(id);
+        return dictionaryService.findDictionaryGroupById(id);
     }
 
     protected void buttonsDialogActions(){
         saveButton.addClickListener(e -> {
             try {
                 binder.writeBean(entity);
-                entity = dictionaryCache.update(entity);
+                entity = dictionaryService.update(entity);
 
                 Notification.show(getTranslation("app.message.saveOk")).addThemeVariants(NotificationVariant.LUMO_SUCCESS);
 

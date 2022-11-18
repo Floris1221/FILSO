@@ -11,6 +11,7 @@ import com.ale.filso.views.office.OfficeView;
 import com.ale.filso.views.warehouse.WareHouseSearchView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentUtil;
+import com.vaadin.flow.component.HasElement;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.avatar.Avatar;
@@ -24,11 +25,13 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.tabs.TabsVariant;
+import com.vaadin.flow.router.HasDynamicTitle;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLink;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @CssImport(themeFor = "vaadin-grid", value = "./themes/resources/components/grid-color.css")
@@ -156,14 +159,14 @@ public class MainLayout extends AppLayout {
         if (isUser.isPresent()) {
             {
                 if (userAuthorization.hasRole(Role.USER)) {
-                    tab.add(createTab(getTranslation("app.title.brewHouse.menu"), new LineAwesomeIcon("las la-beer", "text-l"), BrewHouseSearchView.class));
-                    tab.add(createTab(getTranslation("app.title.fermentationPlant.menu"), new LineAwesomeIcon("las la-percentage", "text-l"), test.class));
-                    tab.add(createTab(getTranslation("app.title.bottlingPlant.menu"), new LineAwesomeIcon("las la-wine-bottle", "text-l"), test.class));
-                    tab.add(createTab(getTranslation("app.title.wareHouse.menu"), new LineAwesomeIcon("las la-boxes", "text-l"), WareHouseSearchView.class));
-                    tab.add(createTab(getTranslation("app.title.cip.menu"), new LineAwesomeIcon("las la-broom", "text-l"), test.class));
+                    tab.add(createTab(getTranslation("app.title.BrewDetailsView"), new LineAwesomeIcon("las la-beer", "text-l"), BrewHouseSearchView.class));
+                    tab.add(createTab(getTranslation("app.title.FermentationPlantView"), new LineAwesomeIcon("las la-percentage", "text-l"), test.class));
+                    tab.add(createTab(getTranslation("app.title.BottlingPlantView"), new LineAwesomeIcon("las la-wine-bottle", "text-l"), test.class));
+                    tab.add(createTab(getTranslation("app.title.WareHouseView"), new LineAwesomeIcon("las la-boxes", "text-l"), WareHouseSearchView.class));
+                    tab.add(createTab(getTranslation("app.title.CipView"), new LineAwesomeIcon("las la-broom", "text-l"), test.class));
                 }
                 if (userAuthorization.hasRole(Role.ADMIN)) {
-                    tab.add(createTab(getTranslation("app.title.office.menu"), new LineAwesomeIcon("lar la-building", "text-l"), OfficeView.class));
+                    tab.add(createTab(getTranslation("app.title.OfficeView"), new LineAwesomeIcon("lar la-building", "text-l"), OfficeView.class));
                 }
             }
         }
@@ -184,21 +187,30 @@ public class MainLayout extends AppLayout {
         super.afterNavigation();
 
         // Select the tab corresponding to currently shown view
-        getTabForComponent(getContent()).ifPresent(menu::setSelectedTab);
+        //getTabForComponent(getContent()).ifPresent(menu::setSelectedTab);
 
         // Set the view title in the header
         viewTitle.setText(getCurrentPageTitle());
     }
 
-    private Optional<Tab> getTabForComponent(Component component) {
-        return menu.getChildren().filter(tab -> ComponentUtil.getData(tab, Class.class).equals(component.getClass()))
-                .findFirst().map(Tab.class::cast);
+    private String getCurrentPageTitle() {
+        if (HasDynamicTitle.class.isAssignableFrom(getContent().getClass())) {
+            return "forgot .getPageTitle() method";
+        } else {
+            PageTitle title = getContent().getClass().getAnnotation(PageTitle.class);
+            return title == null ? "" : title.value();
+        }
     }
 
-    private String getCurrentPageTitle() {
-        PageTitle title = getContent().getClass().getAnnotation(PageTitle.class);
-        return title == null ? "" : title.value();
+    @Override
+    public void showRouterLayoutContent(HasElement content) {
+        super.showRouterLayoutContent(content);
+        if (HasDynamicTitle.class.isAssignableFrom(content.getClass())) {
+            String title = ((HasDynamicTitle) content).getPageTitle();
+            viewTitle.setText(title);
+        }
     }
+
 
     @NpmPackage(value = "line-awesome", version = "1.3.0")
     private static class LineAwesomeIcon extends Span {
