@@ -25,6 +25,8 @@ import com.vaadin.flow.router.Route;
 
 import java.time.format.DateTimeFormatter;
 
+import static com.ale.filso.APPCONSTANT.PRODUCT_TYPE;
+
 @Route(value = "warehousesearch", layout = MainLayout.class)
 @PageTitle("Magazyn")
 public class WareHouseSearchView extends CustomGridView<ProductView>{
@@ -65,7 +67,7 @@ public class WareHouseSearchView extends CustomGridView<ProductView>{
                 .setHeader(getTranslation("models.product.name")).setFlexGrow(1);
 
         grid.addColumn(ProductView::getProductType).setKey("col3")
-                        .setHeader(getTranslation("models.product.productType")).setFlexGrow(1);
+                .setHeader(getTranslation("models.product.productType")).setFlexGrow(1);
 
         grid.addColumn(ProductView::getUnitOfMeasure).setKey("col4")
                 .setHeader(getTranslation("models.product.quantity")).setFlexGrow(2);
@@ -83,7 +85,8 @@ public class WareHouseSearchView extends CustomGridView<ProductView>{
         headerRow.getCell(grid.getColumnByKey("col2")).setComponent(
                 filtering.createTextFilterHeader(entityFilter::setName));
         headerRow.getCell(grid.getColumnByKey("col3")).setComponent(
-                filtering.createTextFilterHeader(entityFilter::setProductType));
+                filtering.createComboFilterHeaderDictionary(entityFilter::setProductType,
+                        dictionaryCache.getDict(PRODUCT_TYPE)));
 
         //Delete button
         grid.addColumn(

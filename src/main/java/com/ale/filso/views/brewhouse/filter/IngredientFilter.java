@@ -10,7 +10,7 @@ public class IngredientFilter extends GridFilter {
     private GridListDataView<Ingredient> dataView;
 
     private String name;
-    private Integer productType;
+    private String productType;
 
     public IngredientFilter() {
     }
@@ -26,14 +26,14 @@ public class IngredientFilter extends GridFilter {
         this.dataView.refreshAll();
     }
 
-    public void setProductType(Integer productType) {
+    public void setProductType(String productType) {
         this.productType = productType;
         this.dataView.refreshAll();
     }
 
     public boolean test(Ingredient entity) {
         boolean matchesFirstCondition = matches(entity.getProductView().getName(), name);
-        //boolean matchesSecondCondition = matches(entity.getProductView().getProductType(), productType);
+        boolean matchesSecondCondition = matches(entity.getProductView().getProductType(), productType);
 
         return matchesFirstCondition; //&& matchesSecondCondition;
     }

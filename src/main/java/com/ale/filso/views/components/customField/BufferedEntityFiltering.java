@@ -72,7 +72,51 @@ public class BufferedEntityFiltering {
         return layout;
     }
 
+    /**
+     * combo filter po wartości stringowej słownika
+     *
+     * @param filterChangeConsumer
+     * @param dictionaries
+     * @return
+     */
     public Component createComboFilterHeaderDictionary(
+            Consumer<String> filterChangeConsumer, List<Dictionary> dictionaries) {
+
+  /*      if (labelText!=null) {  // without label
+            Label label = new Label(labelText);
+            label.getStyle().set("padding-top", "var(--lumo-space-m)")
+                    .set("font-size", "var(--lumo-font-size-xs)");        }*/
+
+        ComboBox<Dictionary> comboBox = new ComboBox<>();
+        comboBox.setItems(dictionaries);
+        comboBox.setItemLabelGenerator(Dictionary::getName);
+        comboBox.setRequired(false);
+        comboBox.setClearButtonVisible(true);
+        comboBox.addThemeVariants(ComboBoxVariant.LUMO_SMALL);
+        comboBox.setWidthFull();
+        comboBox.getStyle().set("max-width", "100%");
+
+        comboBox.addValueChangeListener(event -> {
+            String value = "";
+            if (event.getValue()!=null) value = event.getValue().getName();
+            filterChangeConsumer.accept(value);
+        });
+
+        VerticalLayout layout = new VerticalLayout(comboBox);
+        layout.getThemeList().clear();
+        layout.getThemeList().add("spacing-xs");
+
+        return layout;
+    }
+
+    /**
+     * combo filter po id słownika
+     *
+     * @param filterChangeConsumer
+     * @param dictionaries
+     * @return
+     */
+    public Component createComboFilterHeaderDictionaryById(
             Consumer<Integer> filterChangeConsumer, List<Dictionary> dictionaries) {
 
   /*      if (labelText!=null) {  // without label
