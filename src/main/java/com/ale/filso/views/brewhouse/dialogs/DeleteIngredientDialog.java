@@ -3,9 +3,7 @@ package com.ale.filso.views.brewhouse.dialogs;
 import com.ale.filso.models.Brew.Ingredient;
 import com.ale.filso.models.Brew.IngredientService;
 import com.ale.filso.models.Warehouse.DbView.ProductView;
-import com.ale.filso.models.Warehouse.Product;
 import com.ale.filso.models.Warehouse.ProductService;
-import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.components.customDialogs.CustomFormDialog;
 import com.vaadin.flow.component.grid.dataview.GridListDataView;
 import com.vaadin.flow.component.html.Span;
@@ -45,10 +43,10 @@ public class DeleteIngredientDialog extends CustomFormDialog<Ingredient> {
             }
             listDataView.removeItem(entity);
 
-            ProductView productView = productService.findPVById(entity.getProduct().getId());
-            if(!productDataView.contains(productView))
-                productDataView.addItem(productView);
-            productDataView.refreshAll();
+//            ProductView productView = productService.findPVById(entity.getProduct().getId());
+//            if(!productDataView.contains(productView))
+//                productDataView.addItem(productView);
+//            productDataView.refreshAll();
 
             clearForm();
             close();
@@ -62,13 +60,14 @@ public class DeleteIngredientDialog extends CustomFormDialog<Ingredient> {
     @Override
     public Ingredient setNewEntity() {
         Ingredient ingredient = new Ingredient();
-        ingredient.setProduct(entity.getProduct());
+        //ingredient.setProduct(entity.getProduct());
         return ingredient;
     }
 
     public void setEntity(Ingredient entity){
         this.entity = entity;
+        entity.setProductView(productService.findPVById(entity.getProductId()));
         binder.readBean(entity);
-        span.setText(String.format(getTranslation("ingredientView.dialog.delete.text"), entity.getProduct().getName()) + " ?");
+        span.setText(String.format(getTranslation("ingredientView.dialog.delete.text"), entity.getProductView().getName()) + " ?");
     }
 }

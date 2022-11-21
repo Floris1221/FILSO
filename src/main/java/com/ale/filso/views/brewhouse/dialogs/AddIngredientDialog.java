@@ -25,6 +25,7 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
     GridListDataView<ProductView> productGridListDataView;
     ProductService productService;
     Integer brewId;
+    ProductView productView;
 
     public AddIngredientDialog(String title, GridListDataView<Ingredient> listDataView,
                                IngredientService ingredientService, Integer brewId, ProductService productService){
@@ -41,7 +42,7 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
 
         CustomBigDecimalField remainedQuantity = new CustomBigDecimalField(getTranslation("app.ingredientView.remainedQuantity"), null, false);
         binder.forField(remainedQuantity)
-                .bindReadOnly(item -> item.getProduct().getQuantity().add(
+                .bindReadOnly(item -> item.getProductView().getQuantity().add(
                         item.getQuantity() == null ? new BigDecimal(0) : item.getQuantity()));
 
         //todo zaokrąglenia nie działają
@@ -55,7 +56,7 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
         TextField unitOfMeasure = new TextField(getTranslation("models.product.unitOfMeasureShortCut"));
         unitOfMeasure.getStyle().set("width", "4em");
         binder.forField(unitOfMeasure)
-                .bindReadOnly(item -> getDictShortName(item.getProduct().getUnitOfMeasure()));
+                .bindReadOnly(item -> item.getProductView().getUnitOfMeasure());
 
         HorizontalLayout h1 = new HorizontalLayout(quantityField, remainedQuantity, unitOfMeasure);
 
@@ -66,22 +67,23 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
     public void saveAction() {
         try {
             boolean isNewEntity = entity.getId() == null;
-            if(!isNewEntity)
-                entity.getProduct().setQuantity(entity.getProduct().getQuantity().add(entity.getQuantity()));
+//            if(!isNewEntity)
+//                entity.getProduct.setQuantity(entity.getProduct().getQuantity().add(entity.getQuantity()));
 
+            entity.setProductId(entity.getProductView().getId());
             entity.setBrewId(brewId);
             binder.writeBean(entity);
             entity = ingredientService.update(entity);
 
             Notification.show(getTranslation("app.message.saveOk")).addThemeVariants(NotificationVariant.LUMO_SUCCESS);
 
-            if(isNewEntity)
+            if(isNewEntity){
                 listDataView.addItem(entity);
+                if(entity.getProductView().getQuantity().compareTo(new BigDecimal(0)) == 0)
+                    productGridListDataView.removeItem(entity.getProductView());
+                productGridListDataView.refreshAll();
+            }
             listDataView.refreshAll();
-            if(entity.getProduct().getQuantity().compareTo(new BigDecimal(0)) == 0)
-                productGridListDataView.removeItem(productService.transferProductToProductView(entity.getProduct(), getDictName(entity.getProduct().getProductType()),
-                        getDictShortName(entity.getProduct().getUnitOfMeasure())));
-            productGridListDataView.refreshAll();
 
             clearForm();
             close();
@@ -96,22 +98,22 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
     @Override
     public Ingredient setNewEntity() {
         Ingredient ingredient = new Ingredient();
-        ingredient.setProduct(entity.getProduct());
+        ingredient.setProductView(entity.getProductView());
         return ingredient;
     }
 
-    public void setProduct(Product product){
-        entity.setProduct(product);
+    public void setProduct(ProductView productView){
+        this.productView = productView;
+        entity.setProductView(productView);
         binder.readBean(entity);
-        setHeaderTitle(product.getName() + " ["+getDictName(product.getProductType())+
-                "]");
+        setHeaderTitle(productView.getName() + " ["+productView.getProductType()+"]");
     }
 
     public void setEntity(Ingredient entity){
         this.entity = entity;
+        entity.setProductView(productService.findPVById(entity.getProductId()));
         binder.readBean(entity);
-        setHeaderTitle(entity.getProduct().getName() + " ["+getDictName(entity.getProduct().getProductType())+
-                "]");
+        setHeaderTitle(entity.getProductView().getName() + " ["+entity.getProductView().getProductType()+"]");
     }
 
     public void setProductGridListDataView(GridListDataView<ProductView> productGridListDataView){

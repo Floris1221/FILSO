@@ -28,18 +28,21 @@ public class IngredientService {
 
     @Transactional
     public Ingredient update(Ingredient entity){
-        Product productToUpdate = entity.getProduct();
+        Product productToUpdate = productRepo.findActiveById(entity.getProductId());
         productToUpdate.setQuantity(productToUpdate.getQuantity().subtract(entity.getQuantity()));
         if(productToUpdate.getQuantity().compareTo(new BigDecimal(0)) == 0)
             productToUpdate.setActive(false);
         Product product = productRepo.save(productToUpdate);
-        return ingredientRepo.save(entity);
+        Ingredient ingredientAfterUpdate = ingredientRepo.save(entity);
+        entity.getProductView().setQuantity(product.getQuantity());
+        ingredientAfterUpdate.setProductView(entity.getProductView());
+        return ingredientAfterUpdate;
     }
 
     @Transactional
     public void delete(Ingredient entity){
         //Change product quantity after take product to ingredient
-        Product productToUpdate = entity.getProduct();
+        Product productToUpdate = productRepo.findActiveById(entity.getProductId());
         productToUpdate.setQuantity(productToUpdate.getQuantity().add(entity.getQuantity()));
         if(productToUpdate.getQuantity().compareTo(new BigDecimal(0)) != 0)
             productToUpdate.setActive(true);

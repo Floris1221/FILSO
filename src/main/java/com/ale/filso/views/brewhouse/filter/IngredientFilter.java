@@ -32,10 +32,10 @@ public class IngredientFilter extends GridFilter {
     }
 
     public boolean test(Ingredient entity) {
-        boolean matchesFirstCondition = matches(entity.getProduct().getName(), name);
-        boolean matchesSecondCondition = matches(entity.getProduct().getProductType(), productType);
+        boolean matchesFirstCondition = matches(entity.getProductView().getName(), name);
+        //boolean matchesSecondCondition = matches(entity.getProductView().getProductType(), productType);
 
-        return matchesFirstCondition && matchesSecondCondition;
+        return matchesFirstCondition; //&& matchesSecondCondition;
     }
 
 }

@@ -4,6 +4,7 @@ import com.ale.filso.models.Brew.Ingredient;
 import com.ale.filso.models.Brew.IngredientService;
 import com.ale.filso.models.Dictionary.DictionaryCache;
 import com.ale.filso.models.User.Role;
+import com.ale.filso.models.Warehouse.DbView.ProductView;
 import com.ale.filso.models.Warehouse.Product;
 import com.ale.filso.models.Warehouse.ProductService;
 import com.ale.filso.seciurity.UserAuthorization;
@@ -28,6 +29,7 @@ import com.vaadin.flow.data.renderer.ComponentRenderer;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static com.ale.filso.APPCONSTANT.PRODUCT_TYPE;
 
@@ -69,17 +71,17 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
     @Override
     protected void createGrid() {
 
-        grid.addColumn(item -> item.getProduct().getName()).setKey("col1")
+        grid.addColumn(item -> item.getProductView().getName()).setKey("col1")
                 .setHeader(getTranslation("models.product.name")).setFlexGrow(1);
 
-        grid.addColumn(item -> getDictName(item.getProduct().getProductType())).setKey("col2")
+        grid.addColumn(item -> item.getProductView().getProductType()).setKey("col2")
                 .setHeader(getTranslation("models.product.productType")).setFlexGrow(1);
 
-        grid.addColumn(item -> item.getQuantity() + " " + item.getProduct().getUnitOfMeasure().getShortName()).setKey("col3")
+        grid.addColumn(item -> item.getQuantity() + " " + item.getProductView().getUnitOfMeasure()).setKey("col3")
                 .setHeader(getTranslation("models.product.quantity")).setFlexGrow(2);
 
-        grid.addColumn(item -> item.getProduct().getExpirationDate().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))).setKey("col4")
-                .setClassNameGenerator(item -> item.getProduct().getExpirationColor())
+        grid.addColumn(item -> item.getProductView().getExpirationDate().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))).setKey("col4")
+                .setClassNameGenerator(item -> item.getProductView().getExpirationColor())
                 .setHeader(getTranslation("models.product.expirationDate")).setFlexGrow(1);
 
         //Delete button
@@ -145,7 +147,15 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
     protected void updateGridDataListWithSearchField(String filterText) {
         super.updateGridDataListWithSearchField(filterText);
         // refresh filter data
-        entityFilter.setDataView(grid.setItems(ingredientService.findAllActive(filterText, brewDetailsView.entity.getId())));
+        List<Ingredient> ingredients = ingredientService.findAllActive(filterText, brewDetailsView.entity.getId());
+        if(!ingredients.isEmpty()){
+            List<ProductView> productViews = productService.findAllPVByIds(ingredients.stream().map(Ingredient::getProductId).toList());
+            for (Ingredient item: ingredients){
+                item.setProductView(productViews.stream().filter(x -> Objects.equals(item.getProductId(), x.getId())).findFirst().orElse(new ProductView()));
+            }
+        }
+        System.out.println(ingredients.stream().map(ingredient -> ingredient.getProductView().getName() + " " + ingredient.getId()).toList());
+        entityFilter.setDataView(grid.setItems(ingredients));
     }
 
     private void createDialog() {

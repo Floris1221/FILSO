@@ -66,6 +66,10 @@ public class ProductService {
         return productViewRepo.findActiveById(id);
     }
 
+    public List<ProductView> findAllPVByIds(List<Integer> ids){
+        return productViewRepo.findAllPVByIds(ids);
+    }
+
 
 
 }

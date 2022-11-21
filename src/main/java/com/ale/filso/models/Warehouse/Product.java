@@ -68,6 +68,10 @@ public class Product extends AbstractEntity {
     @Size(max = 1000, message = "Max 1000 znaków")
     private String deleteReason;
 
+    /**
+     * Czy aktywny
+     */
+    private boolean isActive;
 
     /**
      * Return color of expiration

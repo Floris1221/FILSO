@@ -6,6 +6,7 @@ import com.ale.filso.models.Warehouse.ProductService;
 import com.ale.filso.views.components.customDialogs.CustomGridDialog;
 import com.ale.filso.views.components.customField.BufferedEntityFiltering;
 import com.ale.filso.views.warehouse.filter.WareHouseFilter;
+import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.HeaderRow;
 
@@ -56,12 +57,13 @@ public class ProductDialog extends CustomGridDialog<ProductView> {
 
     @Override
     public void createActionButton() {
-        addEditIngredientDialog.setProduct(productService.findById(selectedEntity.getId()));
+        addEditIngredientDialog.setProduct(selectedEntity);
         addEditIngredientDialog.open();
     }
 
     @Override
     protected void updateGridDataListWithSearchField() {
-        productFilter.setDataView(grid.setItems(productService.findAllActivePV(null)));
+            productFilter.setDataView(grid.setItems(productService.findAllActivePV(null)));
     }
+
 }

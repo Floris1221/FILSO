@@ -3,6 +3,7 @@ package com.ale.filso.views.components.customDialogs;
 import com.ale.filso.models.Dictionary.Dictionary;
 import com.ale.filso.views.components.Enums.ButtonType;
 import com.ale.filso.views.components.customField.CustomButton;
+import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
@@ -50,9 +51,9 @@ public abstract class CustomGridDialog<E> extends CustomDialog {
         });
 
         //Get elements to grid
-        //addAttachListener(attachEvent -> {
-        updateGridDataListWithSearchField();
-        //});
+        addAttachListener(attachEvent -> {
+            updateGridDataListWithSearchField();
+        });
 
 
         VerticalLayout dialogLayout = new VerticalLayout(grid);
