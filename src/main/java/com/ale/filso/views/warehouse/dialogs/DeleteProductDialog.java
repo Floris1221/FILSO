@@ -72,7 +72,7 @@ public class DeleteProductDialog extends CustomFormDialog<Product> {
 
     public void setEntity(ProductView productView){
         this.productView = productView;
-        this.entity = productService.findById(productView.getId());
+        this.entity = productService.findProductById(productView.getId());
     }
 
 }

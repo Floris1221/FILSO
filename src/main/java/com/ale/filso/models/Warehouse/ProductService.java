@@ -25,8 +25,8 @@ public class ProductService {
     }
 
 
-    public Product findById(Integer id){
-        return productRepo.findActiveById(id);
+    public Product findProductById(Integer id){
+        return productRepo.findProductById(id);
     }
 
     public Product update(Product entity){

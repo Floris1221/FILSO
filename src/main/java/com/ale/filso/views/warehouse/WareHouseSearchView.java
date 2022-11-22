@@ -69,7 +69,7 @@ public class WareHouseSearchView extends CustomGridView<ProductView>{
         grid.addColumn(ProductView::getProductType).setKey("col3")
                 .setHeader(getTranslation("models.product.productType")).setFlexGrow(1);
 
-        grid.addColumn(ProductView::getUnitOfMeasure).setKey("col4")
+        grid.addColumn(item -> item.getQuantity()+" "+ item.getUnitOfMeasure()).setKey("col4")
                 .setHeader(getTranslation("models.product.quantity")).setFlexGrow(2);
 
         grid.addColumn(item -> item.getExpirationDate().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))).setKey("col5")
