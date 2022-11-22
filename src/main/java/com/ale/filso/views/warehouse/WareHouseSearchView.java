@@ -7,6 +7,7 @@ import com.ale.filso.models.Warehouse.Product;
 import com.ale.filso.models.Warehouse.ProductService;
 import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.MainLayout;
+import com.ale.filso.views.components.CustomDecimalFormat;
 import com.ale.filso.views.components.CustomGridView;
 import com.ale.filso.views.components.Enums.ButtonType;
 import com.ale.filso.views.components.customField.*;
@@ -17,12 +18,16 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.HeaderRow;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
 import java.time.format.DateTimeFormatter;
 
 import static com.ale.filso.APPCONSTANT.PRODUCT_TYPE;
@@ -69,7 +74,12 @@ public class WareHouseSearchView extends CustomGridView<ProductView>{
         grid.addColumn(ProductView::getProductType).setKey("col3")
                 .setHeader(getTranslation("models.product.productType")).setFlexGrow(1);
 
-        grid.addColumn(item -> item.getQuantity()+" "+ item.getUnitOfMeasure()).setKey("col4")
+        grid.addColumn(new ComponentRenderer<>(item -> {
+                    CustomDecimalFormat format = new CustomDecimalFormat();
+                    Span span = new Span(format.format(item.getQuantity()));
+                    span.setText(span.getText()+" "+item.getUnitOfMeasure());
+                    return span;
+                })).setKey("col4")
                 .setHeader(getTranslation("models.product.quantity")).setFlexGrow(2);
 
         grid.addColumn(item -> item.getExpirationDate().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))).setKey("col5")

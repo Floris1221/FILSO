@@ -12,6 +12,7 @@ import com.ale.filso.views.brewhouse.dialogs.AddIngredientDialog;
 import com.ale.filso.views.brewhouse.dialogs.DeleteIngredientDialog;
 import com.ale.filso.views.brewhouse.filter.IngredientFilter;
 import com.ale.filso.views.brewhouse.dialogs.ProductDialog;
+import com.ale.filso.views.components.CustomDecimalFormat;
 import com.ale.filso.views.components.CustomGridView;
 import com.ale.filso.views.components.Enums.ButtonType;
 import com.ale.filso.views.components.customField.BufferedEntityFiltering;
@@ -21,6 +22,7 @@ import com.vaadin.flow.component.button.ButtonVariant;
 
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.HeaderRow;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.data.binder.Binder;
@@ -77,7 +79,12 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
         grid.addColumn(item -> item.getProductView().getProductType()).setKey("col2")
                 .setHeader(getTranslation("models.product.productType")).setFlexGrow(1);
 
-        grid.addColumn(item -> item.getQuantity() + " " + item.getProductView().getUnitOfMeasure()).setKey("col3")
+        grid.addColumn(new ComponentRenderer<>(item -> {
+                    CustomDecimalFormat format = new CustomDecimalFormat();
+                    Span span = new Span(format.format(item.getQuantity()));
+                    span.setText(span.getText()+" "+item.getProductView().getUnitOfMeasure());
+                    return span;
+                })).setKey("col3")
                 .setHeader(getTranslation("models.product.quantity")).setFlexGrow(2);
 
         grid.addColumn(item -> item.getProductView().getExpirationDate().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))).setKey("col4")

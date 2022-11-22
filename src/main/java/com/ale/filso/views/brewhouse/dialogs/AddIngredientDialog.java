@@ -16,8 +16,10 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValidationException;
 import org.springframework.dao.OptimisticLockingFailureException;
+import org.vaadin.miki.superfields.numbers.SuperBigDecimalField;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
 
@@ -46,7 +48,7 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
                         item.getQuantity() == null ? new BigDecimal(0) : item.getQuantity()));
 
         //todo zaokrąglenia nie działają
-        CustomBigDecimalField quantityField = new CustomBigDecimalField(getTranslation("models.product.quantity"), null, false);
+        CustomBigDecimalField quantityField = new CustomBigDecimalField(getTranslation("models.product.quantity"),null, false);
         quantityField.getStyle().set("margin-right", "30px");
         binder.forField(quantityField)
                 .asRequired(getTranslation("app.validation.notEmpty"))
@@ -67,8 +69,8 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
     public void saveAction() {
         try {
             boolean isNewEntity = entity.getId() == null;
-//            if(!isNewEntity)
-//                entity.getProduct.setQuantity(entity.getProduct().getQuantity().add(entity.getQuantity()));
+            if(!isNewEntity)
+                entity.getProductView().setQuantity(entity.getProductView().getQuantity().add(entity.getQuantity()));
 
             entity.setProductId(entity.getProductView().getId());
             entity.setBrewId(brewId);

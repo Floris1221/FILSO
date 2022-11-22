@@ -49,7 +49,7 @@ public abstract class CustomFormDialog<E> extends CustomDialog {
         dialogLayout.setPadding(false);
         dialogLayout.setSpacing(false);
         dialogLayout.setAlignItems(FlexComponent.Alignment.STRETCH);
-        dialogLayout.getStyle().set("width", "24rem").set("max-width", "100%");
+        dialogLayout.getStyle().set("width", "30rem").set("max-width", "100%");
         add(dialogLayout);
     }
 

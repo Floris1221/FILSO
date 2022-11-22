@@ -4,16 +4,46 @@ import com.ale.filso.views.components.CustomView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.textfield.BigDecimalField;
+import org.vaadin.miki.superfields.numbers.SuperBigDecimalField;
 
 import java.math.RoundingMode;
 
-public class CustomBigDecimalField extends BigDecimalField {
+public class CustomBigDecimalField extends SuperBigDecimalField {
 
     public CustomBigDecimalField(String key, String suffix, boolean haveParent){
         super(key);
-        setPattern(calcPattern(1));
+        this.withMaximumFractionDigits(2);
+        this.withMinimumFractionDigits(2);
+        this.withMaximumIntegerDigits(12);
+        if (suffix!=null) {
+            Div divSuffix = new Div();
+            divSuffix.setText(suffix);
+            this.setSuffixComponent(divSuffix);
+        }
         if(haveParent)
-            setPreventInvalidInput(true);
+            addListeners();
+    }
+
+    public CustomBigDecimalField(String key, String suffix, boolean haveParent, boolean hasAccess){
+        super(key);
+        this.setReadOnly(!hasAccess);
+        this.withMaximumFractionDigits(2);
+        this.withMinimumFractionDigits(2);
+        this.withMaximumIntegerDigits(12);
+        if (suffix!=null) {
+            Div divSuffix = new Div();
+            divSuffix.setText(suffix);
+            this.setSuffixComponent(divSuffix);
+        }
+        if(haveParent)
+            addListeners();
+    }
+
+    public CustomBigDecimalField(String key, String suffix, boolean haveParent, int digit){
+        super(key);
+        this.withMaximumFractionDigits(digit);
+        this.withMinimumFractionDigits(digit);
+        this.withMaximumIntegerDigits(12);
         if (suffix!=null) {
             Div divSuffix = new Div();
             divSuffix.setText(suffix);
@@ -24,12 +54,12 @@ public class CustomBigDecimalField extends BigDecimalField {
     }
 
 
-    public CustomBigDecimalField(String key, String suffix, boolean haveParent, boolean hasAccess){
+    public CustomBigDecimalField(String key, String suffix, boolean haveParent, boolean hasAccess, int digit){
         super(key);
-        setReadonly(!hasAccess);
-        setPattern(calcPattern(1));
-        if(haveParent)
-            setPreventInvalidInput(true);
+        this.setReadOnly(!hasAccess);
+        this.withMaximumFractionDigits(digit);
+        this.withMinimumFractionDigits(digit);
+        this.withMaximumIntegerDigits(12);
         if (suffix!=null) {
             Div divSuffix = new Div();
             divSuffix.setText(suffix);
@@ -41,19 +71,9 @@ public class CustomBigDecimalField extends BigDecimalField {
 
 
     private void addListeners() {
-        this.addInputListener(event -> {
+        this.addTextSelectionListener(event -> {
             setParentViewDataModified(this);
-
         });
-    }
-
-    private String calcPattern(final int descendants){
-        String pattern = "[0-9]*";
-        if (descendants > 0){
-            pattern += "(,|.)?";
-        }
-        pattern+="[0-9]{0,"+descendants+"}";
-        return pattern;
     }
 
     private void setParentViewDataModified(Component component) {

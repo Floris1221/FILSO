@@ -29,6 +29,7 @@ public class IngredientService {
     @Transactional
     public Ingredient update(Ingredient entity){
         Product productToUpdate = productRepo.findProductById(entity.getProductId());
+        productToUpdate.setQuantity(entity.getProductView().getQuantity());
         productToUpdate.setQuantity(productToUpdate.getQuantity().subtract(entity.getQuantity()));
         if(productToUpdate.getQuantity().compareTo(new BigDecimal(0)) == 0)
             productToUpdate.setActive(false);
