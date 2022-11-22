@@ -3,12 +3,15 @@ package com.ale.filso.views.brewhouse.dialogs;
 import com.ale.filso.models.Dictionary.DictionaryCache;
 import com.ale.filso.models.Warehouse.DbView.ProductView;
 import com.ale.filso.models.Warehouse.ProductService;
+import com.ale.filso.views.components.CustomDecimalFormat;
 import com.ale.filso.views.components.customDialogs.CustomGridDialog;
 import com.ale.filso.views.components.customField.BufferedEntityFiltering;
 import com.ale.filso.views.warehouse.filter.WareHouseFilter;
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.HeaderRow;
+import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.data.renderer.ComponentRenderer;
 
 import java.time.format.DateTimeFormatter;
 
@@ -39,8 +42,12 @@ public class ProductDialog extends CustomGridDialog<ProductView> {
         grid.addColumn(ProductView::getProductType).setKey("col2")
                 .setHeader(getTranslation("models.product.productType")).setFlexGrow(1);
 
-        grid.addColumn(item -> item.getQuantity() + " " + item.getUnitOfMeasure()).setKey("col3")
-                .setHeader(getTranslation("models.product.quantity")).setFlexGrow(2);
+        grid.addColumn(new ComponentRenderer<>(item -> {
+            CustomDecimalFormat format = new CustomDecimalFormat();
+            Span span = new Span(format.format(item.getQuantity()));
+            span.setText(span.getText()+" "+item.getUnitOfMeasure());
+            return span;
+        })).setKey("col3").setHeader(getTranslation("models.product.quantity")).setFlexGrow(2);
 
         grid.addColumn(item -> item.getExpirationDate().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))).setKey("col4")
                 .setClassNameGenerator(ProductView::getExpirationColor)
@@ -57,13 +64,15 @@ public class ProductDialog extends CustomGridDialog<ProductView> {
 
     @Override
     public void createActionButton() {
-        addEditIngredientDialog.setProduct(selectedEntity);
+        addEditIngredientDialog.setProduct(selectedEntity); //set choosed product
         addEditIngredientDialog.open();
     }
 
     @Override
     protected void updateGridDataListWithSearchField() {
+        addAttachListener(attachEvent -> { //take new list of product after every open dialog
             productFilter.setDataView(grid.setItems(productService.findAllActivePV(null)));
+        });
     }
 
 }

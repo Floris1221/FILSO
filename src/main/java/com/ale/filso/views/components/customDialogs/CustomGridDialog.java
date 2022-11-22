@@ -51,9 +51,7 @@ public abstract class CustomGridDialog<E> extends CustomDialog {
         });
 
         //Get elements to grid
-        addAttachListener(attachEvent -> {
-            updateGridDataListWithSearchField();
-        });
+        updateGridDataListWithSearchField();
 
 
         VerticalLayout dialogLayout = new VerticalLayout(grid);

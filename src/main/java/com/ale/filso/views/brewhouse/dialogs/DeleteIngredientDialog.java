@@ -43,11 +43,6 @@ public class DeleteIngredientDialog extends CustomFormDialog<Ingredient> {
             }
             listDataView.removeItem(entity);
 
-//            ProductView productView = productService.findPVById(entity.getProduct().getId());
-//            if(!productDataView.contains(productView))
-//                productDataView.addItem(productView);
-//            productDataView.refreshAll();
-
             clearForm();
             close();
 
@@ -64,6 +59,10 @@ public class DeleteIngredientDialog extends CustomFormDialog<Ingredient> {
         return ingredient;
     }
 
+    /**
+     * Set choosen entity
+     * @param entity
+     */
     public void setEntity(Ingredient entity){
         this.entity = entity;
         entity.setProductView(productService.findPVById(entity.getProductId()));

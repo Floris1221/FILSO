@@ -62,5 +62,9 @@ public abstract class CustomFormDialog<E> extends CustomDialog {
 
     public abstract void saveAction();
 
+    /**
+     * new entity after save
+     * @return
+     */
     public abstract E setNewEntity();
 }

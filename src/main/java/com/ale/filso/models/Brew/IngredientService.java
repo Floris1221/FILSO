@@ -28,26 +28,25 @@ public class IngredientService {
 
     @Transactional
     public Ingredient update(Ingredient entity){
-        Product productToUpdate = productRepo.findProductById(entity.getProductId());
-        productToUpdate.setQuantity(entity.getProductView().getQuantity());
-        productToUpdate.setQuantity(productToUpdate.getQuantity().subtract(entity.getQuantity()));
-        if(productToUpdate.getQuantity().compareTo(new BigDecimal(0)) == 0)
-            productToUpdate.setActive(false);
-        Product product = productRepo.save(productToUpdate);
-        Ingredient ingredientAfterUpdate = ingredientRepo.save(entity);
-        entity.getProductView().setQuantity(product.getQuantity());
-        ingredientAfterUpdate.setProductView(entity.getProductView());
+        Product productToUpdate = productRepo.findProductById(entity.getProductId()); //find product to update
+        productToUpdate.setQuantity(entity.getProductView().getQuantity()); //set quantity for this product - used when you update ingredient and real quantity = product quantity + ingredient quantity
+        productToUpdate.setQuantity(productToUpdate.getQuantity().subtract(entity.getQuantity())); // substract from product quantity, used ingredient quantity
+        if(productToUpdate.getQuantity().compareTo(new BigDecimal(0)) == 0) //check if used all quantity
+            productToUpdate.setActive(false);  //if yes set active false
+        Product product = productRepo.save(productToUpdate); //update product
+        Ingredient ingredientAfterUpdate = ingredientRepo.save(entity); //update ingredient
+        entity.getProductView().setQuantity(product.getQuantity()); // set for entity -> productView new quantity of product after update
+        ingredientAfterUpdate.setProductView(entity.getProductView()); //set for saved ingredient productView
         return ingredientAfterUpdate;
     }
 
     @Transactional
     public void delete(Ingredient entity){
-        //Change product quantity after take product to ingredient
-        Product productToUpdate = productRepo.findProductById(entity.getProductId());
-        productToUpdate.setQuantity(productToUpdate.getQuantity().add(entity.getQuantity()));
-        if(productToUpdate.getQuantity().compareTo(new BigDecimal(0)) != 0)
-            productToUpdate.setActive(true);
-        Product product = productRepo.save(productToUpdate);
-        ingredientRepo.deleteActiveById(entity.getId());
+        Product productToUpdate = productRepo.findProductById(entity.getProductId()); //find product to update
+        productToUpdate.setQuantity(productToUpdate.getQuantity().add(entity.getQuantity())); //Change product quantity = product quantity + ingredient quantity
+        if(productToUpdate.getQuantity().compareTo(new BigDecimal(0)) != 0) // if product quantity != 0
+            productToUpdate.setActive(true); //if yest set active true
+        Product product = productRepo.save(productToUpdate); // save product
+        ingredientRepo.deleteActiveById(entity.getId()); //delete ingredient
     }
 }

@@ -69,20 +69,21 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
     public void saveAction() {
         try {
             boolean isNewEntity = entity.getId() == null;
+            //jeżeli edytujesz to ustawiasz ilość do wykorzystaia na ilość produktu + ilość już użyta w składniku
             if(!isNewEntity)
                 entity.getProductView().setQuantity(entity.getProductView().getQuantity().add(entity.getQuantity()));
 
             entity.setProductId(entity.getProductView().getId());
             entity.setBrewId(brewId);
             binder.writeBean(entity);
-            entity = ingredientService.update(entity);
+            entity = ingredientService.update(entity); //zapis składnika
 
             Notification.show(getTranslation("app.message.saveOk")).addThemeVariants(NotificationVariant.LUMO_SUCCESS);
 
-            if(isNewEntity){
-                listDataView.addItem(entity);
-                if(entity.getProductView().getQuantity().compareTo(new BigDecimal(0)) == 0)
-                    productGridListDataView.removeItem(entity.getProductView());
+            if(isNewEntity){ //jeżeli nowo dodany
+                listDataView.addItem(entity); //dodajemy do listy składników (okno głowne)
+                if(entity.getProductView().getQuantity().compareTo(new BigDecimal(0)) == 0) //sprawdzamy czy nie używamy całego produktu
+                    productGridListDataView.removeItem(entity.getProductView()); //jeśli tak to usuwamy go z listy
                 productGridListDataView.refreshAll();
             }
             listDataView.refreshAll();
@@ -97,6 +98,7 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
         }
     }
 
+    //Po updajce nowy składnik - tylko na potrzeby zamknięcia okna
     @Override
     public Ingredient setNewEntity() {
         Ingredient ingredient = new Ingredient();
@@ -104,6 +106,12 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
         return ingredient;
     }
 
+    //z okna dialogowego produktu - wybrany produkt, którego ccemy użyć
+
+    /**
+     * set product you want to use
+     * @param productView
+     */
     public void setProduct(ProductView productView){
         this.productView = productView;
         entity.setProductView(productView);
@@ -111,6 +119,12 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
         setHeaderTitle(productView.getName() + " ["+productView.getProductType()+"]");
     }
 
+    //z listy składników - skladnik do edycji
+
+    /**
+     * Set entity to edit
+     * @param entity
+     */
     public void setEntity(Ingredient entity){
         this.entity = entity;
         entity.setProductView(productService.findPVById(entity.getProductId()));
@@ -118,6 +132,10 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
         setHeaderTitle(entity.getProductView().getName() + " ["+entity.getProductView().getProductType()+"]");
     }
 
+    /**
+     * set product list - only use in inicjalize this dialog
+     * @param productGridListDataView
+     */
     public void setProductGridListDataView(GridListDataView<ProductView> productGridListDataView){
         this.productGridListDataView = productGridListDataView;
     }
