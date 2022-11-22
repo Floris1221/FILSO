@@ -11,11 +11,14 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 
 import com.vaadin.flow.component.button.Button;
+
+import javax.annotation.security.PermitAll;
 import java.awt.*;
 
 @Route(value = "test", layout = MainLayout.class)
 @RouteAlias(value = "/", layout = MainLayout.class)
 @PageTitle("Test")
+@PermitAll
 public class test extends CustomView {
 
     public test(UserAuthorization userAuthorization){

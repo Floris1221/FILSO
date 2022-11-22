@@ -12,11 +12,13 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.HashMap;
 
 
 @Route(value = "brewHouseSearch", layout = MainLayout.class)
 @PageTitle("Warzelnia")
+@RolesAllowed("user")
 public class BrewHouseSearchView extends CustomGridView<Brew> {
 
     BrewService service;

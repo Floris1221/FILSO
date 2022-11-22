@@ -138,18 +138,17 @@ public abstract class CustomGridView<E> extends CustomView{
         return wrapper;
     }
 
-    protected void createBackRoutIcon(){
+    protected Icon createBackRoutIcon(){
         Icon backIcon = new Icon("vaadin", "arrow-left");
         backIcon.getStyle().set("font-size","0.8rem");
         backIcon.getStyle().set("align-self","center");
         backIcon.addClickListener(event -> UI.getCurrent().navigate(getBackRoute()));
         backIcon.getElement().setAttribute("title",getTranslation("app.message.back"));
         backIcon.getElement().getThemeList().add("badge primary");
+        return backIcon;
     }
 
-    private String getBackRoute() {
+    protected String getBackRoute() {
         return  null;
     }
-
-
 }

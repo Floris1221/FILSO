@@ -20,7 +20,7 @@ import javax.annotation.security.RolesAllowed;
 import static com.ale.filso.APPCONSTANT.ROUTE_BREW_SEARCH;
 
 @Route(value = "brew/:id?", layout = MainLayout.class)
-@RolesAllowed({"Admin"})
+@RolesAllowed("user")
 public class BrewDetailsView extends CustomDetailView<Brew>{
 
     BrewService service;

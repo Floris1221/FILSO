@@ -3,7 +3,6 @@ package com.ale.filso.views.brewhouse.dialogs;
 import com.ale.filso.models.Brew.Ingredient;
 import com.ale.filso.models.Brew.IngredientService;
 import com.ale.filso.models.Warehouse.DbView.ProductView;
-import com.ale.filso.models.Warehouse.Product;
 import com.ale.filso.models.Warehouse.ProductService;
 import com.ale.filso.views.components.customDialogs.CustomFormDialog;
 import com.ale.filso.views.components.customField.CustomBigDecimalField;
@@ -16,10 +15,8 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValidationException;
 import org.springframework.dao.OptimisticLockingFailureException;
-import org.vaadin.miki.superfields.numbers.SuperBigDecimalField;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 
 public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
 
@@ -98,7 +95,7 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
         }
     }
 
-    //Po updajce nowy składnik - tylko na potrzeby zamknięcia okna
+    //Po updajce nowego składnika - tylko na potrzeby zamknięcia okna
     @Override
     public Ingredient setNewEntity() {
         Ingredient ingredient = new Ingredient();

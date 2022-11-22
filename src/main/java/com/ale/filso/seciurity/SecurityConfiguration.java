@@ -29,34 +29,35 @@ public class SecurityConfiguration extends VaadinWebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
+        super.configure(http);
+        setLoginView(http, LoginView.class);
 //-- oryginal
 //        super.configure(http);
 //        setLoginView(http, LoginView.class, LOGOUT_URL);
 
         // Not using Spring CSRF here to be able to use plain HTML for the login page
-        http.csrf().disable() // (1)
-
-                // Register our CustomRequestCache that saves unauthorized access attempts, so
-                // the user is redirected after login.
-                .requestCache().requestCache(new CustomRequestCache()) // (2)
-
-                // Restrict access to our application.
-                .and().authorizeRequests()
-
-                // Allow all flow internal requests.
-                .requestMatchers(SecurityUtils::isFrameworkInternalRequest).permitAll() // (3)
-
-                // Allow all requests by logged in users.
-                .anyRequest().authenticated() // (4)
-
-                // Configure the login page.
-                .and().formLogin().loginPage(LOGIN_URL).permitAll() // (5)
-                .loginProcessingUrl(LOGIN_PROCESSING_URL) // (6)
-                .failureUrl(LOGIN_FAILURE_URL)
-
-                // Configure logout
-                .and().logout().logoutSuccessUrl(LOGOUT_SUCCESS_URL);
+//        http.csrf().disable() // (1)
+//
+//                // Register our CustomRequestCache that saves unauthorized access attempts, so
+//                // the user is redirected after login.
+//                .requestCache().requestCache(new CustomRequestCache()) // (2)
+//
+//                // Restrict access to our application.
+//                .and().authorizeRequests()
+//
+//                // Allow all flow internal requests.
+//                .requestMatchers(SecurityUtils::isFrameworkInternalRequest).permitAll() // (3)
+//
+//                // Allow all requests by logged in users.
+//                .anyRequest().authenticated() // (4)
+//
+//                // Configure the login page.
+//                .and().formLogin().loginPage(LOGIN_URL).permitAll() // (5)
+//                .loginProcessingUrl(LOGIN_PROCESSING_URL) // (6)
+//                .failureUrl(LOGIN_FAILURE_URL)
+//
+//                // Configure logout
+//                .and().logout().logoutSuccessUrl(LOGOUT_SUCCESS_URL);
     }
 
     @Override

@@ -25,15 +25,14 @@ import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.ParseException;
+import javax.annotation.security.RolesAllowed;
 import java.time.format.DateTimeFormatter;
 
 import static com.ale.filso.APPCONSTANT.PRODUCT_TYPE;
 
 @Route(value = "warehousesearch", layout = MainLayout.class)
 @PageTitle("Magazyn")
+@RolesAllowed("user")
 public class WareHouseSearchView extends CustomGridView<ProductView>{
 
     AddProductDialog addDialog;
