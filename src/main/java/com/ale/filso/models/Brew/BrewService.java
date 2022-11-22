@@ -1,5 +1,7 @@
 package com.ale.filso.models.Brew;
 
+import com.ale.filso.seciurity.AuthenticatedUser;
+import com.ale.filso.seciurity.UserAuthorization;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,9 +10,11 @@ import java.util.List;
 public class BrewService {
 
     private BrewRepo brewRepo;
+    private UserAuthorization userAuthorization;
 
-    BrewService(BrewRepo brewRepo){
+    BrewService(BrewRepo brewRepo, UserAuthorization userAuthorization){
         this.brewRepo = brewRepo;
+        this.userAuthorization = userAuthorization;
     }
 
     public Brew getBrewById(Integer id){
@@ -27,6 +31,7 @@ public class BrewService {
     }
 
     public Brew update(Brew entity){
+        entity.setUpdatedBy(userAuthorization.getUserLogin());
         return brewRepo.save(entity);
     }
 }

@@ -2,6 +2,7 @@ package com.ale.filso.models.Brew;
 
 import com.ale.filso.models.Warehouse.Product;
 import com.ale.filso.models.Warehouse.ProductRepo;
+import com.ale.filso.seciurity.UserAuthorization;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,10 +14,12 @@ public class IngredientService {
 
     private IngredientRepo ingredientRepo;
     private ProductRepo productRepo;
+    private UserAuthorization userAuthorization;
 
-    IngredientService(IngredientRepo ingredientRepo, ProductRepo productRepo){
+    IngredientService(IngredientRepo ingredientRepo, ProductRepo productRepo, UserAuthorization userAuthorization){
         this.ingredientRepo = ingredientRepo;
         this.productRepo = productRepo;
+        this.userAuthorization = userAuthorization;
     }
 
     public List<Ingredient> findAllActive(String text, Integer brewId){
@@ -31,9 +34,13 @@ public class IngredientService {
         Product productToUpdate = productRepo.findProductById(entity.getProductId()); //find product to update
         productToUpdate.setQuantity(entity.getProductView().getQuantity()); //set quantity for this product - used when you update ingredient and real quantity = product quantity + ingredient quantity
         productToUpdate.setQuantity(productToUpdate.getQuantity().subtract(entity.getQuantity())); // substract from product quantity, used ingredient quantity
+
         if(productToUpdate.getQuantity().compareTo(new BigDecimal(0)) == 0) //check if used all quantity
             productToUpdate.setActive(false);  //if yes set active false
         Product product = productRepo.save(productToUpdate); //update product
+
+        //save ingredient
+        entity.setUpdatedBy(userAuthorization.getUserLogin());
         Ingredient ingredientAfterUpdate = ingredientRepo.save(entity); //update ingredient
         entity.getProductView().setQuantity(product.getQuantity()); // set for entity -> productView new quantity of product after update
         ingredientAfterUpdate.setProductView(entity.getProductView()); //set for saved ingredient productView
@@ -47,6 +54,8 @@ public class IngredientService {
         if(productToUpdate.getQuantity().compareTo(new BigDecimal(0)) != 0) // if product quantity != 0
             productToUpdate.setActive(true); //if yest set active true
         Product product = productRepo.save(productToUpdate); // save product
+
+        entity.setUpdatedBy(userAuthorization.getUserLogin());
         ingredientRepo.deleteActiveById(entity.getId()); //delete ingredient
     }
 }

@@ -1,5 +1,6 @@
 package com.ale.filso.models.Dictionary;
 
+import com.ale.filso.seciurity.UserAuthorization;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -11,10 +12,12 @@ public class DictionaryService {
 
     private DictionaryRepo dictionaryRepo;
     private DictionaryGroupRepo dictionaryGroupRepo;
+    private UserAuthorization userAuthorization;
 
-    public DictionaryService(DictionaryRepo dictionaryRepo, DictionaryGroupRepo dictionaryGroupRepo){
+    public DictionaryService(DictionaryRepo dictionaryRepo, DictionaryGroupRepo dictionaryGroupRepo, UserAuthorization userAuthorization){
         this.dictionaryRepo = dictionaryRepo;
         this.dictionaryGroupRepo = dictionaryGroupRepo;
+        this.userAuthorization = userAuthorization;
     }
 
     public List<Dictionary> findAllActive() {
@@ -31,6 +34,7 @@ public class DictionaryService {
 
 
     public Dictionary update(Dictionary dictionary){
+        dictionary.setUpdatedBy(userAuthorization.getUserLogin());
         return dictionaryRepo.save(dictionary);
     }
 

@@ -68,4 +68,6 @@ public class UserAuthorization {
 
     public String getAppUrl(){return appUrl;}
 
+    public String getUserLogin(){return userAuth.getLogin();}
+
 }

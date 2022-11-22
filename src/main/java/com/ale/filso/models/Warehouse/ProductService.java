@@ -3,6 +3,7 @@ package com.ale.filso.models.Warehouse;
 import com.ale.filso.models.Dictionary.DictionaryCache;
 import com.ale.filso.models.Warehouse.DbView.ProductView;
 import com.ale.filso.models.Warehouse.DbView.ProductViewRepo;
+import com.ale.filso.seciurity.UserAuthorization;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,12 +13,14 @@ import java.util.List;
 public class ProductService {
 
     private ProductRepo productRepo;
-    ProductViewRepo productViewRepo;
+    private ProductViewRepo productViewRepo;
+    private UserAuthorization userAuthorization;
 
 
-    ProductService(ProductRepo productRepo, ProductViewRepo productViewRepo){
+    ProductService(ProductRepo productRepo, ProductViewRepo productViewRepo, UserAuthorization userAuthorization){
         this.productRepo = productRepo;
         this.productViewRepo = productViewRepo;
+        this.userAuthorization = userAuthorization;
     }
 
     public List<Product> findAllActive(String text){
@@ -30,11 +33,13 @@ public class ProductService {
     }
 
     public Product update(Product entity){
+        entity.setUpdatedBy(userAuthorization.getUserLogin());
         return productRepo.save(entity);
     }
 
     @Transactional
     public void delete(Product entity){
+        entity.setUpdatedBy(userAuthorization.getUserLogin());
         productRepo.delete(entity.getId(), entity.getDeleteReason());
     }
 
