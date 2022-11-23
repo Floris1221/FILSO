@@ -14,7 +14,6 @@ import com.vaadin.flow.router.Route;
 
 import java.util.HashMap;
 
-@Route(value = "dictionarySearch", layout = MainLayout.class)
 @PageTitle("Słowniki")
 public class DictionarySearchView extends CustomGridView<DictionaryGroup> {
 

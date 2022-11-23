@@ -16,7 +16,7 @@ import javax.annotation.security.PermitAll;
 import java.awt.*;
 
 @Route(value = "test", layout = MainLayout.class)
-@RouteAlias(value = "/", layout = MainLayout.class)
+//@RouteAlias(value = "/", layout = MainLayout.class)
 @PageTitle("Test")
 @PermitAll
 public class test extends CustomView {

@@ -5,14 +5,16 @@ import com.ale.filso.models.Dictionary.DictionaryService;
 import com.ale.filso.seciurity.AuthenticatedUser;
 import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.MainLayout;
+import com.ale.filso.views.about.AboutView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
-import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.*;
 
 import javax.annotation.security.RolesAllowed;
 import java.util.LinkedHashMap;
@@ -21,7 +23,7 @@ import java.util.Map;
 @Route(value = "office", layout = MainLayout.class)
 @PageTitle("Biuro")
 @RolesAllowed("admin")
-public class OfficeView extends VerticalLayout {
+public class OfficeView extends VerticalLayout{
 
     DictionaryService dictionaryService;
 

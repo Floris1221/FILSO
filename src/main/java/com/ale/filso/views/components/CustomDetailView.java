@@ -2,6 +2,7 @@ package com.ale.filso.views.components;
 
 import com.ale.filso.seciurity.AuthenticatedUser;
 import com.ale.filso.seciurity.UserAuthorization;
+import com.ale.filso.views.about.AboutView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
@@ -18,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public abstract class CustomDetailView<E> extends VerticalLayout implements BeforeEnterObserver,
-        HasTabs, HasDynamicTitle{
+        HasTabs, HasDynamicTitle, HasErrorParameter<NotFoundException>{
 
     protected Integer id;
     public E entity;
@@ -41,6 +42,7 @@ public abstract class CustomDetailView<E> extends VerticalLayout implements Befo
             buildContentAndTabs();
         }catch (Exception e){
             Notification.show(getTranslation("app.message.routeError")).addThemeVariants(NotificationVariant.LUMO_ERROR);
+            event.forwardTo(AboutView.class);
         }
     }
 
@@ -124,6 +126,13 @@ public abstract class CustomDetailView<E> extends VerticalLayout implements Befo
             objectTitleSuffix = getPageTitleObjectName();
         }
         return objectTitle + " " + objectTitleSuffix;
+    }
+
+    @Override
+    public int setErrorParameter(BeforeEnterEvent beforeEnterEvent, ErrorParameter<NotFoundException> errorParameter) {
+        Notification.show(getTranslation("app.message.routeError")).addThemeVariants(NotificationVariant.LUMO_ERROR);
+        beforeEnterEvent.forwardTo(AboutView.class);
+        return 404;
     }
 
 }
