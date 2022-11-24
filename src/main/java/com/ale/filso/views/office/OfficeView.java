@@ -15,6 +15,8 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.*;
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.security.RolesAllowed;
 import java.util.LinkedHashMap;
@@ -23,13 +25,15 @@ import java.util.Map;
 @Route(value = "office", layout = MainLayout.class)
 @PageTitle("Biuro")
 @RolesAllowed("admin")
+@Getter
 public class OfficeView extends VerticalLayout{
 
-    DictionaryService dictionaryService;
+    private DictionaryService dictionaryService;
 
     protected Map<Tab, Component> contents = new LinkedHashMap<>();
     protected UserAuthorization userAuthorization;
 
+    @Autowired
     protected OfficeView(UserAuthorization userAuthorization, DictionaryService dictionaryService) {
         this.userAuthorization = userAuthorization;
         this.dictionaryService = dictionaryService;
@@ -79,11 +83,11 @@ public class OfficeView extends VerticalLayout{
 
     private void createDynamicTabOnFirstClick(Tab tab) {
         if(tab.getId().orElse("").equals(getTranslation("item.office.dictionary")))
-            contents.replace(tab, new DictionarySearchView(userAuthorization, dictionaryService));
+            contents.replace(tab, new DictionarySearchView(this));
     }
 
     private void createContents() {
         contents.put(new Tab(getTranslation("item.office.dictionary")),
-                new DictionarySearchView(userAuthorization, dictionaryService));
+                new DictionarySearchView(this));
     }
 }

@@ -22,6 +22,7 @@ import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.component.textfield.TextField;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.OptimisticLockingFailureException;
 
 import javax.annotation.security.RolesAllowed;
@@ -40,6 +41,7 @@ public class DictionaryDetailsView extends CustomGridView<Dictionary> implements
     protected Integer id;
     DictionaryService dictionaryService;
 
+    @Autowired
     protected DictionaryDetailsView(UserAuthorization userAuthorization, DictionaryService dictionaryService) {
         super(userAuthorization, new Grid<>(Dictionary.class, false), new Dictionary());
         binder =  new Binder<>(Dictionary.class);

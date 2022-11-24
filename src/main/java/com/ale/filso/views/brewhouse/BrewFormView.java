@@ -23,11 +23,11 @@ import static com.ale.filso.APPCONSTANT.ROUTE_BREW_DETAILS;
 
 public class BrewFormView extends CustomFormLayoutView<Brew> {
 
-    BrewService service;
+    private BrewDetailsView view;
 
-    protected BrewFormView(UserAuthorization userAuthorization, BrewService service, Brew entity) {
-        super(userAuthorization, entity, new Binder<>(Brew.class));
-        this.service = service;
+    protected BrewFormView(BrewDetailsView view, Brew entity) {
+        super(view.getUserAuthorization(), entity, new Binder<>(Brew.class));
+        this.view = view;
         createPanel();
     }
 
@@ -41,7 +41,7 @@ public class BrewFormView extends CustomFormLayoutView<Brew> {
             try {
                 boolean newRecord = entity.getId() == null;
                 binder.writeBean(entity);
-                entity = service.update(entity);
+                entity = view.getService().update(entity);
                 clearForm();
 
                 Notification.show(getTranslation("app.message.saveOk")).addThemeVariants(NotificationVariant.LUMO_SUCCESS);

@@ -14,6 +14,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.*;
+import lombok.Getter;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -25,7 +26,11 @@ public abstract class CustomDetailView<E> extends VerticalLayout implements Befo
     public E entity;
     protected Map<Tab, Component> contents = new LinkedHashMap<>();
     boolean addNewObject = false;
+
     protected UserAuthorization userAuthorization;
+    public UserAuthorization getUserAuthorization() {
+        return userAuthorization;
+    }
 
     protected CustomDetailView(UserAuthorization userAuthorization, E entity) {
         this.entity = entity;

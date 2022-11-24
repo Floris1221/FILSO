@@ -17,11 +17,11 @@ import java.util.HashMap;
 @PageTitle("Słowniki")
 public class DictionarySearchView extends CustomGridView<DictionaryGroup> {
 
-    private DictionaryService dictionaryService;
-    public DictionarySearchView(UserAuthorization userAuthorization, DictionaryService dictionaryService) {
-        super(userAuthorization, new Grid<>(DictionaryGroup.class, false), new DictionaryGroup());
+    private OfficeView view;
+    public DictionarySearchView(OfficeView view) {
+        super(view.getUserAuthorization(), new Grid<>(DictionaryGroup.class, false), new DictionaryGroup());
 
-        this.dictionaryService = dictionaryService;
+        this.view = view;
         createView();
     }
 
@@ -57,7 +57,7 @@ public class DictionarySearchView extends CustomGridView<DictionaryGroup> {
 
     @Override
     protected void updateGridDataListWithSearchField(String filterText) {
-        grid.setItems(dictionaryService.findAll());
+        grid.setItems(view.getDictionaryService().findAll());
     }
 
     private void detailsAction(Integer id) {

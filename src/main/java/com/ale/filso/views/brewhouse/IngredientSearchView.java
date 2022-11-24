@@ -7,7 +7,6 @@ import com.ale.filso.models.User.Role;
 import com.ale.filso.models.Warehouse.DbView.ProductView;
 import com.ale.filso.models.Warehouse.Product;
 import com.ale.filso.models.Warehouse.ProductService;
-import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.brewhouse.dialogs.AddIngredientDialog;
 import com.ale.filso.views.brewhouse.dialogs.DeleteIngredientDialog;
 import com.ale.filso.views.brewhouse.filter.IngredientFilter;
@@ -16,7 +15,6 @@ import com.ale.filso.views.components.CustomDecimalFormat;
 import com.ale.filso.views.components.CustomGridView;
 import com.ale.filso.views.components.Enums.ButtonType;
 import com.ale.filso.views.components.customField.BufferedEntityFiltering;
-import com.ale.filso.views.components.customField.CustomButton;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 
@@ -30,7 +28,6 @@ import com.vaadin.flow.data.renderer.ComponentRenderer;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 import static com.ale.filso.APPCONSTANT.PRODUCT_TYPE;
@@ -41,30 +38,21 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
     AddIngredientDialog addEditDialog;
     DeleteIngredientDialog deleteDialog;
     Binder<Ingredient> binder;
-    DictionaryCache dictionaryCache;
-    IngredientService ingredientService;
-    ProductService productService;
     Ingredient entity;
     Product productEntity;
     IngredientFilter entityFilter = new IngredientFilter();
-    BrewDetailsView brewDetailsView;
+    BrewDetailsView view;
 
 
 
-    protected IngredientSearchView(UserAuthorization userAuthorization, DictionaryCache dictionaryCache,
-                                   IngredientService ingredientService, ProductService productService,
-                                   BrewDetailsView brewDetailsView) {
-        super(userAuthorization, new Grid<>(Ingredient.class, false), new Ingredient());
+    protected IngredientSearchView(BrewDetailsView view) {
+        super(view.getUserAuthorization(), new Grid<>(Ingredient.class, false), new Ingredient());
 
-        this.brewDetailsView = brewDetailsView;
+        this.view = view;
         binder =  new Binder<>(Ingredient.class);
         entity = new Ingredient();
-        entity.setBrewId(brewDetailsView.entity.getId());
+        entity.setBrewId(view.entity.getId());
         productEntity = new Product();
-
-        this.dictionaryCache = dictionaryCache;
-        this.ingredientService = ingredientService;
-        this.productService = productService;
 
         createDialog();
         createView();
@@ -109,7 +97,7 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
                 filtering.createTextFilterHeader(entityFilter::setName));
         headerRow.getCell(grid.getColumnByKey("col2")).setComponent(
                 filtering.createComboFilterHeaderDictionary(entityFilter::setProductType,
-                        dictionaryCache.getDict(PRODUCT_TYPE)));
+                        view.getDictionaryCache().getDict(PRODUCT_TYPE)));
 
 
         setResizeableSortableGrid(null,null);
@@ -154,9 +142,9 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
     protected void updateGridDataListWithSearchField(String filterText) {
         super.updateGridDataListWithSearchField(filterText);
         // refresh filter data
-        List<Ingredient> ingredients = ingredientService.findAllActive(filterText, brewDetailsView.entity.getId());
+        List<Ingredient> ingredients = view.getIngredientService().findAllActive(filterText, view.entity.getId());
         if(!ingredients.isEmpty()){
-            List<ProductView> productViews = productService.findAllPVByIds(ingredients.stream().map(Ingredient::getProductId).toList());
+            List<ProductView> productViews = view.getProductService().findAllPVByIds(ingredients.stream().map(Ingredient::getProductId).toList());
             for (Ingredient item: ingredients){
                 item.setProductView(productViews.stream().filter(x -> Objects.equals(item.getProductId(), x.getId())).findFirst().orElse(new ProductView()));
             }
@@ -167,12 +155,12 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
 
     private void createDialog() {
         addEditDialog = new AddIngredientDialog(getTranslation("app.title.product"), grid.getListDataView(),
-                ingredientService, brewDetailsView.entity.getId(), productService);
-        dialog = new ProductDialog(getTranslation("app.title.product"), dictionaryCache, productService, addEditDialog);
+                view.getIngredientService(), view.entity.getId(), view.getProductService());
+        dialog = new ProductDialog(getTranslation("app.title.product"), view.getDictionaryCache(), view.getProductService(), addEditDialog);
         addEditDialog.setProductGridListDataView(dialog.grid.getListDataView());
 
         deleteDialog = new DeleteIngredientDialog(getTranslation("ingredientView.dialog.delete.header"),
-                grid.getListDataView(), productService, ingredientService, dialog.grid.getListDataView());
+                grid.getListDataView(), view.getProductService(), view.getIngredientService(), dialog.grid.getListDataView());
     }
 
 }
