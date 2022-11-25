@@ -1,6 +1,5 @@
 package com.ale.filso.views.components;
 
-import com.ale.filso.seciurity.AuthenticatedUser;
 import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.about.AboutView;
 import com.vaadin.flow.component.Component;
@@ -16,21 +15,24 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.*;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public abstract class CustomDetailView<E> extends VerticalLayout implements BeforeEnterObserver,
         HasTabs, HasDynamicTitle, HasErrorParameter<NotFoundException>{
 
     protected Integer id;
-    public E entity;
+    @Getter
+    protected E entity;
     protected Map<Tab, Component> contents = new LinkedHashMap<>();
     boolean addNewObject = false;
 
+    @Getter
     protected UserAuthorization userAuthorization;
-    public UserAuthorization getUserAuthorization() {
-        return userAuthorization;
-    }
+
+    protected List<String> dynamicTabOnClick = new ArrayList<>();
 
     protected CustomDetailView(UserAuthorization userAuthorization, E entity) {
         this.entity = entity;
@@ -93,7 +95,8 @@ public abstract class CustomDetailView<E> extends VerticalLayout implements Befo
             if (event.getPreviousTab() != null) display.remove(contents.get(event.getPreviousTab()));
             // add new contents, if there is a currently selected tab
             if (event.getSelectedTab() != null) {
-                if (contents.get(event.getSelectedTab())==null)    // create tab on first click
+                if (contents.get(event.getSelectedTab())==null
+                        || dynamicTabOnClick.contains(event.getSelectedTab().getId().orElse("X")))    // create tab on first click
                     createDynamicTabOnFirstClick(event.getSelectedTab());
                 display.add(this.contents.get(event.getSelectedTab()));
             }

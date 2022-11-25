@@ -55,7 +55,6 @@ public class DeleteIngredientDialog extends CustomFormDialog<Ingredient> {
     @Override
     public Ingredient setNewEntity() {
         Ingredient ingredient = new Ingredient();
-        //ingredient.setProduct(entity.getProduct());
         return ingredient;
     }
 

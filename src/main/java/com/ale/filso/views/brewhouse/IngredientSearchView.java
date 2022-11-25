@@ -1,12 +1,9 @@
 package com.ale.filso.views.brewhouse;
 
 import com.ale.filso.models.Brew.Ingredient;
-import com.ale.filso.models.Brew.IngredientService;
-import com.ale.filso.models.Dictionary.DictionaryCache;
 import com.ale.filso.models.User.Role;
 import com.ale.filso.models.Warehouse.DbView.ProductView;
 import com.ale.filso.models.Warehouse.Product;
-import com.ale.filso.models.Warehouse.ProductService;
 import com.ale.filso.views.brewhouse.dialogs.AddIngredientDialog;
 import com.ale.filso.views.brewhouse.dialogs.DeleteIngredientDialog;
 import com.ale.filso.views.brewhouse.filter.IngredientFilter;
@@ -17,7 +14,6 @@ import com.ale.filso.views.components.Enums.ButtonType;
 import com.ale.filso.views.components.customField.BufferedEntityFiltering;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
-
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.HeaderRow;
 import com.vaadin.flow.component.html.Span;
@@ -51,7 +47,7 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
         this.view = view;
         binder =  new Binder<>(Ingredient.class);
         entity = new Ingredient();
-        entity.setBrewId(view.entity.getId());
+        entity.setBrewId(view.getEntity().getId());
         productEntity = new Product();
 
         createDialog();
@@ -142,20 +138,19 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
     protected void updateGridDataListWithSearchField(String filterText) {
         super.updateGridDataListWithSearchField(filterText);
         // refresh filter data
-        List<Ingredient> ingredients = view.getIngredientService().findAllActive(filterText, view.entity.getId());
+        List<Ingredient> ingredients = view.getIngredientService().findAllActive(filterText, view.getEntity().getId());
         if(!ingredients.isEmpty()){
             List<ProductView> productViews = view.getProductService().findAllPVByIds(ingredients.stream().map(Ingredient::getProductId).toList());
             for (Ingredient item: ingredients){
                 item.setProductView(productViews.stream().filter(x -> Objects.equals(item.getProductId(), x.getId())).findFirst().orElse(new ProductView()));
             }
         }
-        System.out.println(ingredients.stream().map(ingredient -> ingredient.getProductView().getName() + " " + ingredient.getId()).toList());
         entityFilter.setDataView(grid.setItems(ingredients));
     }
 
     private void createDialog() {
         addEditDialog = new AddIngredientDialog(getTranslation("app.title.product"), grid.getListDataView(),
-                view.getIngredientService(), view.entity.getId(), view.getProductService());
+                view.getIngredientService(), view.getEntity().getId(), view.getProductService());
         dialog = new ProductDialog(getTranslation("app.title.product"), view.getDictionaryCache(), view.getProductService(), addEditDialog);
         addEditDialog.setProductGridListDataView(dialog.grid.getListDataView());
 

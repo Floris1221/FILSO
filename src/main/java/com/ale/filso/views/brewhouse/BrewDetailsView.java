@@ -5,14 +5,11 @@ import com.ale.filso.models.Brew.BrewService;
 import com.ale.filso.models.Brew.IngredientService;
 import com.ale.filso.models.Dictionary.DictionaryCache;
 import com.ale.filso.models.Warehouse.ProductService;
-import com.ale.filso.seciurity.AuthenticatedUser;
 import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.MainLayout;
 import com.ale.filso.views.components.CustomDetailView;
-import com.ale.filso.views.office.DictionarySearchView;
+import com.ale.filso.views.components.customField.CustomTab;
 import com.vaadin.flow.component.tabs.Tab;
-import com.vaadin.flow.router.HasDynamicTitle;
-import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,17 +54,17 @@ public class BrewDetailsView extends CustomDetailView<Brew>{
 
     @Override
     protected void createContents() {
-        contents.put(new Tab(getTranslation("item.brew.brew")),
-                new BrewFormView(this, entity));
-        contents.put(new Tab(getTranslation("item.brew.ingredients")),
-                new IngredientSearchView(this));    // create on first tab click
+        contents.put(new CustomTab("item.brew.brew"),
+                new BrewFormView(this));
+        contents.put(new CustomTab("item.brew.ingredients"),
+                null);    // create on first tab click
     }
 
     @Override
     protected void createDynamicTabOnFirstClick(Tab tab) {
-        if(tab.getId().orElse("").equals(getTranslation("item.brew.brew")))
-            contents.replace(tab, new BrewFormView(this, entity));
-        else if(tab.getId().orElse("").equals(getTranslation("item.brew.ingredients")))
+        if(tab.getId().orElse("").equals("item.brew.brew"))
+            contents.replace(tab, new BrewFormView(this));
+        else if(tab.getId().orElse("").equals("item.brew.ingredients"))
             contents.replace(tab, new IngredientSearchView(this));
     }
 

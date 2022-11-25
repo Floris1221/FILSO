@@ -27,6 +27,7 @@ import com.vaadin.flow.router.Route;
 
 import javax.annotation.security.RolesAllowed;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 
 import static com.ale.filso.APPCONSTANT.PRODUCT_TYPE;
 
@@ -79,9 +80,11 @@ public class WareHouseSearchView extends CustomGridView<ProductView>{
                     span.setText(span.getText()+" "+item.getUnitOfMeasure());
                     return span;
                 })).setKey("col4")
+                .setComparator(Comparator.comparing(ProductView::getQuantity))
                 .setHeader(getTranslation("models.product.quantity")).setFlexGrow(2);
 
         grid.addColumn(item -> item.getExpirationDate().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))).setKey("col5")
+                        .setComparator(Comparator.comparing(ProductView::getExpirationDate))
                         .setClassNameGenerator(ProductView::getExpirationColor)
                         .setHeader(getTranslation("models.product.expirationDate")).setFlexGrow(1);
 

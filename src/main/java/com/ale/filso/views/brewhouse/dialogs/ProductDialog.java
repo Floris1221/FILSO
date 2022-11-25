@@ -14,6 +14,9 @@ import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
+
+import static com.ale.filso.APPCONSTANT.PRODUCT_TYPE;
 
 
 public class ProductDialog extends CustomGridDialog<ProductView> {
@@ -47,9 +50,12 @@ public class ProductDialog extends CustomGridDialog<ProductView> {
             Span span = new Span(format.format(item.getQuantity()));
             span.setText(span.getText()+" "+item.getUnitOfMeasure());
             return span;
-        })).setKey("col3").setHeader(getTranslation("models.product.quantity")).setFlexGrow(2);
+        })).setKey("col3")
+                .setComparator(Comparator.comparing(ProductView::getQuantity))
+                .setHeader(getTranslation("models.product.quantity")).setFlexGrow(2);
 
         grid.addColumn(item -> item.getExpirationDate().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))).setKey("col4")
+                .setComparator(Comparator.comparing(ProductView::getExpirationDate))
                 .setClassNameGenerator(ProductView::getExpirationColor)
                 .setHeader(getTranslation("models.product.expirationDate")).setFlexGrow(1);
 
@@ -59,7 +65,9 @@ public class ProductDialog extends CustomGridDialog<ProductView> {
         headerRow.getCell(grid.getColumnByKey("col1")).setComponent(
                 filtering.createTextFilterHeader(productFilter::setName));
         headerRow.getCell(grid.getColumnByKey("col2")).setComponent(
-                filtering.createTextFilterHeader(productFilter::setProductType));
+                filtering.createComboFilterHeaderDictionary(productFilter::setProductType,
+                        dictionaryCache.getDict(PRODUCT_TYPE))
+        );
     }
 
     @Override

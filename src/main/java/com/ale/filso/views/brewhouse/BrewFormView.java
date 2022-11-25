@@ -25,8 +25,8 @@ public class BrewFormView extends CustomFormLayoutView<Brew> {
 
     private BrewDetailsView view;
 
-    protected BrewFormView(BrewDetailsView view, Brew entity) {
-        super(view.getUserAuthorization(), entity, new Binder<>(Brew.class));
+    protected BrewFormView(BrewDetailsView view) {
+        super(view.getUserAuthorization(), view.getEntity(), new Binder<>(Brew.class));
         this.view = view;
         createPanel();
     }

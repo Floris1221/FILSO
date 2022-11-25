@@ -21,11 +21,8 @@ public class DictionaryCache {
     }
 
     public void refresh() {
-        System.out.println("#####################Ten refresh");
         List<Dictionary> dictList=dictionaryService.findAllActive();
         List<Integer> dictGroup = dictList.stream().map(Dictionary::getDictionaryGroup).toList();
-//        List<String> distinctDictGroup=dictList.stream()
-//                .map(dict -> dict.getDictionaryGroup().).distinct().toList();
         for (Integer dictGroupItem:dictGroup) {
             dictionaryMap.put(dictGroupItem, dictList.stream()
                     .filter(dict -> dict.getDictionaryGroup().equals(dictGroupItem)).toList());
@@ -39,7 +36,6 @@ public class DictionaryCache {
      * @return
      */
     public List<Dictionary> getDict(Integer groupId) {
-        System.out.println(dictionaryMap);
         return dictionaryMap.get(groupId);
     }
 

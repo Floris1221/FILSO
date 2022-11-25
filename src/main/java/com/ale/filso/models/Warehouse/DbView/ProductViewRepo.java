@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ProductViewRepo extends JpaRepository<ProductView, Integer> {
 
-    @Query(value = "select * from product_view where is_active=true", nativeQuery = true)
+    @Query(value = "select * from product_view where is_active=true order by expiration_date", nativeQuery = true)
     List<ProductView> findAllActive();
 
     @Query(value = "select * from product_view where id = ?1", nativeQuery = true)
@@ -19,6 +19,7 @@ public interface ProductViewRepo extends JpaRepository<ProductView, Integer> {
 
     @Query("select e from ProductView e " +
             "where(lower(e.orderNumber) like lower(concat('%', :text, '%')) " +
-            "or lower(e.name) like lower(concat('%', :text, '%'))) ")
+            "or lower(e.name) like lower(concat('%', :text, '%'))) " +
+            "order by expiration_date")
     List<ProductView> search(String text);
 }

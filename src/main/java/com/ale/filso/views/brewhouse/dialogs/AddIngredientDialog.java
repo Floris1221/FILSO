@@ -44,7 +44,6 @@ public class AddIngredientDialog extends CustomFormDialog<Ingredient> {
                 .bindReadOnly(item -> item.getProductView().getQuantity().add(
                         item.getQuantity() == null ? new BigDecimal(0) : item.getQuantity()));
 
-        //todo zaokrąglenia nie działają
         CustomBigDecimalField quantityField = new CustomBigDecimalField(getTranslation("models.product.quantity"),null, false);
         quantityField.getStyle().set("margin-right", "30px");
         binder.forField(quantityField)
