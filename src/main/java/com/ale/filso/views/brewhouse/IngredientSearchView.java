@@ -30,14 +30,13 @@ import static com.ale.filso.APPCONSTANT.PRODUCT_TYPE;
 
 public class IngredientSearchView extends CustomGridView<Ingredient> {
 
-    ProductDialog dialog;
-    AddIngredientDialog addEditDialog;
-    DeleteIngredientDialog deleteDialog;
-    Binder<Ingredient> binder;
-    Ingredient entity;
-    Product productEntity;
-    IngredientFilter entityFilter = new IngredientFilter();
-    BrewDetailsView view;
+    private ProductDialog dialog;
+    private AddIngredientDialog addEditDialog;
+    private DeleteIngredientDialog deleteDialog;
+    private Ingredient entity;
+    private Product productEntity;
+    private IngredientFilter entityFilter = new IngredientFilter();
+    private BrewDetailsView view;
 
 
 
@@ -45,7 +44,6 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
         super(view.getUserAuthorization(), new Grid<>(Ingredient.class, false), new Ingredient());
 
         this.view = view;
-        binder =  new Binder<>(Ingredient.class);
         entity = new Ingredient();
         entity.setBrewId(view.getEntity().getId());
         productEntity = new Product();
@@ -69,7 +67,7 @@ public class IngredientSearchView extends CustomGridView<Ingredient> {
                     span.setText(span.getText()+" "+item.getProductView().getUnitOfMeasure());
                     return span;
                 })).setKey("col3")
-                .setHeader(getTranslation("models.product.quantity")).setFlexGrow(2);
+                .setHeader(getTranslation("models.product.quantity")).setFlexGrow(1);
 
         grid.addColumn(item -> item.getProductView().getExpirationDate().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))).setKey("col4")
                 .setClassNameGenerator(item -> item.getProductView().getExpirationColor())

@@ -6,6 +6,7 @@ import com.ale.filso.seciurity.AuthenticatedUser;
 import com.ale.filso.seciurity.UserAuthorization;
 import com.ale.filso.views.MainLayout;
 import com.ale.filso.views.about.AboutView;
+import com.ale.filso.views.components.customField.CustomTab;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.notification.Notification;
@@ -82,12 +83,12 @@ public class OfficeView extends VerticalLayout{
     }
 
     private void createDynamicTabOnFirstClick(Tab tab) {
-        if(tab.getId().orElse("").equals(getTranslation("item.office.dictionary")))
+        if(tab.getId().orElse("").equals("item.office.dictionary"))
             contents.replace(tab, new DictionarySearchView(this));
     }
 
     private void createContents() {
-        contents.put(new Tab(getTranslation("item.office.dictionary")),
+        contents.put(new CustomTab("item.office.dictionary"),
                 new DictionarySearchView(this));
     }
 }

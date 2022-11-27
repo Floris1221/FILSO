@@ -41,6 +41,11 @@ public class Brew extends AbstractEntity {
      */
     private Integer assumedAmount;
 
+    /**
+     * Przepis
+     */
+    private String recipe;
+
 //    /**
 //     * Rzeczywisty ilość
 //     */
@@ -53,7 +58,6 @@ public class Brew extends AbstractEntity {
 //     */
 //    private BigDecimal alcohol;
 
-    //todo Składniki
 
     //todo Zbiornik
 

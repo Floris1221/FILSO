@@ -19,13 +19,15 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.textfield.TextFieldVariant;
 import com.vaadin.flow.component.treegrid.TreeGrid;
 import com.vaadin.flow.data.value.ValueChangeMode;
+import lombok.Getter;
 
 
 public abstract class CustomGridView<E> extends CustomView{
 
     private Div wrapper = new Div();
 
-    public Grid<E> grid;
+    @Getter
+    protected Grid<E> grid;
     protected HorizontalLayout topButtonsPanel = new HorizontalLayout();
     protected HorizontalLayout tableSearchHl = new HorizontalLayout();
 

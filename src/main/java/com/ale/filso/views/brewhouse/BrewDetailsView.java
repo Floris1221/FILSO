@@ -57,7 +57,7 @@ public class BrewDetailsView extends CustomDetailView<Brew>{
         contents.put(new CustomTab("item.brew.brew"),
                 new BrewFormView(this));
         contents.put(new CustomTab("item.brew.ingredients"),
-                null);    // create on first tab click
+                null);
     }
 
     @Override
