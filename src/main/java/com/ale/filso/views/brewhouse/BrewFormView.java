@@ -3,6 +3,7 @@ package com.ale.filso.views.brewhouse;
 import com.ale.filso.models.Brew.Brew;
 import com.ale.filso.models.Brew.BrewService;
 import com.ale.filso.models.Brew.Ingredient;
+import com.ale.filso.models.Dictionary.Dictionary;
 import com.ale.filso.models.User.Role;
 import com.ale.filso.models.Warehouse.DbView.ProductView;
 import com.ale.filso.seciurity.AuthenticatedUser;
@@ -15,27 +16,32 @@ import com.ale.filso.views.components.customField.CustomTextArea;
 import com.ale.filso.views.components.customField.CustomTextField;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.treegrid.TreeGrid;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValidationException;
+import com.vaadin.flow.data.provider.hierarchy.TreeData;
+import com.vaadin.flow.data.provider.hierarchy.TreeDataProvider;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import org.springframework.dao.OptimisticLockingFailureException;
 
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
+import static com.ale.filso.APPCONSTANT.PRODUCT_TYPE;
 import static com.ale.filso.APPCONSTANT.ROUTE_BREW_DETAILS;
 
 
 public class BrewFormView extends CustomFormLayoutView<Brew> {
 
     private BrewDetailsView view;
-    private Grid<Ingredient> ingredientGrid = new Grid<>(Ingredient.class, false);
+    private TreeGrid<Ingredient> ingredientGrid = new TreeGrid<>();
+    private List<Ingredient> ingredients;
 
     protected BrewFormView(BrewDetailsView view) {
         super(view.getUserAuthorization(), view.getEntity(), new Binder<>(Brew.class));
@@ -116,13 +122,19 @@ public class BrewFormView extends CustomFormLayoutView<Brew> {
 
     private void ingredientTable(){
 
-        ingredientGrid.addColumn(item -> item.getProductView().getName()).setKey("col1")
-                .setHeader(getTranslation("models.product.name")).setFlexGrow(1);
+        //Set grid specified
+        ingredientGrid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        ingredientGrid.setAllRowsVisible(false);
+        ingredientGrid.setVerticalScrollingEnabled(false);
 
-        ingredientGrid.addColumn(item -> item.getProductView().getProductType()).setKey("col2")
+        ingredientGrid.addHierarchyColumn(item -> item.getProductView().getProductType()).setKey("col1")
                 .setHeader(getTranslation("models.product.productType")).setFlexGrow(1);
 
+        ingredientGrid.addColumn(item -> item.getProductView().getName()).setKey("col2")
+                .setHeader(getTranslation("models.product.name")).setFlexGrow(1);
+
         ingredientGrid.addColumn(new ComponentRenderer<>(item -> {
+                    if(item.getQuantity() == null ) return new Span();
                     CustomDecimalFormat format = new CustomDecimalFormat();
                     Span span = new Span(format.format(item.getQuantity()));
                     span.setText(span.getText()+" "+item.getProductView().getUnitOfMeasure());
@@ -130,27 +142,60 @@ public class BrewFormView extends CustomFormLayoutView<Brew> {
                 })).setKey("col3")
                 .setHeader(getTranslation("models.product.quantity")).setFlexGrow(1);
 
-        ingredientGrid.addColumn(item -> item.getProductView().getExpirationDate().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))).setKey("col4")
+        ingredientGrid.addColumn(item -> item.getProductView().getExpirationDate() != null ?
+                        item.getProductView().getExpirationDate()
+                                .format(DateTimeFormatter.ofPattern("dd-MMM-yyyy")) :
+                        null)
+                .setKey("col4")
                 .setClassNameGenerator(item -> item.getProductView().getExpirationColor())
                 .setHeader(getTranslation("models.product.expirationDate")).setFlexGrow(1);
 
-        //Set items
+        /////////Set items
+        //on every change
         addAttachListener(attachEvent -> {
-            List<Ingredient> ingredients = view.getIngredientService().findAllActive(null, view.getEntity().getId());
+            //get ingredients
+            ingredients = view.getIngredientService().findAllActive(null, view.getEntity().getId());
+            //set ProductView for ingredient
             if(!ingredients.isEmpty()){
                 List<ProductView> productViews = view.getProductService().findAllPVByIds(ingredients.stream().map(Ingredient::getProductId).toList());
                 for (Ingredient item: ingredients){
                     item.setProductView(productViews.stream().filter(x -> Objects.equals(item.getProductId(), x.getId())).findFirst().orElse(new ProductView()));
                 }
             }
-            ingredientGrid.setItems(ingredients);
+
+            TreeData<Ingredient> treeData = new TreeData<>();
+
+            //Get List of Ingredient types and map this as new Ingredient to show in TreeGrid
+            List<Ingredient> groupItems = new ArrayList<>();
+            for (Dictionary productType:view.getDictionaryCache().getDict(PRODUCT_TYPE)){
+                Ingredient groupItem = new Ingredient();
+                ProductView productView = new ProductView();
+                productView.setProductType(productType.getName());
+                groupItem.setProductView(productView);
+                groupItems.add(groupItem);
+            }
+
+            //Create roots
+            treeData.addRootItems(groupItems);
+            //add items to root
+            groupItems.forEach(group -> {
+                treeData.addItems(group, ingredients.stream().filter(item ->
+                        Objects.equals(group.getProductView().getProductType(), item.getProductView().getProductType())));
+            });
+
+            //add element to data provider
+            TreeDataProvider<Ingredient> treeDataProvider = new TreeDataProvider<>(
+                    treeData);
+            ingredientGrid.setDataProvider(treeDataProvider);
+            //expand elements on start
+            ingredientGrid.expand(groupItems);
+
         });
 
-
         //add grid to view
-        this.add(ingredientGrid);
+        formLayout.add(ingredientGrid);
+        formLayout.setColspan(ingredientGrid, 2);
 
     }
-
 
 }
