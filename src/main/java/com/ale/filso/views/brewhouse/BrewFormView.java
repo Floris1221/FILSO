@@ -142,14 +142,6 @@ public class BrewFormView extends CustomFormLayoutView<Brew> {
                 })).setKey("col3")
                 .setHeader(getTranslation("models.product.quantity")).setFlexGrow(1);
 
-        ingredientGrid.addColumn(item -> item.getProductView().getExpirationDate() != null ?
-                        item.getProductView().getExpirationDate()
-                                .format(DateTimeFormatter.ofPattern("dd-MMM-yyyy")) :
-                        null)
-                .setKey("col4")
-                .setClassNameGenerator(item -> item.getProductView().getExpirationColor())
-                .setHeader(getTranslation("models.product.expirationDate")).setFlexGrow(1);
-
         /////////Set items
         //on every change
         addAttachListener(attachEvent -> {
