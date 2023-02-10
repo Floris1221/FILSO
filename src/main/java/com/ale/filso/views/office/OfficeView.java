@@ -90,5 +90,6 @@ public class OfficeView extends VerticalLayout{
     private void createContents() {
         contents.put(new CustomTab("item.office.dictionary"),
                 new DictionarySearchView(this));
+        //contents.put()
     }
 }
