@@ -16,23 +16,24 @@ public abstract class AbstractEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
-    private boolean isActive = true;
+
+    @Column(columnDefinition = "bit NOT NULL default 1")
+    private boolean isActive;
 
     @NotNull
-    @Column(columnDefinition = "TIMESTAMP default CURRENT_DATE")
+    @Column(columnDefinition = "datetime2(7) default getdate()")
     private LocalDateTime createdOn;
 
     @NotNull
-    @Column(columnDefinition = "varchar(255) default current_user")
+    @Column(columnDefinition = "varchar(255) default suser_sname()")
     private String createdBy;
 
     @NotNull
-    @Column(columnDefinition = "TIMESTAMP default CURRENT_DATE")
+    @Column(columnDefinition = "datetime2(7) default getdate()")
     private LocalDateTime updatedOn;
 
     @NotNull
-    @Column(columnDefinition = "varchar(255) default current_user")
+    @Column(columnDefinition = "varchar(255) default suser_sname()")
     private String updatedBy;
 
     @PrePersist

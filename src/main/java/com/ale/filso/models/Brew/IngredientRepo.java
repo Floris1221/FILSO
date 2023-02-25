@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IngredientRepo extends JpaRepository<Ingredient, Integer> {
 
-    @Query(value = "select * from ingredient where is_active = true and brew_id = ?1", nativeQuery = true)
+    @Query(value = "select * from ingredient where is_active = 1 and brew_id = ?1", nativeQuery = true)
     List<Ingredient> findActiveByBrew(Integer brewId);
 
     @Query(value = "select * from ingredient i left join product p on i.product_id = p.id" +

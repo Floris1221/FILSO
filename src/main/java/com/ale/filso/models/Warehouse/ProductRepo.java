@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ProductRepo extends JpaRepository<Product, Integer> {
 
-    @Query(value = "select * from product where is_active = true", nativeQuery = true)
+    @Query(value = "select * from product where is_active = 1", nativeQuery = true)
     List<Product> findAllActive();
 
     @Query(value = "select * from product where id = ?1", nativeQuery = true)
