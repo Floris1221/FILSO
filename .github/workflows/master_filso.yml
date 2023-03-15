@@ -33,6 +33,11 @@ jobs:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
 
+  - name: Azure Login
+    uses: azure/login@v1
+    with:
+      creds: ${{ secrets.AZURE_CREDENTIALS }}
+
 
   deploy:
     runs-on: ubuntu-latest
