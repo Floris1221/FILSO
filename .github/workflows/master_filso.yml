@@ -54,5 +54,5 @@ jobs:
         with:
           app-name: 'filso'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_28BF44B44C8C43AD9E5E7885AF87256C }}
+          publish-profile: ${{ filso.scm.azurewebsites.net:443 }}
           package: '*.jar'
