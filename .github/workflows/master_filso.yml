@@ -55,5 +55,5 @@ jobs:
         with:
           app-name: 'filso'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZURE_CREDENTIALS }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A42F3730A28C40CAA286B033153C8D7E }}
           package: '*.jar'
