@@ -1,5 +1,8 @@
 name: Build and deploy JAR app to Azure Web App - filso
 
+env:
+  ACTIONS_ID_TOKEN_REQUEST_URL: ${{ secrets.id-token }
+    
 on:
   push:
     branches:
