@@ -22,7 +22,7 @@ public class LoginView extends LoginOverlay implements BeforeEnterObserver, HasD
         LoginI18n i18n = LoginI18n.createDefault();
         i18n.setHeader(new LoginI18n.Header());
         LoginI18n.Header i18nHeader = i18n.getHeader();
-        i18nHeader.setTitle(APP_NAME);
+        i18nHeader.setTitle("test deploy");
 
         i18nHeader.setDescription(getTranslation("loginView.i18n.desc"));
 
